@@ -1,0 +1,9 @@
+{
+  "steps":[
+    {"text":"Welcome to the training"},
+    {"text":"Step one insert the tool"},
+    {"text":"Step two adjust the position"},
+    {"text":"Step three observe the monitor"},
+    {"text":"Final step remove the tool"}
+  ]
+}
