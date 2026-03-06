@@ -1,6 +1,6 @@
 {
   "steps":[
-    {"text":"Welcome to the training"},
+    {"text":"Welcome to the VR-assisted laryngoscopy training module.This simulation is designed to help you understand airway anatomy and practice correct laryngoscopy technique in a controlled environment.You will be guided step by step through the procedure.Please follow the instructions carefully before proceeding to the next stage"},
     {"text":"Step one insert the tool"},
     {"text":"Step two adjust the position"},
     {"text":"Step three observe the monitor"},

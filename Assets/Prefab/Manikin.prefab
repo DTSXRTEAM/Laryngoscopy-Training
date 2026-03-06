@@ -2847,7 +2847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8863782506323217274}
   m_Layer: 0
-  m_Name: unity
+  m_Name: Manikin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

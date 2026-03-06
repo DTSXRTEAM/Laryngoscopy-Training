@@ -3,7 +3,7 @@
     "m_SelectedProcess": {
         "deviceId": "2G0YC5ZG7508T2",
         "name": "com.DefaultCompany.MixedRealityTemplate",
-        "processId": 27871,
+        "processId": 20530,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -60,6 +60,72 @@
             "deviceId": "2G0YC5ZG7508T2",
             "name": "com.DefaultCompany.MixedRealityTemplate",
             "processId": 27871,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 6951,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 11328,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 12262,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 13253,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 14881,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 16123,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 17263,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 18162,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 19061,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 19736,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 20530,
             "exited": false
         }
     ],
