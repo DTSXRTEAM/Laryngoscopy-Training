@@ -2,8 +2,8 @@
     "m_SelectedDeviceId": "2G0YC5ZG7508T2",
     "m_SelectedProcess": {
         "deviceId": "2G0YC5ZG7508T2",
-        "name": "com.DefaultCompany.MixedRealityTemplate",
-        "processId": 20530,
+        "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+        "processId": 32649,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -126,6 +126,144 @@
             "deviceId": "2G0YC5ZG7508T2",
             "name": "com.DefaultCompany.MixedRealityTemplate",
             "processId": 20530,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 10396,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 12039,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 12594,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 19923,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 21830,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.MixedRealityTemplate",
+            "processId": 22916,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 25831,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 26911,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 10205,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 12409,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 13458,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 14902,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 18109,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 19326,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 20183,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 20784,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 21568,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 23095,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 26377,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 29083,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 30859,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 31989,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC5ZG7508T2",
+            "name": "com.DefaultCompany.LaryngoscopyTraining_1",
+            "processId": 32649,
             "exited": false
         }
     ],

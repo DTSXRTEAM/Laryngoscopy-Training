@@ -5,17 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 55daccc09a3b69647bbab145b54a3ab3
   - enabled: 1
-    path: Assets/Scenes/Laryngoscopy-Training.unity
-    guid: 2f7c754a87dbd5045b9841eba49f285a
+    path: Assets/Scenes/Training_Treatment_List.unity
+    guid: f302de7024726eb4e9e27337e581184c
+  - enabled: 1
+    path: Assets/Scenes/Laryngoscopy_QR_Scan.unity
+    guid: 0dba6a9748b122b4e99e6cb292da2c1f
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: f7bd18ca373025446a95b67d463618d6, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}
-    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 2e05861145f7f8e4e88f13a9eefcc40a, type: 2}
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 9cef974cd97260543b748b8e0c6616a1, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 6c4f4ab68eb32044aafdc72d793daaad, type: 2}
+    com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: f8a442de0c8906f4d9c00184993fc289, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 56a98106ce58f09459a9990007b50acb, type: 2}
     com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: 43e231e21fbbf574a9be9d5f1a44b151, type: 2}

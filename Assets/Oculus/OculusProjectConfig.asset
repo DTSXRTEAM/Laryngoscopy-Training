@@ -23,7 +23,6 @@ MonoBehaviour:
   bodyTrackingSupport: 0
   faceTrackingSupport: 0
   eyeTrackingSupport: 0
-  virtualKeyboardSupport: 0
   colocationSessionSupport: 0
   sceneSupport: 2
   boundaryVisibilitySupport: 0
@@ -42,7 +41,7 @@ MonoBehaviour:
   experimentalFeaturesEnabled: 0
   insightPassthroughEnabled: 0
   _insightPassthroughSupport: 1
-  isPassthroughCameraAccessEnabled: 0
+  isPassthroughCameraAccessEnabled: 1
   _processorFavor: 0
   systemSplashScreen: {fileID: 0}
   systemSplashScreenType: 0

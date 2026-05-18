@@ -39,6 +39,8 @@ MonoBehaviour:
   m_Name: TTS Lip Sync - WitConfiguration
   m_EditorClassIdentifier: 
   _clientAccessToken: HOKEABS7HPIQVSRSVWRPTTV75TQJ5QBP
+  editorVersionTag: 
+  buildVersionTag: 
   _appInfo:
     name: Built-in Models
     id: voiceSDK_en
@@ -326,15 +328,171 @@ MonoBehaviour:
         value: true
     versionTags: []
     voices:
+    - name: billie
+      locale: en_US
+      gender: female
+      styles: []
+      supported_features: []
+    - name: bru
+      locale: en_US
+      gender: male
+      styles: []
+      supported_features: []
+    - name: dungeon
+      locale: en_US
+      gender: male
+      styles: []
+      supported_features: []
+    - name: en_NZ.1
+      locale: en_NZ
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+      supported_features:
+      - style
+      - pitch
+      - speed
+      - sfx
+      - viseme_events
+      - phoneme_events
+      - word_events
+    - name: en_US.3
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+      supported_features:
+      - style
+      - pitch
+      - speed
+      - sfx
+      - viseme_events
+      - phoneme_events
+      - word_events
+    - name: en_US.44
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+      supported_features:
+      - style
+      - pitch
+      - speed
+      - sfx
+      - viseme_events
+      - phoneme_events
+      - word_events
+    - name: en_US.45
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+      supported_features:
+      - style
+      - pitch
+      - speed
+      - sfx
+      - viseme_events
+      - phoneme_events
+      - word_events
+    - name: en_US.46
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+      supported_features:
+      - style
+      - pitch
+      - speed
+      - sfx
+      - viseme_events
+      - phoneme_events
+      - word_events
+    - name: en_US.47
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+      supported_features:
+      - style
+      - pitch
+      - speed
+      - sfx
+      - viseme_events
+      - phoneme_events
+      - word_events
+    - name: en_US.48
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+      supported_features:
+      - style
+      - pitch
+      - speed
+      - sfx
+      - viseme_events
+      - phoneme_events
+      - word_events
+    - name: en_US.49
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+      supported_features:
+      - style
+      - pitch
+      - speed
+      - sfx
+      - viseme_events
+      - phoneme_events
+      - word_events
+    - name: jane_austen
+      locale: en_GB
+      gender: female
+      styles: []
+      supported_features: []
     - name: Maria
       locale: es_ES
       gender: female
       styles:
       - default
       - soft
-      - projected
-      - fast
       - formal
+      - fast
+      - projected
       supported_features:
       - style
       - pitch
@@ -349,9 +507,9 @@ MonoBehaviour:
       styles:
       - default
       - soft
-      - projected
-      - fast
       - formal
+      - fast
+      - projected
       supported_features:
       - style
       - pitch
@@ -865,11 +1023,16 @@ MonoBehaviour:
       - viseme_events
       - phoneme_events
       - word_events
+    - name: zach
+      locale: en_US
+      gender: male
+      styles: []
+      supported_features: []
   _configData:
-  - {fileID: -1931406099651105624}
   - {fileID: -3057253053784419621}
   _configurationId: 56ea2cef-f088-43c0-bfd4-1b96772ee437
-  timeoutMS: 10000
+  _requestType: 0
+  _requestTimeoutMs: 10000
   endpointConfiguration:
     _uriScheme: 
     _authority: 
@@ -882,10 +1045,10 @@ MonoBehaviour:
     _event: 
     _converse: 
   isDemoOnly: 1
+  useIntentAttributes: 1
   useConduit: 0
   _manifestLocalPath: ConduitManifest-3c3dcb73-6daa-41c1-9022-8e31fb0a9b16.json
   excludedAssemblies:
   - Oculus.Voice.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - Meta.WitAi.Samples, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   relaxedResolution: 0
-  _lastRefreshSeconds: 1704738565.7587056
