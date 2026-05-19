@@ -1,47 +1,100 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Collections.Generic;
+using Meta.WitAi.TTS.Utilities;
 
 public class UIPanelSequence : MonoBehaviour
 {
-    [System.Serializable]
-    public class UIPage
-    {
-        public string heading;
-        [TextArea(3, 5)]
-        public string content;
-        public string buttonName;
-    }
-
+    [Header("UI")]
     public TMP_Text headingText;
     public TMP_Text contentText;
-    public TMP_Text buttonText;
+    public TMP_Text nextButtonText;
 
-    public List<UIPage> pages = new List<UIPage>();
+    [Header("TTS")]
+    public TTSSpeaker speaker;
 
-    int currentIndex = 0;
+    [Header("JSON")]
+    public TextAsset jsonFile;
+
+    [System.Serializable]
+    public class StepData
+    {
+        public string heading;
+
+        [TextArea(3, 5)]
+        public string content;
+
+        public string buttonText;
+
+        public string tts;
+    }
+
+    [System.Serializable]
+    public class StepContainer
+    {
+        public StepData[] steps;
+    }
+
+    private List<StepData> steps = new List<StepData>();
+
+    private int currentIndex = 0;
 
     void Start()
     {
-        ShowPage();
+        LoadJson();
+        ShowStep();
     }
 
-    public void NextPage()
+    void LoadJson()
     {
-        currentIndex++;
-
-        if (currentIndex >= pages.Count)
+        if (jsonFile == null)
         {
-            currentIndex = 0;
+            Debug.LogError("JSON File Missing");
+            return;
         }
 
-        ShowPage();
+        StepContainer container =
+            JsonUtility.FromJson<StepContainer>(jsonFile.text);
+
+        steps.Clear();
+
+        for (int i = 0; i < container.steps.Length; i++)
+        {
+            steps.Add(container.steps[i]);
+        }
     }
 
-    void ShowPage()
+    // NEXT BUTTON
+    public void NextPage()
     {
-        headingText.text = pages[currentIndex].heading;
-        contentText.text = pages[currentIndex].content;
-        buttonText.text = pages[currentIndex].buttonName;
+        if (currentIndex < steps.Count - 1)
+        {
+            currentIndex++;
+            ShowStep();
+        }
+    }
+
+    // BACK BUTTON
+    public void PreviousPage()
+    {
+        if (currentIndex > 0)
+        {
+            currentIndex--;
+            ShowStep();
+        }
+    }
+
+    void ShowStep()
+    {
+        headingText.text = steps[currentIndex].heading;
+        contentText.text = steps[currentIndex].content;
+        nextButtonText.text = steps[currentIndex].buttonText;
+
+        // STOP PREVIOUS AUDIO
+        speaker.Stop();
+
+        // PLAY CURRENT STEP AUDIO
+        speaker.Speak(steps[currentIndex].tts);
     }
 }
