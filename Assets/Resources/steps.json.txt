@@ -2,32 +2,30 @@
   "steps":
   [
     {
-      "heading":"Manikin Placement",
-
-      "content":"Lift the manikin from the tools table and place it on the worktable.",
-
+      "heading":"Introduction",
+      "content":"Laryngoscopy is a medical procedure used to examine and treat conditions of the larynx, including the vocal cords. It helps doctors diagnose voice disorders, breathing difficulties, and throat abnormalities with precision. In addition to diagnosis, laryngoscopy enables targeted treatments such as biopsy, lesion removal, and airway management, making it a vital tool in ENT care.",
       "buttonText":"Next",
+      "tts":"Hello. I’ll be your guide throughout this laryngoscopy procedure. Follow each instruction carefully to proceed"
+    },
 
-      "tts":"Lift the manikin from the tools table and place it on the worktable"
+    {
+      "heading":"Manikin Placement",
+      "content":"Lift the manikin from the tools table and place it on the worktable. Then scan the QR code to anchor the virtual manikin.",
+      "buttonText":"Next",
+      "tts":"Place the manikin on the worktable. Scan the QR code to anchor the virtual manikin in mixed reality."
     },
 
     {
       "heading":"QR scan",
-
-      "content":"Scan the Qr",
-
+      "content":"Scan the QR",
       "buttonText":"Next",
-
-      "tts":"See the QR code, the virtual manikin generate"
+      "tts":"See the QR code. The virtual manikin is generated."
     },
 
     {
-      "heading":"Equipment required",
-
-      "content":"Face Mask", "Gloves",
-
+      "heading":"Equipment required:",
+      "content":"Face Mask\nGloves",
       "buttonText":"Next",
-
       "tts":"Navigate to tools table to collect gloves and face mask"
     }
   ]

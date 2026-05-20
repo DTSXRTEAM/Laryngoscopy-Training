@@ -17,20 +17,16 @@ public class UIPanelSequence : MonoBehaviour
     [Header("JSON")]
     public TextAsset jsonFile;
 
-    [System.Serializable]
+    [Serializable]
     public class StepData
     {
         public string heading;
-
-        [TextArea(3, 5)]
         public string content;
-
         public string buttonText;
-
         public string tts;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class StepContainer
     {
         public StepData[] steps;
@@ -43,7 +39,11 @@ public class UIPanelSequence : MonoBehaviour
     void Start()
     {
         LoadJson();
-        ShowStep();
+
+        if (steps.Count > 0)
+        {
+            ShowStep();
+        }
     }
 
     void LoadJson()
@@ -54,18 +54,33 @@ public class UIPanelSequence : MonoBehaviour
             return;
         }
 
-        StepContainer container =
-            JsonUtility.FromJson<StepContainer>(jsonFile.text);
-
-        steps.Clear();
-
-        for (int i = 0; i < container.steps.Length; i++)
+        try
         {
-            steps.Add(container.steps[i]);
+            StepContainer container =
+                JsonUtility.FromJson<StepContainer>(jsonFile.text);
+
+            if (container == null || container.steps == null)
+            {
+                Debug.LogError("JSON Parsing Failed");
+                return;
+            }
+
+            steps.Clear();
+
+            foreach (StepData step in container.steps)
+            {
+                steps.Add(step);
+            }
+
+            Debug.Log("JSON Loaded Successfully");
+            Debug.Log("Total Steps : " + steps.Count);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("JSON Error : " + e.Message);
         }
     }
 
-    // NEXT BUTTON
     public void NextPage()
     {
         if (currentIndex < steps.Count - 1)
@@ -75,7 +90,6 @@ public class UIPanelSequence : MonoBehaviour
         }
     }
 
-    // BACK BUTTON
     public void PreviousPage()
     {
         if (currentIndex > 0)
@@ -87,14 +101,23 @@ public class UIPanelSequence : MonoBehaviour
 
     void ShowStep()
     {
+        if (steps.Count == 0)
+            return;
+
         headingText.text = steps[currentIndex].heading;
         contentText.text = steps[currentIndex].content;
         nextButtonText.text = steps[currentIndex].buttonText;
 
-        // STOP PREVIOUS AUDIO
-        speaker.Stop();
+        Debug.Log("Showing Step : " + currentIndex);
 
-        // PLAY CURRENT STEP AUDIO
-        speaker.Speak(steps[currentIndex].tts);
+        if (speaker != null)
+        {
+            speaker.Stop();
+
+            if (!string.IsNullOrEmpty(steps[currentIndex].tts))
+            {
+                speaker.Speak(steps[currentIndex].tts);
+            }
+        }
     }
 }
