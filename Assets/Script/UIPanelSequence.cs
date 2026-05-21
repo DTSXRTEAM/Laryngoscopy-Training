@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using Meta.WitAi.TTS.Utilities;
 
@@ -10,6 +11,10 @@ public class UIPanelSequence : MonoBehaviour
     public TMP_Text headingText;
     public TMP_Text contentText;
     public TMP_Text nextButtonText;
+
+    [Header("Checklist")]
+    public Transform checklistParent;
+    public GameObject checkboxPrefab;
 
     [Header("TTS")]
     public TTSSpeaker speaker;
@@ -24,6 +29,8 @@ public class UIPanelSequence : MonoBehaviour
         public string content;
         public string buttonText;
         public string tts;
+
+        public string[] checkList;
     }
 
     [Serializable]
@@ -34,7 +41,7 @@ public class UIPanelSequence : MonoBehaviour
 
     private List<StepData> steps = new List<StepData>();
 
-    private int currentIndex = 0;
+    int currentIndex = 0;
 
     void Start()
     {
@@ -48,36 +55,14 @@ public class UIPanelSequence : MonoBehaviour
 
     void LoadJson()
     {
-        if (jsonFile == null)
+        StepContainer container =
+            JsonUtility.FromJson<StepContainer>(jsonFile.text);
+
+        steps.Clear();
+
+        foreach (StepData step in container.steps)
         {
-            Debug.LogError("JSON File Missing");
-            return;
-        }
-
-        try
-        {
-            StepContainer container =
-                JsonUtility.FromJson<StepContainer>(jsonFile.text);
-
-            if (container == null || container.steps == null)
-            {
-                Debug.LogError("JSON Parsing Failed");
-                return;
-            }
-
-            steps.Clear();
-
-            foreach (StepData step in container.steps)
-            {
-                steps.Add(step);
-            }
-
-            Debug.Log("JSON Loaded Successfully");
-            Debug.Log("Total Steps : " + steps.Count);
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("JSON Error : " + e.Message);
+            steps.Add(step);
         }
     }
 
@@ -101,23 +86,46 @@ public class UIPanelSequence : MonoBehaviour
 
     void ShowStep()
     {
-        if (steps.Count == 0)
-            return;
+        StepData step = steps[currentIndex];
 
-        headingText.text = steps[currentIndex].heading;
-        contentText.text = steps[currentIndex].content;
-        nextButtonText.text = steps[currentIndex].buttonText;
+        headingText.text = step.heading;
+        contentText.text = step.content;
+        nextButtonText.text = step.buttonText;
 
-        Debug.Log("Showing Step : " + currentIndex);
+        GenerateChecklist(step);
 
         if (speaker != null)
         {
             speaker.Stop();
 
-            if (!string.IsNullOrEmpty(steps[currentIndex].tts))
+            if (!string.IsNullOrEmpty(step.tts))
             {
-                speaker.Speak(steps[currentIndex].tts);
+                speaker.Speak(step.tts);
             }
+        }
+    }
+
+    void GenerateChecklist(StepData step)
+    {
+        // CLEAR OLD CHECKBOXES
+        for (int i = 0; i < checklistParent.childCount; i++)
+        {
+            Destroy(checklistParent.GetChild(i).gameObject);
+        }
+
+        // CREATE NEW CHECKBOXES
+        if (step.checkList == null)
+            return;
+
+        for (int i = 0; i < step.checkList.Length; i++)
+        {
+            GameObject obj =
+                Instantiate(checkboxPrefab, checklistParent);
+
+            TMP_Text txt =
+                obj.GetComponentInChildren<TMP_Text>();
+
+            txt.text = step.checkList[i];
         }
     }
 }

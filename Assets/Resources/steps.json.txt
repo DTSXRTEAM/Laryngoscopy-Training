@@ -24,7 +24,12 @@
 
     {
       "heading":"Equipment required:",
-      "content":"Face Mask\nGloves",
+      "checkList":
+      [
+        "Face Mask",
+        "Gloves",
+        "Laryngoscope"
+      ],
       "buttonText":"Next",
       "tts":"Navigate to tools table to collect gloves and face mask"
     }
