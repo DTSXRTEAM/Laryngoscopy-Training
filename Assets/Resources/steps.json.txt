@@ -30,8 +30,179 @@
         "Gloves",
         "Laryngoscope"
       ],
+      "buttonText":"Continue",
+      "tts":"Please collect the required equipment from the tools table: gloves and face mask"
+    },
+
+    {
+      "heading":"Equipment required:",
+      "checkList":
+      [
+        "Manikin",
+        "Macintosh Blade (Curved)",
+        "Endotracheal Tube (ET Tube)",
+        "Stylet",
+        "Bag Valve Mask (BVM)",
+        "Tape",
+        "Syringe",
+        "Stethoscope"
+      ],
+      "buttonText":"Start procedure",
+      "tts":"Once all checkboxes are selected, all equipment is ready"
+    },
+
+    {
+      "heading":"ET tube Attachment",
+      "content":"Prepare the tube by inserting the stylet and attaching the syringe.",
       "buttonText":"Next",
-      "tts":"Navigate to tools table to collect gloves and face mask"
+      "tts":"Insert the stylet through the ET tube connector and connect the syringe to the spring-loaded one-way valve."
+    },
+
+    {
+      "heading":"Equipment Table Setup",
+      "content":"Ensure the equipment is placed on the table for easy access.",
+      "buttonText":"Next",
+      "tts":"First,arrange the table so the equipment can be easily picked up by hand."
+    },
+
+    {
+      "heading":"Pick the Bag valve mask:",
+      "content":"Pick up the Bag valve mask from the table.",
+      "buttonText":"Next",
+      "tts":"Pick up the Bag valve mask from the table."
+    },
+
+    {
+      "heading":"Bag Valve Mask Placement:",
+      "content":"Position the bag valve mask securely over the mouth correctly and proceed the preoxygenate.",
+      "buttonText":"Next",
+      "tts":"Place the bag valve mask over the mouth correctly."
+    },
+
+    {
+      "heading":"Place the bag valve mask:",
+      "content":"Gently squeeze the bag to provide oxygen.",
+      "buttonText":"Next",
+      "tts":"Gently press the bag for up to one minute to pre-oxygenate."
+    },
+
+    {
+      "heading":"Remove the Bag valve mask:",
+      "content":"Remove Bag valve mask from the table.",
+      "buttonText":"Next",
+      "tts":"Remove the Bag valve mask from the table."
+    },
+
+    {
+      "heading":"Positioning:",
+      "content":"position the head in the sniffing position correctly before proceeding.",
+      "buttonText":"Next",
+      "tts":"Stand behind the Manikin(Patient) and use both hands to position the head in the sniffing position."
+    },
+
+    {
+      "heading":"Pick the laryngoscope:",
+      "content":"Pick up the laryngoscope with the left hand.",
+      "buttonText":"Next",
+      "tts":"Pick up the laryngoscope from the table using your left hand."
+    },
+
+    {
+      "heading":"Laryngoscopy:",
+      "content":"Lift the laryngoscope handle to raise the tongue.",
+      "buttonText":"Next",
+      "tts":"Lift the laryngoscope handle upward and forward to lift the tongue and expose the airway."
+    },
+
+    {
+      "heading":"Positioning Laryngoscopy:",
+      "content":"Lift and position the laryngoscope to improve visibility of the vocal cords.",
+      "buttonText":"Next",
+      "tts":"Point the laryngoscope away from you at a 45° angle and lift upward to raise the tongue and epiglottis.When the vocal cords are visible."
+    },
+
+    {
+      "heading":"Pick the ET tube:",
+      "content":"Stable laryngoscopy and pick up the ET tube with the right hand.",
+      "buttonText":"Next",
+      "tts":"Do not remove the laryngoscope.Hold it steady with your left hand and pick up the endotracheal tube from the table using your right hand."
+    },
+
+    {
+      "heading":"Insertion of ET tube:",
+      "content":"Insert the tube through the vocal cords until the cuff passes the cords.",
+      "buttonText":"Next",
+      "tts":"Insert the endotracheal tube from the side of the mouth and guide it between the vocal cords until the cuff passes through."
+    },
+
+    {
+      "heading":"Positioning the tube:",
+      "content":"Confirm the tube depth using the markings.",
+      "buttonText":"Next",
+      "tts":"Check the tube markings at the incisors. In an average-sized adult, correct placement is between twenty-one and twenty-four centimeters."
+    },
+
+    {
+      "heading":"Remove the Stylet:",
+      "content":"Remove the stylet and place it on the left table.",
+      "buttonText":"Next",
+      "tts":"Remove the stylet after the tube is in position and place it on the left table."
+    },
+
+    {
+      "heading":"Remove the laryngoscope:",
+      "content":"Remove the laryngoscope with the left hand and place it on the left table without moving the tube.",
+      "buttonText":"Next",
+      "tts":"Remove the laryngoscope carefully with the left hand while keeping the tube in the same position and place it on the left-side table."
+    },
+
+    {
+      "heading":"Inflate the Cuff:",
+      "content":"Inflate the cuff with 15 ml of air using the syringe on the one-way valve.",
+      "buttonText":"Next",
+      "tts":"Use the attached endotracheal tube syringe on the spring-loaded one-way valve to inflate the cuff with approximately fifteen milliliters of air to prevent air leakage during ventilation."
+    },
+
+    {
+      "heading":"Pick the Bag valve mask:",
+      "content":"Stabilize the tube with the left hand and pick up the bag valve mask with the right hand.",
+      "buttonText":"Next",
+      "tts":"Use your left hand to stabilize the tube and pick up the bag valve mask with your right hand."
+    },
+
+    {
+      "heading":"Prepare for Ventilation:",
+      "content":"Connect the bag-valve apparatus to the endotracheal tube.",
+      "buttonText":"Next",
+      "tts":"Attach the bag-valve apparatus to the tube."
+    },
+
+    {
+      "heading":"Bag Mask ventilation:",
+      "content":"Ventilate the patient by gently squeezing the bag by hand at 12–15 liters per minute.",
+      "buttonText":"Next",
+      "tts":"Ventilate the patient by gently squeezing the bag by hand at a flow of twelve to fifteen liters per minute."
+    },
+
+    {
+      "heading":"Pick the stethoscope:",
+      "content":"Keep the tube and bag-valve mask steady and pick up the stethoscope.",
+      "buttonText":"Next",
+      "tts":"Stabilize the tube and bag-valve mask, then pick up the stethoscope."
+    },
+
+    {
+      "heading":"Auscultation:",
+      "content":"Use the stethoscope to listen to the left lung, right lung, and epigastric area.",
+      "buttonText":"Next",
+      "tts":"Using a stethoscope, auscultate the left lung, right lung, and epigastric area."
+    },
+
+    {
+      "heading":"Breath Sound Confirmation:",
+      "content":"Select Correct if all breath sounds are normal. Select Incorrect if any breath sound is abnormal or missing.",
+      "buttonText":"Next",
+      "tts":"If breath sounds are clear in all correct areas, select ventilation is Correct. If breath sounds are missing or unequal, select ventilation is Incorrect."
     }
   ]
 }

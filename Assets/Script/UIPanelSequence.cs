@@ -14,7 +14,9 @@ public class UIPanelSequence : MonoBehaviour
 
     [Header("Checklist")]
     public Transform checklistParent;
+    public Transform checklistParent2;
     public GameObject checkboxPrefab;
+    public GameObject checkboxPrefab2;
 
     [Header("TTS")]
     public TTSSpeaker speaker;
@@ -92,7 +94,8 @@ public class UIPanelSequence : MonoBehaviour
         contentText.text = step.content;
         nextButtonText.text = step.buttonText;
 
-        GenerateChecklist(step);
+        //GenerateChecklist(step);
+        GenerateChecklist(step.checkList);
 
         if (speaker != null)
         {
@@ -105,27 +108,48 @@ public class UIPanelSequence : MonoBehaviour
         }
     }
 
-    void GenerateChecklist(StepData step)
+    void GenerateChecklist(string[] list)
     {
-        // CLEAR OLD CHECKBOXES
+        // CLEAR FIRST PARENT
         for (int i = 0; i < checklistParent.childCount; i++)
         {
             Destroy(checklistParent.GetChild(i).gameObject);
         }
 
-        // CREATE NEW CHECKBOXES
-        if (step.checkList == null)
+        // CLEAR SECOND PARENT
+        for (int i = 0; i < checklistParent2.childCount; i++)
+        {
+            Destroy(checklistParent2.GetChild(i).gameObject);
+        }
+
+        if (list == null)
             return;
 
-        for (int i = 0; i < step.checkList.Length; i++)
+        for (int i = 0; i < list.Length; i++)
         {
+            Transform targetParent;
+            GameObject targetPrefab;
+
+            // FIRST 4 ITEMS
+            if (i < 4)
+            {
+                targetParent = checklistParent;
+                targetPrefab = checkboxPrefab;
+            }
+            // REMAINING ITEMS
+            else
+            {
+                targetParent = checklistParent2;
+                targetPrefab = checkboxPrefab2;
+            }
+
             GameObject obj =
-                Instantiate(checkboxPrefab, checklistParent);
+                Instantiate(targetPrefab, targetParent);
 
             TMP_Text txt =
                 obj.GetComponentInChildren<TMP_Text>();
 
-            txt.text = step.checkList[i];
+            txt.text = list[i];
         }
     }
 }

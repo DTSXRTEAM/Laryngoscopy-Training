@@ -21188,7 +21188,9 @@ MonoBehaviour:
   contentText: {fileID: 1111389874}
   nextButtonText: {fileID: 538553455}
   checklistParent: {fileID: 0}
+  checklistParent2: {fileID: 0}
   checkboxPrefab: {fileID: 0}
+  checkboxPrefab2: {fileID: 0}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
 --- !u!114 &988122156
@@ -34322,6 +34324,83 @@ Transform:
   - {fileID: 2106999896}
   m_Father: {fileID: 1656506256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1597496357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1597496358}
+  - component: {fileID: 1597496360}
+  - component: {fileID: 1597496359}
+  m_Layer: 5
+  m_Name: CheckListParent (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1597496358
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597496357}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2144630673}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1597496359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597496357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
+--- !u!114 &1597496360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597496357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
+  m_Padding:
+    m_Left: -23
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: -12
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1597771238
 GameObject:
   m_ObjectHideFlags: 0
@@ -41882,7 +41961,9 @@ MonoBehaviour:
   contentText: {fileID: 1266820837}
   nextButtonText: {fileID: 1049441778}
   checklistParent: {fileID: 0}
+  checklistParent2: {fileID: 0}
   checkboxPrefab: {fileID: 0}
+  checkboxPrefab2: {fileID: 0}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
 --- !u!114 &1986587609
@@ -44183,6 +44264,7 @@ RectTransform:
   - {fileID: 174950754}
   - {fileID: 1173454502}
   - {fileID: 1773582963}
+  - {fileID: 1597496358}
   m_Father: {fileID: 1344378338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -44206,7 +44288,9 @@ MonoBehaviour:
   contentText: {fileID: 975277249}
   nextButtonText: {fileID: 1611259228}
   checklistParent: {fileID: 1773582963}
+  checklistParent2: {fileID: 1597496358}
   checkboxPrefab: {fileID: 8335184712439579979, guid: fc89eec012712b843bd72e4697ce3869, type: 3}
+  checkboxPrefab2: {fileID: 8335184712439579979, guid: 01062992701cb0949b99522e097e0601, type: 3}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
 --- !u!114 &2144630675

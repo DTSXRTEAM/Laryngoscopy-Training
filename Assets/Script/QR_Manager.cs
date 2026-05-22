@@ -1,46 +1,101 @@
 using Meta.XR.MRUtilityKit;
+using System.Linq;
 using UnityEngine;
-
 public class QR_Manager : MonoBehaviour
+
 {
-    [SerializeField] private MRUK _mrukInstance;
+    [SerializeField]
+    private MRUK _mrukInstance;
+    [SerializeField]
+    private GameObject _qrPrefab;
 
-    [SerializeField] private GameObject humanPrefab;
+    private static QR_Manager s_instance;
 
-    // Assign chest point from prefab
-    [SerializeField] private Transform chestPointPrefab;
+    public static bool TrackingEnabled
+    {
+        get => s_instance &&
+               s_instance._mrukInstance &&
+               s_instance._mrukInstance.SceneSettings.TrackerConfiguration.QRCodeTrackingEnabled;
+
+        set
+        {
+            if (!s_instance || !s_instance._mrukInstance)
+            {
+                return;
+            }
+
+            var config = s_instance._mrukInstance.SceneSettings.TrackerConfiguration;
+            config.QRCodeTrackingEnabled = value;
+            s_instance._mrukInstance.SceneSettings.TrackerConfiguration = config;
+        }
+    }
 
     private void OnEnable()
     {
+        s_instance = this;
+
+        if (!_mrukInstance)
+        {
+            Debug.Log($"{nameof(QR_Manager)} requires an MRUK object in the scene!");
+            return;
+        }
+
         _mrukInstance.SceneSettings.TrackableAdded.AddListener(OnTrackableAdded);
+        _mrukInstance.SceneSettings.TrackableRemoved.AddListener(OnTrackableRemoved);
     }
 
     private void OnDisable()
     {
-        _mrukInstance.SceneSettings.TrackableAdded.RemoveListener(OnTrackableAdded);
+        if (_mrukInstance)
+        {
+            _mrukInstance.SceneSettings.TrackableAdded.RemoveListener(OnTrackableAdded);
+            _mrukInstance.SceneSettings.TrackableRemoved.RemoveListener(OnTrackableRemoved);
+        }
+
+        if (s_instance == this)
+        {
+            s_instance = null;
+        }
     }
 
     private void OnTrackableAdded(MRUKTrackable trackable)
     {
         if (trackable.TrackableType != OVRAnchor.TrackableType.QRCode)
+        {
             return;
+        }
+        var instance = Instantiate(_qrPrefab,trackable.transform);
 
-        // Spawn human
-        GameObject human = Instantiate(humanPrefab);
+        Debug.Log("<<< QRCode detected! >>>" + nameof(OnTrackableAdded));
 
-        // Find chest point inside spawned object
-        Transform chest = human.transform.Find("ChestPoint");
+        Debug.Log($"<<< QRCode ID: {trackable.name}, Position: {trackable.transform.position}, Rotation: {trackable.transform.rotation} >>>");
 
-        // Calculate offset
-        Vector3 offset = human.transform.position - chest.position;
+        Debug.Log("<<< 2D Bounding Box points: " + trackable.PlaneRect + " >>>");
 
-        // Move human so chest aligns with QR
-        human.transform.position =
-            trackable.transform.position + offset;
+        Debug.Log("<<< 2D Polygon points: " + trackable.PlaneBoundary2D + " >>>");
 
-        // Optional rotation
-        human.transform.rotation = trackable.transform.rotation;
+        if (trackable.MarkerPayloadString is { } str)
+        {
+            Debug.Log("<<< Payload is a string: " + str + " >>>");
+        }
+        else if (trackable.MarkerPayloadBytes is { } bytes)
+        {
+            Debug.Log($"Binary(data=[{string.Join(", ", bytes.Take(16).Select(b => $"{b:x02}"))}]" +
+                      $"{(bytes.Length > 16 ? "..." : "")})");
+        }
+        else
+        {
+            Debug.Log("<<<< No payload >>>>");
+        }
+    }
 
-        Debug.Log("Human chest aligned to QR");
+    public void OnTrackableRemoved(MRUKTrackable trackable)
+    {
+        if (trackable.TrackableType != OVRAnchor.TrackableType.QRCode)
+        {
+            return;
+        }
+
+        Debug.Log("<<< QRCode removed >>>");
     }
 }
