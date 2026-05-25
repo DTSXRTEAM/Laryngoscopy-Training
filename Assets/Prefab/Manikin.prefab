@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2723895198130857967
 Transform:
   m_ObjectHideFlags: 0
@@ -1370,7 +1370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1086514880758038170
 Transform:
   m_ObjectHideFlags: 0
@@ -2782,6 +2782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3216577768287259255}
+  - component: {fileID: 5757993324040155367}
   m_Layer: 0
   m_Name: CC_Base_JawRoot
   m_TagString: Untagged
@@ -2797,15 +2798,37 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5555360349859002336}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000058653655, y: 0.000042445918, z: -0.7070914, w: 0.70712215}
-  m_LocalPosition: {x: -0.015305733, y: 0.025709173, z: 0.0000013506295}
+  m_LocalRotation: {x: -0.00006153805, y: 0.00003460421, z: -0.8032558, w: 0.5956342}
+  m_LocalPosition: {x: -0.015448224, y: 0.025800603, z: 0.0000032521784}
   m_LocalScale: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8587750552308629696}
   - {fileID: 8608726551387904576}
   m_Father: {fileID: 106438678039772510}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.001, y: 0.008, z: -106.884}
+--- !u!95 &5757993324040155367
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555360349859002336}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1280c8d74c8ee984ea9ca5fd8dc74a0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5567028681045963034
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,7 +4005,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4454925153891845738
 Transform:
   m_ObjectHideFlags: 0
@@ -4107,7 +4130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9009381584689439140
 Transform:
   m_ObjectHideFlags: 0
@@ -4234,7 +4257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2720122989415366264
 Transform:
   m_ObjectHideFlags: 0
