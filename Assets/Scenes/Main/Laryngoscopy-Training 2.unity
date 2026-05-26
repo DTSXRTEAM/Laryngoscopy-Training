@@ -513,63 +513,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1633440296}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &30728381
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5649759525585026587, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-      propertyPath: m_Name
-      value: Manikin
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.03228
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.33754
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.8067
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.008726465
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.999962
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -180
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
 --- !u!1 &34145546
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,6 +543,61 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1961394}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &42251005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42251007}
+  - component: {fileID: 42251006}
+  m_Layer: 0
+  m_Name: QR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &42251006
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42251005}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71af1c235aee8aa4da6546bfdd481231, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &42251007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42251005}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.66738, y: 0, z: -0.81518}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 354602729}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &42549525
 GameObject:
@@ -8372,6 +8370,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2028551741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &318764120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 318764122}
+  - component: {fileID: 318764121}
+  m_Layer: 0
+  m_Name: HeadingAnimationController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &318764121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318764120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ab39e6a6c403545a07950505ceba53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeadingAnimationController
+  prefabAnimator: {fileID: 0}
+  animations:
+  - headingName: QR scan
+    animator: {fileID: 42251006}
+    usePrefabAnimator: 0
+    animationClipName: QR
+  - headingName: ET tube Attachment
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Laryngoscope
+  - headingName: 'Positioning:'
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Position
+--- !u!4 &318764122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318764120}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0966, y: 1.18747, z: 0.8067}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &319282041
 GameObject:
   m_ObjectHideFlags: 0
@@ -9683,7 +9739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &354602727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9698,6 +9754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QR_Manager
   _mrukInstance: {fileID: 354602728}
   _qrPrefab: {fileID: 5649759525585026587, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+  animationController: {fileID: 318764121}
 --- !u!114 &354602728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9767,12 +9824,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354602726}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.66738, y: -0, z: -0.81518}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 42251007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &358186221
 GameObject:
@@ -16865,6 +16922,7 @@ MonoBehaviour:
   checklistParent2: {fileID: 0}
   checkboxPrefab: {fileID: 0}
   checkboxPrefab2: {fileID: 0}
+  animationController: {fileID: 0}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
 --- !u!114 &643813849
@@ -24234,17 +24292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b877e8b6d61e46aba75553ba5668f485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &950546453 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 819202787947555079, guid: 677956b30b348bc4c8b323ae6c19facd, type: 3}
-  m_PrefabInstance: {fileID: 1667947970}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b15403450229c3a4b8455a61d6143a6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &950546454 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2930596310446883820, guid: 677956b30b348bc4c8b323ae6c19facd, type: 3}
@@ -24967,6 +25014,7 @@ MonoBehaviour:
   checklistParent2: {fileID: 0}
   checkboxPrefab: {fileID: 0}
   checkboxPrefab2: {fileID: 0}
+  animationController: {fileID: 0}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
 --- !u!114 &988122156
@@ -37104,6 +37152,7 @@ MonoBehaviour:
   checklistParent2: {fileID: 0}
   checkboxPrefab: {fileID: 8335184712439579979, guid: fc89eec012712b843bd72e4697ce3869, type: 3}
   checkboxPrefab2: {fileID: 0}
+  animationController: {fileID: 0}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
 --- !u!114 &1513953247
@@ -42165,6 +42214,7 @@ MonoBehaviour:
   checklistParent2: {fileID: 0}
   checkboxPrefab: {fileID: 0}
   checkboxPrefab2: {fileID: 0}
+  animationController: {fileID: 0}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
 --- !u!114 &1732473009
@@ -42696,7 +42746,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee108ec74907994b9bb88ca0abe52b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaker: {fileID: 950546453}
+  _speaker: {fileID: 0}
+  _input: {fileID: 0}
+  _stopButton: {fileID: 0}
+  _pauseButton: {fileID: 0}
+  _speakButton: {fileID: 0}
+  _queueButton: {fileID: 0}
+  _asyncToggle: {fileID: 0}
+  _asyncClip: {fileID: 0}
+  _dateId: '[DATE]'
+  _queuedText: []
 --- !u!1 &1754633303
 GameObject:
   m_ObjectHideFlags: 0
@@ -48228,6 +48287,7 @@ MonoBehaviour:
   checklistParent2: {fileID: 0}
   checkboxPrefab: {fileID: 0}
   checkboxPrefab2: {fileID: 0}
+  animationController: {fileID: 0}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
 --- !u!114 &1986587609
@@ -51571,6 +51631,7 @@ MonoBehaviour:
   checklistParent2: {fileID: 2076243645}
   checkboxPrefab: {fileID: 8335184712439579979, guid: fc89eec012712b843bd72e4697ce3869, type: 3}
   checkboxPrefab2: {fileID: 8335184712439579979, guid: 01062992701cb0949b99522e097e0601, type: 3}
+  animationController: {fileID: 318764121}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
 --- !u!114 &2144630675
@@ -74065,7 +74126,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1615728350}
   - {fileID: 122780302}
-  - {fileID: 354602729}
+  - {fileID: 42251007}
   - {fileID: 1389950157}
   - {fileID: 1899904522}
   - {fileID: 2644113659834524759}
@@ -74073,4 +74134,4 @@ SceneRoots:
   - {fileID: 1220795378}
   - {fileID: 1344378338}
   - {fileID: 2019880205}
-  - {fileID: 30728381}
+  - {fileID: 318764122}

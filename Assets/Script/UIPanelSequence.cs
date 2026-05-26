@@ -15,8 +15,12 @@ public class UIPanelSequence : MonoBehaviour
     [Header("Checklist")]
     public Transform checklistParent;
     public Transform checklistParent2;
+
     public GameObject checkboxPrefab;
     public GameObject checkboxPrefab2;
+
+    [Header("Animation")]
+    public HeadingAnimationController animationController;
 
     [Header("TTS")]
     public TTSSpeaker speaker;
@@ -90,13 +94,21 @@ public class UIPanelSequence : MonoBehaviour
     {
         StepData step = steps[currentIndex];
 
+        // UI TEXT
         headingText.text = step.heading;
         contentText.text = step.content;
         nextButtonText.text = step.buttonText;
 
-        //GenerateChecklist(step);
+        // PLAY ANIMATION BASED ON HEADING
+        if (animationController != null)
+        {
+            animationController.PlayAnimation(step.heading);
+        }
+
+        // GENERATE CHECKLIST
         GenerateChecklist(step.checkList);
 
+        // TTS
         if (speaker != null)
         {
             speaker.Stop();
