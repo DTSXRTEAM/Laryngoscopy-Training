@@ -8399,20 +8399,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ab39e6a6c403545a07950505ceba53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeadingAnimationController
-  prefabAnimator: {fileID: 0}
+  prefabAnimator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
   animations:
   - headingName: QR scan
     animator: {fileID: 42251006}
     usePrefabAnimator: 0
     animationClipName: QR
-  - headingName: ET tube Attachment
-    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-    usePrefabAnimator: 1
-    animationClipName: Laryngoscope
   - headingName: 'Positioning:'
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Position
+  - headingName: 'Pick the laryngoscope:'
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Pick the laryngoscope
+  - headingName: 'Laryngoscopy:'
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Laryngoscope
+  - headingName: 'Positioning Laryngoscopy:'
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: LIft the tongue
 --- !u!4 &318764122
 Transform:
   m_ObjectHideFlags: 0
