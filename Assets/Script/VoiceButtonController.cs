@@ -7,36 +7,78 @@ using UnityEngine.UI;
 public class VoiceButtonController : MonoBehaviour
 {
     public AppVoiceExperience voiceExperience;
+    public UIPanelSequence uiPanelSequence;
 
-    public Button button1;
-
-    void Start()
+    private void Start()
     {
+        if (voiceExperience == null)
+        {
+            Debug.LogError("Voice Experience Missing");
+            return;
+        }
+
+        if (uiPanelSequence == null)
+        {
+            Debug.LogError("UIPanelSequence Missing");
+            return;
+        }
+
         voiceExperience.VoiceEvents.OnResponse.AddListener(OnResponse);
 
-        voiceExperience.ActivateImmediately();
+        Invoke(nameof(StartListening), 2f);
     }
 
-    void OnResponse(WitResponseNode response)
+    void StartListening()
     {
-        Debug.Log(response.ToString());
-
-        if (response["intents"].Count > 0)
+        if (!voiceExperience.Active)
         {
-            string intent = response["intents"][0]["name"];
-
-            Debug.Log("Detected Intent : " + intent);
-
-            if (intent == "selectbutton")
-            {
-                Debug.Log("BUTTON CLICKED");
-
-                button1.onClick.Invoke();
-            }
+            voiceExperience.Activate();
         }
-        else
+    }
+
+    private void OnResponse(WitResponseNode response)
+    {
+        string spokenText = response["text"];
+
+        if (string.IsNullOrEmpty(spokenText))
         {
-            Debug.Log("NO INTENT DETECTED");
+            RestartListening();
+            return;
+        }
+
+        spokenText = spokenText.ToLower();
+
+        Debug.Log("Voice Command : " + spokenText);
+
+        // NEXT
+        if (spokenText.Contains("next step"))
+        {
+            Debug.Log("Next Page");
+
+            uiPanelSequence.NextPage();
+        }
+
+        // BACK
+        else if (spokenText.Contains("go back"))
+        {
+            Debug.Log("Previous Page");
+
+            uiPanelSequence.PreviousPage();
+        }
+
+        RestartListening();
+    }
+
+    void RestartListening()
+    {
+        Invoke(nameof(StartListening), 0.5f);
+    }
+
+    private void OnDestroy()
+    {
+        if (voiceExperience != null)
+        {
+            voiceExperience.VoiceEvents.OnResponse.RemoveListener(OnResponse);
         }
     }
 }

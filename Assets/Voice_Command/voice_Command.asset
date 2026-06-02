@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae5a46bda3295124c99b0e6537ac7252, type: 3}
-  m_Name: voice
-  m_EditorClassIdentifier: Meta.WitAi::Meta.WitAi.Data.Configuration.WitConfiguration
-  _clientAccessToken: H54IYHZRRUCZRMS4A2QZZAXMWOSXGV4X
+  m_Name: voice_Command
+  m_EditorClassIdentifier: 
+  _clientAccessToken: YXOWJBNJ5X7H6DXS6DS23IC4ZOJWVUZ6
   editorVersionTag: 
   buildVersionTag: 
   _appInfo:
-    name: voice_command
-    id: 1542143240667708
+    name: laryngoscopy
+    id: 1710327243296557
     lang: en
     isPrivate: 1
-    createdAt: 2026-05-17T22:46:47-0700
+    createdAt: 2026-05-29T10:37:26-0700
     trainingStatus: 3
-    lastTrainDuration: 113
-    lastTrainedAt: 2026-05-17T22:59:02-0700
-    nextTrainAt: 2026-05-17T23:39:09-0700
+    lastTrainDuration: 0
+    lastTrainedAt: 1969-12-31T16:00:00-0800
+    nextTrainAt: 2026-05-29T22:56:39-0700
     intents:
-    - id: 870198076124728
-      name: selectbutton
+    - id: 26908224568849740
+      name: open_laryngoscopy
       entities: []
     entities: []
     traits: []
@@ -539,8 +539,8 @@ MonoBehaviour:
       - phoneme_events
       - word_events
   _configData:
-  - {fileID: 5125423176298011310}
-  _configurationId: 9153c81b-4063-47a7-8209-99decb943772
+  - {fileID: 190714586573797437}
+  _configurationId: 5dc5f474-b9e2-4039-b005-21b8acf39412
   _requestType: 0
   _requestTimeoutMs: 10000
   endpointConfiguration:
@@ -557,12 +557,12 @@ MonoBehaviour:
   isDemoOnly: 0
   useIntentAttributes: 1
   useConduit: 1
-  _manifestLocalPath: ConduitManifest-8844bb48-844a-4d46-be51-bcd2e496f257.json
+  _manifestLocalPath: ConduitManifest-38c070f9-d06f-49b6-b70c-cbaab15e61d9.json
   excludedAssemblies:
   - Oculus.Voice.Demo, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - Meta.WitAi.Samples, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   relaxedResolution: 0
---- !u!114 &5125423176298011310
+--- !u!114 &190714586573797437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -573,5 +573,5 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1c2918ba0e7451694416d42d69e0944, type: 3}
   m_Name: WitComposerData
-  m_EditorClassIdentifier: Meta.Wit.Composer::Meta.WitAi.Composer.Data.Info.WitComposerData
+  m_EditorClassIdentifier: 
   canvases: []

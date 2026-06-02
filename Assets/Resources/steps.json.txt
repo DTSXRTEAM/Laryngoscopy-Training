@@ -5,21 +5,60 @@
       "heading":"Introduction",
       "content":"Laryngoscopy is a medical procedure used to examine and treat conditions of the larynx, including the vocal cords. It helps doctors diagnose voice disorders, breathing difficulties, and throat abnormalities with precision. In addition to diagnosis, laryngoscopy enables targeted treatments such as biopsy, lesion removal, and airway management, making it a vital tool in ENT care.",
       "buttonText":"Next",
-      "tts":"Hello. I’ll be your guide throughout this laryngoscopy procedure. Follow each instruction carefully to proceed"
+      "showNextButton":true,
+      "showBackButton":false,
+      "tts":"Hello. I’ll be your guide throughout this laryngoscopy procedure. Follow each instruction carefully to proceed",
+       "models":
+      [
+        {
+            "address":"Manikin",
+            "position":[0,1.02,0.9]
+        },
+        {
+            "address":"EtTube",
+            "position":[0.5,1.02,0.9]
+        },
+        {
+            "address":"Stylet",
+            "position":[-0.3,1.02,0.9]
+        }
+      ]
     },
 
     {
       "heading":"Manikin Placement",
       "content":"Lift the manikin from the tools table and place it on the worktable. Then scan the QR code to anchor the virtual manikin.",
       "buttonText":"Next",
-      "tts":"Place the manikin on the worktable. Scan the QR code to anchor the virtual manikin in mixed reality."
+      "showNextButton":true,
+      "showBackButton":true,
+      "tts":"Place the manikin on the worktable. Scan the QR code to anchor the virtual manikin in mixed reality.",
+       "models":
+      [
+        {
+            "address":"Manikin",
+            "position":[0,1.02,0.9]
+        }
+      ]
     },
 
     {
       "heading":"QR scan",
       "content":"Scan the QR",
       "buttonText":"Next",
-      "tts":"See the QR code. The virtual manikin is generated."
+      "showNextButton":true,
+      "showBackButton":true,
+      "tts":"See the QR code. The virtual manikin is generated.",
+       "models":
+      [
+        {
+            "address":"Manikin",
+            "position":[0,1.02,0.9]
+        },
+        {
+            "address":"EtTube",
+            "position":[-0.3,1.02,0.9]
+        }
+      ]
     },
 
     {
@@ -30,8 +69,25 @@
         "Gloves",
         "Laryngoscope"
       ],
-      "buttonText":"Continue",
-      "tts":"Please collect the required equipment from the tools table: gloves and face mask"
+      "buttonText":"Next",
+      "showNextButton":true,
+      "showBackButton":true,
+      "tts":"Please collect the required equipment from the tools table: gloves and face mask",
+       "models":
+      [
+        {
+            "address":"Manikin",
+            "position":[0,0,0]
+        },
+        {
+            "address":"EtTube",
+            "position":[0,0,0]
+        },
+        {
+            "address":"Stylet",
+            "position":[0,0,0]
+        }
+      ]
     },
 
     {
@@ -47,8 +103,25 @@
         "Syringe",
         "Stethoscope"
       ],
-      "buttonText":"Start procedure",
-      "tts":"Once all checkboxes are selected, all equipment is ready"
+      "buttonText":"Start",
+      "showNextButton":true,
+      "showBackButton":true,
+      "tts":"Once all checkboxes are selected, all equipment is ready",
+       "models":
+      [
+        {
+            "address":"EtTube",
+            "position":[0,0,0]
+        },
+        {
+            "address":"Stylet",
+            "position":[0,0,0]
+        },
+        {
+            "address":"Syringe",
+            "position":[0,0,0]
+        }
+      ]
     },
 
     {

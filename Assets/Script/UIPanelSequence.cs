@@ -12,6 +12,13 @@ public class UIPanelSequence : MonoBehaviour
     public TMP_Text contentText;
     public TMP_Text nextButtonText;
 
+    [Header("Models")]
+    public ModelManager modelManager;
+
+    [Header("Buttons")]
+    public Button nextButton;
+    public Button backButton;
+
     [Header("Checklist")]
     public Transform checklistParent;
     public Transform checklistParent2;
@@ -37,6 +44,11 @@ public class UIPanelSequence : MonoBehaviour
         public string tts;
 
         public string[] checkList;
+
+        public bool showNextButton = true;
+        public bool showBackButton = true;
+
+        public ModelData[] models;
     }
 
     [Serializable]
@@ -99,6 +111,13 @@ public class UIPanelSequence : MonoBehaviour
         contentText.text = step.content;
         nextButtonText.text = step.buttonText;
 
+        // BUTTON VISIBILITY
+        if (nextButton != null)
+            nextButton.gameObject.SetActive(step.showNextButton);
+
+        if (backButton != null)
+            backButton.gameObject.SetActive(step.showBackButton);
+
         // PLAY ANIMATION BASED ON HEADING
         if (animationController != null)
         {
@@ -118,49 +137,117 @@ public class UIPanelSequence : MonoBehaviour
                 speaker.Speak(step.tts);
             }
         }
+
+        //if (modelManager != null)
+        //{
+        //    modelManager.ShowModels(step.models);
+        //}
+
+        if (modelManager != null && step.models != null)
+        {
+            modelManager.ShowModels(step.models);
+        }
     }
+
+    //void GenerateChecklist(string[] list)
+    //{
+    //    // CLEAR FIRST PARENT
+    //    for (int i = 0; i < checklistParent.childCount; i++)
+    //    {
+    //        Destroy(checklistParent.GetChild(i).gameObject);
+    //    }
+
+    //    // CLEAR SECOND PARENT
+    //    for (int i = 0; i < checklistParent2.childCount; i++)
+    //    {
+    //        Destroy(checklistParent2.GetChild(i).gameObject);
+    //    }
+
+    //    if (list == null)
+    //        return;
+
+    //    for (int i = 0; i < list.Length; i++)
+    //    {
+    //        Transform targetParent;
+    //        GameObject targetPrefab;
+
+    //        // FIRST 4 ITEMS
+    //        if (i < 4)
+    //        {
+    //            targetParent = checklistParent;
+    //            targetPrefab = checkboxPrefab;
+    //        }
+    //        // REMAINING ITEMS
+    //        else
+    //        {
+    //            targetParent = checklistParent2;
+    //            targetPrefab = checkboxPrefab2;
+    //        }
+
+    //        GameObject obj =
+    //            Instantiate(targetPrefab, targetParent);
+
+    //        TMP_Text txt =
+    //            obj.GetComponentInChildren<TMP_Text>();
+
+    //        txt.text = list[i];
+    //    }
+    //}
 
     void GenerateChecklist(string[] list)
     {
-        // CLEAR FIRST PARENT
-        for (int i = 0; i < checklistParent.childCount; i++)
+        // Clear Parent1
+        for (int i = checklistParent.childCount - 1; i >= 0; i--)
         {
             Destroy(checklistParent.GetChild(i).gameObject);
         }
 
-        // CLEAR SECOND PARENT
-        for (int i = 0; i < checklistParent2.childCount; i++)
+        // Clear Parent2
+        for (int i = checklistParent2.childCount - 1; i >= 0; i--)
         {
             Destroy(checklistParent2.GetChild(i).gameObject);
         }
 
         if (list == null)
+        {
+            checklistParent.gameObject.SetActive(false);
+            checklistParent2.gameObject.SetActive(false);
             return;
+        }
+
+        Transform targetParent;
+        GameObject targetPrefab;
+
+        // Step with 3-item checklist
+        if (currentIndex == 3)
+        {
+            targetParent = checklistParent;
+            targetPrefab = checkboxPrefab;
+
+            checklistParent.gameObject.SetActive(true);
+            checklistParent2.gameObject.SetActive(false);
+        }
+        // Step with 8-item checklist
+        else if (currentIndex == 4)
+        {
+            targetParent = checklistParent2;
+            targetPrefab = checkboxPrefab2;
+
+            checklistParent.gameObject.SetActive(false);
+            checklistParent2.gameObject.SetActive(true);
+        }
+        else
+        {
+            checklistParent.gameObject.SetActive(false);
+            checklistParent2.gameObject.SetActive(false);
+            return;
+        }
 
         for (int i = 0; i < list.Length; i++)
         {
-            Transform targetParent;
-            GameObject targetPrefab;
+            GameObject obj = Instantiate(targetPrefab, targetParent);
 
-            // FIRST 4 ITEMS
-            if (i < 4)
-            {
-                targetParent = checklistParent;
-                targetPrefab = checkboxPrefab;
-            }
-            // REMAINING ITEMS
-            else
-            {
-                targetParent = checklistParent2;
-                targetPrefab = checkboxPrefab2;
-            }
-
-            GameObject obj =
-                Instantiate(targetPrefab, targetParent);
-
-            TMP_Text txt =
-                obj.GetComponentInChildren<TMP_Text>();
-
+            TMP_Text txt = obj.GetComponentInChildren<TMP_Text>();
             txt.text = list[i];
         }
     }
