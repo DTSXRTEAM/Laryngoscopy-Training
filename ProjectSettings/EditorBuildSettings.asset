@@ -5,12 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Main/Laryngoscopy-Training 1.unity
+    guid: 945df54fdd4d12146b649d23afcd0c5d
   - enabled: 1
-    path: Assets/Scenes/Sub/Training_Treatment_List.unity
-    guid: f302de7024726eb4e9e27337e581184c
-  - enabled: 1
-    path: Assets/Scenes/Sub/Laryngoscopy_QR_Scan.unity
-    guid: f1253ff37a63d6a40abdaadb5cc67e57
+    path: Assets/Scenes/Main/Laryngoscopy-Training 2.unity
+    guid: 41d87aee5330c1b4ba3a2befe8af7af6
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: f7bd18ca373025446a95b67d463618d6, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}

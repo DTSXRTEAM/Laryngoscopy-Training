@@ -6676,13 +6676,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257810521}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.99893063, y: 0, z: 0, w: -0.046234757}
+  m_LocalRotation: {x: -0.28374863, y: -0, z: -0, w: -0.95889866}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1615728350}
-  m_LocalEulerAnglesHint: {x: -185.3, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -327.032, y: 0, z: 0}
 --- !u!114 &257810524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16926,6 +16926,9 @@ MonoBehaviour:
   headingText: {fileID: 1736585278}
   contentText: {fileID: 948688582}
   nextButtonText: {fileID: 2035384584}
+  modelManager: {fileID: 0}
+  nextButton: {fileID: 0}
+  backButton: {fileID: 0}
   checklistParent: {fileID: 0}
   checklistParent2: {fileID: 0}
   checkboxPrefab: {fileID: 0}
@@ -25018,6 +25021,9 @@ MonoBehaviour:
   headingText: {fileID: 544492110}
   contentText: {fileID: 1111389874}
   nextButtonText: {fileID: 538553455}
+  modelManager: {fileID: 0}
+  nextButton: {fileID: 0}
+  backButton: {fileID: 0}
   checklistParent: {fileID: 0}
   checklistParent2: {fileID: 0}
   checkboxPrefab: {fileID: 0}
@@ -37156,6 +37162,9 @@ MonoBehaviour:
   headingText: {fileID: 306391311}
   contentText: {fileID: 2075138379}
   nextButtonText: {fileID: 1784446996}
+  modelManager: {fileID: 0}
+  nextButton: {fileID: 0}
+  backButton: {fileID: 0}
   checklistParent: {fileID: 609095783}
   checklistParent2: {fileID: 0}
   checkboxPrefab: {fileID: 8335184712439579979, guid: fc89eec012712b843bd72e4697ce3869, type: 3}
@@ -42218,6 +42227,9 @@ MonoBehaviour:
   headingText: {fileID: 878176601}
   contentText: {fileID: 1662988819}
   nextButtonText: {fileID: 1592778115}
+  modelManager: {fileID: 0}
+  nextButton: {fileID: 0}
+  backButton: {fileID: 0}
   checklistParent: {fileID: 0}
   checklistParent2: {fileID: 0}
   checkboxPrefab: {fileID: 0}
@@ -48291,6 +48303,9 @@ MonoBehaviour:
   headingText: {fileID: 902864734}
   contentText: {fileID: 1266820837}
   nextButtonText: {fileID: 1049441778}
+  modelManager: {fileID: 0}
+  nextButton: {fileID: 0}
+  backButton: {fileID: 0}
   checklistParent: {fileID: 0}
   checklistParent2: {fileID: 0}
   checkboxPrefab: {fileID: 0}
@@ -51635,6 +51650,9 @@ MonoBehaviour:
   headingText: {fileID: 1143456535}
   contentText: {fileID: 975277249}
   nextButtonText: {fileID: 1611259228}
+  modelManager: {fileID: 0}
+  nextButton: {fileID: 0}
+  backButton: {fileID: 0}
   checklistParent: {fileID: 1773582963}
   checklistParent2: {fileID: 2076243645}
   checkboxPrefab: {fileID: 8335184712439579979, guid: fc89eec012712b843bd72e4697ce3869, type: 3}
