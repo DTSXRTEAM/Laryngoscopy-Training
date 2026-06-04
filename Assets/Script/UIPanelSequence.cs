@@ -60,6 +60,8 @@ public class UIPanelSequence : MonoBehaviour
     private List<StepData> steps = new List<StepData>();
 
     int currentIndex = 0;
+    private int checkedCount;
+    private int totalChecklistItems;
 
     void Start()
     {
@@ -194,61 +196,135 @@ public class UIPanelSequence : MonoBehaviour
     //    }
     //}
 
-    void GenerateChecklist(string[] list)
+ void GenerateChecklist(string[] list)
+{
+    // Clear Parent 1
+    for (int i = checklistParent.childCount - 1; i >= 0; i--)
     {
-        // Clear Parent1
-        for (int i = checklistParent.childCount - 1; i >= 0; i--)
-        {
-            Destroy(checklistParent.GetChild(i).gameObject);
-        }
+        Destroy(checklistParent.GetChild(i).gameObject);
+    }
 
-        // Clear Parent2
-        for (int i = checklistParent2.childCount - 1; i >= 0; i--)
-        {
-            Destroy(checklistParent2.GetChild(i).gameObject);
-        }
+    // Clear Parent 2
+    for (int i = checklistParent2.childCount - 1; i >= 0; i--)
+    {
+        Destroy(checklistParent2.GetChild(i).gameObject);
+    }
 
-        if (list == null)
-        {
-            checklistParent.gameObject.SetActive(false);
-            checklistParent2.gameObject.SetActive(false);
-            return;
-        }
+    checkedCount = 0;
 
-        Transform targetParent;
-        GameObject targetPrefab;
+    if (list == null || list.Length == 0)
+    {
+        checklistParent.gameObject.SetActive(false);
+        checklistParent2.gameObject.SetActive(false);
 
-        // Step with 3-item checklist
-        if (currentIndex == 3)
-        {
-            targetParent = checklistParent;
-            targetPrefab = checkboxPrefab;
+        nextButton.interactable = true;
+        return;
+    }
 
-            checklistParent.gameObject.SetActive(true);
-            checklistParent2.gameObject.SetActive(false);
-        }
-        // Step with 8-item checklist
-        else if (currentIndex == 4)
-        {
-            targetParent = checklistParent2;
-            targetPrefab = checkboxPrefab2;
+    totalChecklistItems = list.Length;
 
-            checklistParent.gameObject.SetActive(false);
-            checklistParent2.gameObject.SetActive(true);
-        }
-        else
-        {
-            checklistParent.gameObject.SetActive(false);
-            checklistParent2.gameObject.SetActive(false);
-            return;
-        }
+    // Show checklist 1 for small lists
+    if (list.Length <= 2)
+    {
+        checklistParent.gameObject.SetActive(true);
+        checklistParent2.gameObject.SetActive(false);
 
         for (int i = 0; i < list.Length; i++)
         {
-            GameObject obj = Instantiate(targetPrefab, targetParent);
+            GameObject obj =
+                Instantiate(
+                    checkboxPrefab,
+                    checklistParent);
 
-            TMP_Text txt = obj.GetComponentInChildren<TMP_Text>();
-            txt.text = list[i];
+            TMP_Text txt =
+                obj.GetComponentInChildren<TMP_Text>();
+
+            if (txt != null)
+                txt.text = list[i];
+
+            Toggle toggle =
+                obj.GetComponentInChildren<Toggle>();
+
+            if (toggle != null)
+            {
+                toggle.isOn = false;
+
+                toggle.onValueChanged.AddListener(
+                    delegate
+                    {
+                        CheckChecklistCompleted();
+                    });
+            }
         }
     }
+    // Show checklist 2 for larger lists
+    else
+    {
+        checklistParent.gameObject.SetActive(false);
+        checklistParent2.gameObject.SetActive(true);
+
+        for (int i = 0; i < list.Length; i++)
+        {
+            GameObject obj =
+                Instantiate(
+                    checkboxPrefab2,
+                    checklistParent2);
+
+            TMP_Text txt =
+                obj.GetComponentInChildren<TMP_Text>();
+
+            if (txt != null)
+                txt.text = list[i];
+
+            Toggle toggle =
+                obj.GetComponentInChildren<Toggle>();
+
+            if (toggle != null)
+            {
+                toggle.isOn = false;
+
+                toggle.onValueChanged.AddListener(
+                    delegate
+                    {
+                        CheckChecklistCompleted();
+                    });
+            }
+        }
+    }
+
+    nextButton.interactable = false;
+    CheckChecklistCompleted();
+}
+
+private void CheckChecklistCompleted()
+{
+    int checkedItems = 0;
+
+    Toggle[] toggles1 =
+        checklistParent.GetComponentsInChildren<Toggle>(true);
+
+    foreach (Toggle toggle in toggles1)
+    {
+        if (toggle.isOn)
+            checkedItems++;
+    }
+
+    Toggle[] toggles2 =
+        checklistParent2.GetComponentsInChildren<Toggle>(true);
+
+    foreach (Toggle toggle in toggles2)
+    {
+        if (toggle.isOn)
+            checkedItems++;
+    }
+
+    Debug.Log(
+        "Checked: " +
+        checkedItems +
+        " / " +
+        totalChecklistItems);
+
+    nextButton.interactable =
+        checkedItems >= totalChecklistItems;
+}
 }
