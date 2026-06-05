@@ -8493,43 +8493,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HeadingAnimationController
   prefabAnimator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
   animations:
-  - headingName: QR scan
+  - headingName: Manikin Placement
     animator: {fileID: 42251006}
     usePrefabAnimator: 0
     animationClipName: QR
-  - headingName: 'Pick the Bag valve mask:'
+  - headingName: Pick Up the Bag Valve Mask
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the bag valve mask
-  - headingName: 'Bag Valve Mask Placement:'
+  - headingName: 'Position the Bag Valve Mask:'
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Position the bag valve mask
-  - headingName: 'Place the bag valve mask:'
+  - headingName: 'Perform Ventilation:'
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Press the bag valve mask
-  - headingName: 'Remove the Bag valve mask:'
+  - headingName: Prepare for Laryngoscopy
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the bag valve mask
-  - headingName: 'Positioning:'
+  - headingName: 'Patient Positioning and Airway Preparation:'
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Head
-  - headingName: 'Pick the laryngoscope:'
+  - headingName: 'Laryngoscope Handling Technique:'
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the Laryngoscope
-  - headingName: 'Laryngoscopy:'
+  - headingName: Lift the Laryngoscope Handle
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Position the Laryngoscope
-  - headingName: 'Positioning Laryngoscopy:'
+  - headingName: Visualize the Vocal Cords
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Tilt the Laryngoscope
-  - headingName: 'Remove the laryngoscope:'
+  - headingName: 'Remove the Laryngoscope and Stylet:'
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the Laryngoscope
