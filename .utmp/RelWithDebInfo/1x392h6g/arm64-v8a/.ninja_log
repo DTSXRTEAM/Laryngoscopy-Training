@@ -1,0 +1,10 @@
+# ninja log v5
+1	672	1780641001619567356	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	f6e693635decf40d
+1	688	1780641001637803142	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ac5243427be56652
+0	697	1780641001643131653	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	b4375aa0ac59087e
+1	739	1780641001690230831	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	b7a4ace4606696b8
+0	741	1780641001692820169	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	f28fa9aa84fc6b8b
+2	777	1780641001728202573	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	ad55c4b4aca956c7
+1	853	1780641001804317516	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	e12294d6ebb5d599
+0	947	1780641001896721118	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	fdc0b3951511f1d2
+947	1040	1780641001989739596	/Volumes/Mac_External/GitHub/Laryngoscopy-Training/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1x392h6g/obj/arm64-v8a/libgame.so	279d27373da9fd77

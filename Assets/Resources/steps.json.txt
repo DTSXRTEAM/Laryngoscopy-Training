@@ -5,6 +5,7 @@
       "heading":"Introduction",
       "content":"Laryngoscopy is a medical procedure used to examine and treat conditions affecting the larynx, including the vocal cords. It helps clinicians diagnose voice disorders, breathing difficulties, and throat abnormalities with precision. The procedure also supports targeted interventions such as biopsy, lesion removal, and airway management, making it an essential tool in ENT care.",
       "buttonText":"Next",
+      "backButtonText":"Back",
       "showNextButton":true,
       "showBackButton":false,
       "tts":"Hello. I’ll be your guide throughout this laryngoscopy procedure. Follow each instruction carefully to proceed.",
@@ -29,6 +30,7 @@
       "heading":"Manikin Placement",
       "content":"Lift the manikin from the tools table and place it on the worktable. Then scan the QR code to anchor the virtual manikin.",
       "buttonText":"Next",
+      "backButtonText":"Back",
       "showNextButton":true,
       "showBackButton":true,
       "tts":"Place the manikin on the worktable. Scan the QR code to anchor the virtual manikin in mixed reality.",
@@ -50,6 +52,7 @@
         "Face Mask"
       ],
       "buttonText":"Continue",
+      "backButtonText":"Back",
       "showNextButton":true,
       "showBackButton":true,
       "tts":"Please collect the required equipment from the tools table: gloves and face mask",
@@ -84,6 +87,7 @@
         "Stethoscope"
       ],
       "buttonText":"Start",
+      "backButtonText":"Back",
       "showNextButton":true,
       "showBackButton":true,
       "tts":"Once all checkboxes are selected, all equipment is ready",
@@ -108,6 +112,9 @@
       "heading":"Pick Up the Bag Valve Mask",
       "content":" Pick up the Bag Valve Mask (BVM) from the tools table.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Pick up the Bag Valve Mask and prepare for ventilation."
     },
 
@@ -115,6 +122,9 @@
       "heading":"Position the Bag Valve Mask:",
       "content":"Place the Bag Valve Mask securely over the manikin's nose and mouth.",
       "buttonText":"Next",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Place the mask firmly over the nose and mouth to create an effective seal for ventilation."
     },
 
@@ -122,6 +132,9 @@
       "heading":"Perform Ventilation:",
       "content":"Squeeze the Bag Valve Mask to deliver ventilation while maintaining a proper mask seal",
       "buttonText":"Next",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Gently press the bag for up to one minute to pre-oxygenate"
     },
 
@@ -129,6 +142,9 @@
       "heading":"Prepare for Laryngoscopy",
       "content":"Remove the Bag Valve Mask and gently open the manikin’s mouth to prepare for laryngoscopy.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Airway access is important for visualization. Remove the mask and open the mouth carefully."
     },
 
@@ -136,6 +152,9 @@
       "heading":"Patient Positioning and Airway Preparation:",
       "content":"Position the manikin in the sniffing position by aligning the head and neck correctly. Prepare the airway for laryngoscopy.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Correct positioning improves laryngeal visualization. Adjust the head and neck into the sniffing position and prepare the airway."
     },
 
@@ -143,6 +162,9 @@
       "heading":"Laryngoscope Handling Technique:",
       "content":"Pick up the laryngoscope and hold it correctly. Align the blade orientation before insertion.\n\nTips:\n• Hold the laryngoscope firmly\n• Maintain proper blade orientation\n• Avoid excessive wrist rotation.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Pick up the laryngoscope and position your hand correctly. Ensure the blade is properly oriented before insertion."
     },
 
@@ -150,6 +172,9 @@
       "heading":"Lift the Laryngoscope Handle",
       "content":"Lift the laryngoscope handle upward and forward to move the tongue and improve airway visualization.\n\nAvoid:\n• Lift the laryngoscope handle to raise the tongue.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Lift the laryngoscope handle upward and forward to move the tongue and improve airway visualization."
     },
 
@@ -157,6 +182,9 @@
       "heading":"Visualize the Vocal Cords",
       "content":"Adjust the laryngoscope position until the vocal cords are clearly visible.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Maintain proper blade position and identify the vocal cords before proceeding."
     },
 
@@ -164,6 +192,9 @@
       "heading":"Pick Up the Endotracheal Tube:",
       "content":"Stable laryngoscopy and Pick up the Endotracheal Tube (ET Tube) from the procedure table with the right hand.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Do not remove the laryngoscope. Pick up the Endotracheal Tube from the procedure table and prepare for insertion"
     },
 
@@ -171,17 +202,19 @@
       "heading":"Insertion of ET tube:",
       "content":"Advance the Endotracheal Tube through the vocal cords while maintaining visualization.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Carefully guide the tube through the vocal cords and maintain airway visualization throughout insertion."
     },
 
     {
       "heading":"Confirm Tube Position:",
-      "checkList":
-      [
-        "Tube depth verified",
-        "Placement confirmed"
-      ],
+      "content":"Verify the Endotracheal Tube depth and confirm correct placement before proceeding.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Ensure the Endotracheal Tube is positioned correctly before securing the airway."
     },
 
@@ -189,6 +222,9 @@
       "heading":"Remove the Laryngoscope and Stylet:",
       "content":"Carefully remove the laryngoscope and stylet while stabilizing the Endotracheal Tube to prevent movement.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Maintain control of the tube while removing the laryngoscope to avoid displacement"
     },
 
@@ -196,6 +232,9 @@
       "heading":"Inflate the Cuff:",
       "content":"Attach the syringe to the cuff inflation port and inflate the cuff to secure the airway.\n\nGuidance:\nMonitor cuff inflation while maintaining tube position.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"attach the syringe to the cuff inflation port and inflate the cuff while maintaining tube stability."
     },
 
@@ -203,6 +242,9 @@
       "heading":"Ventilate Through the ET Tube",
       "content":"Connect the Bag Valve Mask to the Endotracheal Tube and provide ventilation while observing chest rise.\n\nDeliver 2 effective breaths.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Connect the Bag Valve Mask to the Endotracheal Tube and deliver ventilation while observing for chest rise."
     },
 
@@ -210,6 +252,9 @@
       "heading":"Pick the stethoscope:",
       "content":"Keep the tube and bag-valve mask steady and pick up the stethoscope.",
       "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Stabilize the tube and bag-valve mask, then pick up the stethoscope."
     },
 
@@ -217,14 +262,40 @@
       "heading":"Auscultation:",
       "content":"Use the stethoscope to listen to the left lung, right lung, and epigastric area.",
       "buttonText":"Next",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"Using a stethoscope, auscultate the left lung, right lung, and epigastric area."
     },
 
     {
       "heading":"Breath Sound Confirmation:",
       "content":"Select Correct if all breath sounds are normal. Select Incorrect if any breath sound is abnormal or missing.",
-      "buttonText":"Next",
+      "buttonText":"Correct",
+      "backButtonText":"Incorrect",
+      "showNextButton":true,
+      "showBackButton":true,
       "tts":"If breath sounds are clear in all correct areas, select ventilation is Correct. If breath sounds are missing or unequal, select ventilation is Incorrect."
+    },
+
+    {
+      "heading":"Fixing the tube:",
+      "content":"Confirm tube position, secure it with cotton tape, and start ventilation.",
+      "buttonText":"Next",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
+      "tts":"Confirm the tube position. Secure the tube with cotton tape, attach it to the ventilating apparatus, and begin ventilation."
+    },
+
+    {
+      "heading":"Congratulations",
+      "content":"Congratulations! You have successfully completed the laryngoscopy treatment training module.",
+      "buttonText":"",
+      "backButtonText":"",
+      "showNextButton":false,
+      "showBackButton":false,
+      "tts":"Congratulation , You are successfully completed this training module for laryngoscopy treatment procedure"
     }
   ]
 }
