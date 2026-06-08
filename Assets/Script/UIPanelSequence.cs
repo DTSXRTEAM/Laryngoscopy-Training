@@ -11,6 +11,7 @@ public class UIPanelSequence : MonoBehaviour
     public TMP_Text headingText;
     public TMP_Text contentText;
     public TMP_Text nextButtonText;
+    public TMP_Text backButtonText;
 
     [Header("Models")]
     public ModelManager modelManager;
@@ -41,6 +42,7 @@ public class UIPanelSequence : MonoBehaviour
         public string heading;
         public string content;
         public string buttonText;
+        public string backButtonText;
         public string tts;
 
         public string[] checkList;
@@ -112,6 +114,14 @@ public class UIPanelSequence : MonoBehaviour
         headingText.text = step.heading;
         contentText.text = step.content;
         nextButtonText.text = step.buttonText;
+        
+        if (backButtonText != null)
+{
+    backButtonText.text =
+        string.IsNullOrEmpty(step.backButtonText)
+        ? "Back"
+        : step.backButtonText;
+}
 
         // BUTTON VISIBILITY
         if (nextButton != null)
