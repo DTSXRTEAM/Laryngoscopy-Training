@@ -8674,6 +8674,10 @@ MonoBehaviour:
     animator: {fileID: 42251006}
     usePrefabAnimator: 0
     animationClipName: QR
+  - headingName: "Stylet into the ET Tube\u200B"
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: ET Attachment
   - headingName: Pick Up the Bag Valve Mask
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
@@ -8706,10 +8710,42 @@ MonoBehaviour:
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Tilt the Laryngoscope
+  - headingName: 'Pick Up the Endotracheal Tube:'
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Pick the ET Tube
+  - headingName: 'Insertion of ET tube:'
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Insert the ET Tube
   - headingName: 'Remove the Laryngoscope and Stylet:'
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the Laryngoscope
+  - headingName: 'Inflate the Cuff:'
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Inflate the cuff
+  - headingName: "Prepare the Bag Valve Mask\u200B"
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Remove the cap
+  - headingName: Ventilate Through the ET Tube
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Ventilate Through the ET Tube
+  - headingName: 'Pick the stethoscope:'
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: stethoscope
+  - headingName: 'Auscultation:'
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Hotspot
+  - headingName: 'Fixing the tube:'
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Fixing the Tape
 --- !u!4 &318764122
 Transform:
   m_ObjectHideFlags: 0
@@ -55741,8 +55777,7 @@ Transform:
   m_LocalPosition: {x: 0.00029487914, y: 0.0010248977, z: 0.022363802}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1574693106}
+  m_Children: []
   m_Father: {fileID: 2974262146694789564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1948404510217809062
@@ -55854,7 +55889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2033393505628624005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64845,6 +64880,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1944991838466459628}
+  - component: {fileID: 5286760103581837663}
+  - component: {fileID: 5286760103581837662}
+  - component: {fileID: 5286760103581837661}
   m_Layer: 0
   m_Name: R_IndexTip
   m_TagString: Untagged
@@ -64852,6 +64890,67 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5286760103581837661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286760103581837660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f768a254bd44a0c4ca64d1e3164a0a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TriggerManager
+  delay: 0.5
+--- !u!54 &5286760103581837662
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286760103581837660}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &5286760103581837663
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286760103581837660}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.009928883
+  m_Center: {x: 0.0006858035, y: -0.0013698421, z: -0.0017496609}
 --- !u!23 &5301525241326174821
 MeshRenderer:
   m_ObjectHideFlags: 0

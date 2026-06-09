@@ -108,6 +108,16 @@
       ]
     },
 
+     {
+      "heading":"Stylet into the ET Tube​",
+      "content":" Insert the stylet into the Endotracheal Tube and prepare it for insertion. Ensure the tube maintains the correct curvature.",
+      "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
+      "tts":"Insert the stylet into the Endotracheal Tube and prepare the tube for insertion. Ensure proper tube curvature is maintained."
+    },
+
     {
       "heading":"Pick Up the Bag Valve Mask",
       "content":" Pick up the Bag Valve Mask (BVM) from the tools table.",
@@ -238,6 +248,16 @@
       "tts":"attach the syringe to the cuff inflation port and inflate the cuff while maintaining tube stability."
     },
 
+     {
+      "heading":"Prepare the Bag Valve Mask​",
+      "content":"Remove the face mask from the Bag Valve Mask assembly and prepare it for connection to the Endotracheal Tube.​",
+      "buttonText":"Continue",
+      "backButtonText":"Back",
+      "showNextButton":true,
+      "showBackButton":true,
+      "tts":"Detach the face mask from the Bag Valve Mask and prepare the ventilation bag for Endotracheal Tube connection."
+    },
+
     {
       "heading":"Ventilate Through the ET Tube",
       "content":"Connect the Bag Valve Mask to the Endotracheal Tube and provide ventilation while observing chest rise.\n\nDeliver 2 effective breaths.",
@@ -247,6 +267,8 @@
       "showBackButton":true,
       "tts":"Connect the Bag Valve Mask to the Endotracheal Tube and deliver ventilation while observing for chest rise."
     },
+
+   
 
     {
       "heading":"Pick the stethoscope:",
