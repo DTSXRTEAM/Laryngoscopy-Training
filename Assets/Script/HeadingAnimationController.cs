@@ -9,71 +9,97 @@ public class HeadingAnimationController : MonoBehaviour
         [Header("Heading")]
         public string headingName;
 
-        [Header("Normal Object Animator")]
+        [Header("Animator")]
         public Animator animator;
 
-        [Header("Prefab Animation")]
+        [Header("Use Runtime Prefab Animator")]
         public bool usePrefabAnimator;
 
         [Header("Animation State Name")]
         public string animationClipName;
     }
 
-    [Header("Spawned Prefab Animator")]
+    [Header("Runtime Prefab Animator")]
     public Animator prefabAnimator;
 
-    [Header("All Animations")]
+    [Header("Animations")]
     public HeadingAnimation[] animations;
+
+    private Animator lastAnimator;
 
     public void PlayAnimation(string heading)
     {
         for (int i = 0; i < animations.Length; i++)
         {
-            if (animations[i].headingName == heading)
+            if (animations[i].headingName != heading)
+                continue;
+
+            Animator targetAnimator =
+                animations[i].usePrefabAnimator
+                ? prefabAnimator
+                : animations[i].animator;
+
+            if (targetAnimator == null)
             {
-                Animator targetAnimator = null;
-
-                // NORMAL OBJECT ANIMATOR
-                if (!animations[i].usePrefabAnimator)
-                {
-                    targetAnimator =
-                        animations[i].animator;
-                }
-                // SPAWNED PREFAB ANIMATOR
-                else
-                {
-                    targetAnimator =
-                        prefabAnimator;
-                }
-
-                // PLAY
-                if (targetAnimator != null)
-                {
-                    targetAnimator.enabled = true;
-
-                    targetAnimator.Play(
-                        animations[i].animationClipName,
-                        0,
-                        0f
-                    );
-
-                    Debug.Log(
-                        "Playing Animation : " +
-                        animations[i].animationClipName
-                    );
-                }
-                else
-                {
-                    Debug.LogWarning(
-                        "Animator Missing For : " +
-                        heading
-                    );
-                }
+                Debug.LogWarning(
+                    "Animator Missing For : " +
+                    heading
+                );
+                return;
             }
+
+            lastAnimator = targetAnimator;
+
+            targetAnimator.enabled = true;
+
+            targetAnimator.Rebind();
+            targetAnimator.Update(0f);
+
+            targetAnimator.Play(
+                animations[i].animationClipName,
+                0,
+                0f
+            );
+
+            Debug.Log(
+                "Playing Animation : " +
+                animations[i].animationClipName
+            );
+
+            return;
         }
     }
 
-    // RUNTIME PREFAB ANIMATOR
+    public void SetAnimationToLastFrame(
+        string heading)
+    {
+        for (int i = 0; i < animations.Length; i++)
+        {
+            if (animations[i].headingName != heading)
+                continue;
+
+            Animator targetAnimator =
+                animations[i].usePrefabAnimator
+                ? prefabAnimator
+                : animations[i].animator;
+
+            if (targetAnimator == null)
+                return;
+
+            targetAnimator.enabled = true;
+
+            targetAnimator.Play(
+                animations[i].animationClipName,
+                0,
+                1f
+            );
+
+            targetAnimator.Update(0f);
+
+            return;
+        }
+    }
+
     public void SetPrefabAnimator(
         Animator runtimeAnimator)
     {

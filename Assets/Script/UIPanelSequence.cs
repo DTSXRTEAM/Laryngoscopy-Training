@@ -46,12 +46,9 @@ public class UIPanelSequence : MonoBehaviour
         public string buttonText;
         public string backButtonText;
         public string tts;
-
         public string[] checkList;
-
         public bool showNextButton = true;
         public bool showBackButton = true;
-
         public ModelData[] models;
     }
 
@@ -62,32 +59,23 @@ public class UIPanelSequence : MonoBehaviour
     }
 
     private List<StepData> steps = new List<StepData>();
-
     private int currentIndex = 0;
-
-    private int checkedCount;
     private int totalChecklistItems;
-
     private string currentTTS = "";
-    private Coroutine replayCoroutine;
 
     void Start()
     {
         LoadJson();
-
         if (steps.Count > 0)
         {
-            ShowStep();
+            ShowStep(true);
         }
     }
 
     void LoadJson()
     {
-        StepContainer container =
-            JsonUtility.FromJson<StepContainer>(jsonFile.text);
-
+        StepContainer container = JsonUtility.FromJson<StepContainer>(jsonFile.text);
         steps.Clear();
-
         foreach (StepData step in container.steps)
         {
             steps.Add(step);
@@ -99,7 +87,7 @@ public class UIPanelSequence : MonoBehaviour
         if (currentIndex < steps.Count - 1)
         {
             currentIndex++;
-            ShowStep();
+            ShowStep(true);
         }
     }
 
@@ -108,11 +96,17 @@ public class UIPanelSequence : MonoBehaviour
         if (currentIndex > 0)
         {
             currentIndex--;
-            ShowStep();
+            StepData step = steps[currentIndex];
+            ShowStep(false);
+
+            if (animationController != null)
+            {
+                animationController.SetAnimationToLastFrame(step.heading);
+            }
         }
     }
 
-    void ShowStep()
+    void ShowStep(bool playAnimation = true)
     {
         StepData step = steps[currentIndex];
 
@@ -122,10 +116,7 @@ public class UIPanelSequence : MonoBehaviour
 
         if (backButtonText != null)
         {
-            backButtonText.text =
-                string.IsNullOrEmpty(step.backButtonText)
-                ? "Back"
-                : step.backButtonText;
+            backButtonText.text = string.IsNullOrEmpty(step.backButtonText) ? "Back" : step.backButtonText;
         }
 
         if (nextButton != null)
@@ -134,7 +125,7 @@ public class UIPanelSequence : MonoBehaviour
         if (backButton != null)
             backButton.gameObject.SetActive(step.showBackButton);
 
-        if (animationController != null)
+        if (animationController != null && playAnimation)
         {
             animationController.PlayAnimation(step.heading);
         }
@@ -143,20 +134,11 @@ public class UIPanelSequence : MonoBehaviour
 
         currentTTS = step.tts;
 
-        if (speaker != null)
-        {
-            speaker.Stop();
-
-            if (!string.IsNullOrEmpty(currentTTS))
-            {
-                speaker.Speak(currentTTS);
-            }
-        }
+        PlayTTS(currentTTS);
 
         if (replayButton != null)
         {
-            replayButton.interactable =
-                !string.IsNullOrEmpty(currentTTS);
+            replayButton.interactable = !string.IsNullOrEmpty(currentTTS);
         }
 
         if (modelManager != null && step.models != null)
@@ -165,41 +147,24 @@ public class UIPanelSequence : MonoBehaviour
         }
     }
 
+    private void PlayTTS(string text)
+    {
+        if (speaker == null || string.IsNullOrEmpty(text)) return;
+
+        // Stop any ongoing playback before speaking again
+        speaker.Stop();
+        // Use SpeakQueued to ensure smooth playback
+        speaker.SpeakQueued(text);
+    }
+
     public void ReplayTTS()
     {
         StepData step = steps[currentIndex];
-
-        // Replay animation
         if (animationController != null)
         {
             animationController.PlayAnimation(step.heading);
         }
-
-        // Replay audio
-        if (speaker == null)
-            return;
-
-        if (string.IsNullOrEmpty(currentTTS))
-            return;
-
-        if (replayCoroutine != null)
-        {
-            StopCoroutine(replayCoroutine);
-        }
-
-        replayCoroutine =
-            StartCoroutine(ReplayRoutine());
-    }
-
-    private IEnumerator ReplayRoutine()
-    {
-        speaker.Stop();
-
-        yield return null;
-
-        speaker.Speak(currentTTS);
-
-        replayCoroutine = null;
+        PlayTTS(currentTTS);
     }
 
     void GenerateChecklist(string[] list)
@@ -214,13 +179,10 @@ public class UIPanelSequence : MonoBehaviour
             Destroy(checklistParent2.GetChild(i).gameObject);
         }
 
-        checkedCount = 0;
-
         if (list == null || list.Length == 0)
         {
             checklistParent.gameObject.SetActive(false);
             checklistParent2.gameObject.SetActive(false);
-
             nextButton.interactable = true;
             return;
         }
@@ -234,29 +196,15 @@ public class UIPanelSequence : MonoBehaviour
 
             for (int i = 0; i < list.Length; i++)
             {
-                GameObject obj =
-                    Instantiate(
-                        checkboxPrefab,
-                        checklistParent);
+                GameObject obj = Instantiate(checkboxPrefab, checklistParent);
+                TMP_Text txt = obj.GetComponentInChildren<TMP_Text>();
+                if (txt != null) txt.text = list[i];
 
-                TMP_Text txt =
-                    obj.GetComponentInChildren<TMP_Text>();
-
-                if (txt != null)
-                    txt.text = list[i];
-
-                Toggle toggle =
-                    obj.GetComponentInChildren<Toggle>();
-
+                Toggle toggle = obj.GetComponentInChildren<Toggle>();
                 if (toggle != null)
                 {
                     toggle.isOn = false;
-
-                    toggle.onValueChanged.AddListener(
-                        delegate
-                        {
-                            CheckChecklistCompleted();
-                        });
+                    toggle.onValueChanged.AddListener(delegate { CheckChecklistCompleted(); });
                 }
             }
         }
@@ -267,29 +215,15 @@ public class UIPanelSequence : MonoBehaviour
 
             for (int i = 0; i < list.Length; i++)
             {
-                GameObject obj =
-                    Instantiate(
-                        checkboxPrefab2,
-                        checklistParent2);
+                GameObject obj = Instantiate(checkboxPrefab2, checklistParent2);
+                TMP_Text txt = obj.GetComponentInChildren<TMP_Text>();
+                if (txt != null) txt.text = list[i];
 
-                TMP_Text txt =
-                    obj.GetComponentInChildren<TMP_Text>();
-
-                if (txt != null)
-                    txt.text = list[i];
-
-                Toggle toggle =
-                    obj.GetComponentInChildren<Toggle>();
-
+                Toggle toggle = obj.GetComponentInChildren<Toggle>();
                 if (toggle != null)
                 {
                     toggle.isOn = false;
-
-                    toggle.onValueChanged.AddListener(
-                        delegate
-                        {
-                            CheckChecklistCompleted();
-                        });
+                    toggle.onValueChanged.AddListener(delegate { CheckChecklistCompleted(); });
                 }
             }
         }
@@ -302,31 +236,19 @@ public class UIPanelSequence : MonoBehaviour
     {
         int checkedItems = 0;
 
-        Toggle[] toggles1 =
-            checklistParent.GetComponentsInChildren<Toggle>(true);
-
+        Toggle[] toggles1 = checklistParent.GetComponentsInChildren<Toggle>(true);
         foreach (Toggle toggle in toggles1)
         {
-            if (toggle.isOn)
-                checkedItems++;
+            if (toggle.isOn) checkedItems++;
         }
 
-        Toggle[] toggles2 =
-            checklistParent2.GetComponentsInChildren<Toggle>(true);
-
+        Toggle[] toggles2 = checklistParent2.GetComponentsInChildren<Toggle>(true);
         foreach (Toggle toggle in toggles2)
         {
-            if (toggle.isOn)
-                checkedItems++;
+            if (toggle.isOn) checkedItems++;
         }
 
-        Debug.Log(
-            "Checked: " +
-            checkedItems +
-            " / " +
-            totalChecklistItems);
-
-        nextButton.interactable =
-            checkedItems >= totalChecklistItems;
+        Debug.Log("Checked: " + checkedItems + " / " + totalChecklistItems);
+        nextButton.interactable = checkedItems >= totalChecklistItems;
     }
 }
