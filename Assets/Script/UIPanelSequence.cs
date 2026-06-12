@@ -41,6 +41,7 @@ public class UIPanelSequence : MonoBehaviour
     [Serializable]
     public class StepData
     {
+        public int index;
         public string heading;
         public string content;
         public string buttonText;
@@ -49,6 +50,8 @@ public class UIPanelSequence : MonoBehaviour
         public string[] checkList;
         public bool showNextButton = true;
         public bool showBackButton = true;
+        public int nextIndex = -1;
+        public int backIndex = -1;
         public ModelData[] models;
     }
 
@@ -84,24 +87,28 @@ public class UIPanelSequence : MonoBehaviour
 
     public void NextPage()
     {
-        if (currentIndex < steps.Count - 1)
+        StepData step = steps[currentIndex];
+
+        if (step.nextIndex != -1 && step.nextIndex < steps.Count)
         {
-            currentIndex++;
+            currentIndex = step.nextIndex;
             ShowStep(true);
         }
     }
 
     public void PreviousPage()
     {
-        if (currentIndex > 0)
+        StepData step = steps[currentIndex];
+
+        if (step.backIndex != -1 && step.backIndex >= 0)
         {
-            currentIndex--;
-            StepData step = steps[currentIndex];
+            currentIndex = step.backIndex;
+            StepData previousStep = steps[currentIndex];
             ShowStep(false);
 
             if (animationController != null)
             {
-                animationController.SetAnimationToLastFrame(step.heading);
+                animationController.SetAnimationToLastFrame(previousStep.index);
             }
         }
     }
@@ -127,7 +134,7 @@ public class UIPanelSequence : MonoBehaviour
 
         if (animationController != null && playAnimation)
         {
-            animationController.PlayAnimation(step.heading);
+            animationController.PlayAnimation(step.index);
         }
 
         GenerateChecklist(step.checkList);
@@ -151,9 +158,7 @@ public class UIPanelSequence : MonoBehaviour
     {
         if (speaker == null || string.IsNullOrEmpty(text)) return;
 
-        // Stop any ongoing playback before speaking again
         speaker.Stop();
-        // Use SpeakQueued to ensure smooth playback
         speaker.SpeakQueued(text);
     }
 
@@ -162,7 +167,7 @@ public class UIPanelSequence : MonoBehaviour
         StepData step = steps[currentIndex];
         if (animationController != null)
         {
-            animationController.PlayAnimation(step.heading);
+            animationController.PlayAnimation(step.index);
         }
         PlayTTS(currentTTS);
     }

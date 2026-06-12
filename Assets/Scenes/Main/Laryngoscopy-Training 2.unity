@@ -8755,79 +8755,79 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HeadingAnimationController
   prefabAnimator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
   animations:
-  - headingName: Manikin Placement
+  - headingIndex: 1
     animator: {fileID: 42251006}
     usePrefabAnimator: 0
     animationClipName: QR
-  - headingName: "Stylet into the ET Tube\u200B"
+  - headingIndex: 4
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: ET Attachment
-  - headingName: Pick Up the Bag Valve Mask
+  - headingIndex: 5
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the bag valve mask
-  - headingName: 'Position the Bag Valve Mask:'
+  - headingIndex: 6
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Position the bag valve mask
-  - headingName: 'Perform Ventilation:'
+  - headingIndex: 7
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Press the bag valve mask
-  - headingName: Prepare for Laryngoscopy
+  - headingIndex: 8
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the bag valve mask
-  - headingName: 'Patient Positioning and Airway Preparation:'
+  - headingIndex: 9
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Head
-  - headingName: 'Laryngoscope Handling Technique:'
+  - headingIndex: 10
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the Laryngoscope
-  - headingName: Lift the Laryngoscope Handle
+  - headingIndex: 11
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Position the Laryngoscope
-  - headingName: Visualize the Vocal Cords
+  - headingIndex: 12
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Tilt the Laryngoscope
-  - headingName: 'Pick Up the Endotracheal Tube:'
+  - headingIndex: 13
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the ET Tube
-  - headingName: 'Insertion of ET tube:'
+  - headingIndex: 14
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Insert the ET Tube
-  - headingName: 'Remove the Laryngoscope and Stylet:'
+  - headingIndex: 16
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the Laryngoscope
-  - headingName: 'Inflate the Cuff:'
+  - headingIndex: 17
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Inflate the cuff
-  - headingName: "Prepare the Bag Valve Mask\u200B"
+  - headingIndex: 18
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the cap
-  - headingName: Ventilate Through the ET Tube
+  - headingIndex: 19
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Ventilate Through the ET Tube
-  - headingName: 'Pick the stethoscope:'
+  - headingIndex: 20
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: stethoscope
-  - headingName: 'Auscultation:'
+  - headingIndex: 21
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Hotspot
-  - headingName: 'Fixing the tube:'
+  - headingIndex: 23
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Fixing the Tape
@@ -40923,6 +40923,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1443948468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1692239047
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5649759525585026587, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+      propertyPath: m_Name
+      value: Manikin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.14917
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.11835
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.008726465
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.999962
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863782506323217274, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
 --- !u!114 &1692727253 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7488488265138925271, guid: 6c9e3c6a8d54cc64b89a4e7817249c16, type: 3}
@@ -73631,3 +73688,4 @@ SceneRoots:
   - {fileID: 99668086}
   - {fileID: 1640583289}
   - {fileID: 41214706}
+  - {fileID: 1692239047}

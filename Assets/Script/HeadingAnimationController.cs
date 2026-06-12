@@ -6,8 +6,8 @@ public class HeadingAnimationController : MonoBehaviour
     [Serializable]
     public class HeadingAnimation
     {
-        [Header("Heading")]
-        public string headingName;
+        [Header("Heading Index - matches JSON index")]
+        public int headingIndex;
 
         [Header("Animator")]
         public Animator animator;
@@ -22,16 +22,16 @@ public class HeadingAnimationController : MonoBehaviour
     [Header("Runtime Prefab Animator")]
     public Animator prefabAnimator;
 
-    [Header("Animations")]
+    [Header("Animations - Configure here in Inspector with heading indices 0-24")]
     public HeadingAnimation[] animations;
 
     private Animator lastAnimator;
 
-    public void PlayAnimation(string heading)
+    public void PlayAnimation(int headingIndex)
     {
         for (int i = 0; i < animations.Length; i++)
         {
-            if (animations[i].headingName != heading)
+            if (animations[i].headingIndex != headingIndex)
                 continue;
 
             Animator targetAnimator =
@@ -42,8 +42,8 @@ public class HeadingAnimationController : MonoBehaviour
             if (targetAnimator == null)
             {
                 Debug.LogWarning(
-                    "Animator Missing For : " +
-                    heading
+                    "Animator Missing For Index : " +
+                    headingIndex
                 );
                 return;
             }
@@ -62,20 +62,19 @@ public class HeadingAnimationController : MonoBehaviour
             );
 
             Debug.Log(
-                "Playing Animation : " +
-                animations[i].animationClipName
+                "Playing Animation For Index : " +
+                headingIndex
             );
 
             return;
         }
     }
 
-    public void SetAnimationToLastFrame(
-        string heading)
+    public void SetAnimationToLastFrame(int headingIndex)
     {
         for (int i = 0; i < animations.Length; i++)
         {
-            if (animations[i].headingName != heading)
+            if (animations[i].headingIndex != headingIndex)
                 continue;
 
             Animator targetAnimator =
@@ -100,8 +99,7 @@ public class HeadingAnimationController : MonoBehaviour
         }
     }
 
-    public void SetPrefabAnimator(
-        Animator runtimeAnimator)
+    public void SetPrefabAnimator(Animator runtimeAnimator)
     {
         prefabAnimator = runtimeAnimator;
     }
