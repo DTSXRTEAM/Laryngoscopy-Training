@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +13,11 @@ public class UIPanelSequence : MonoBehaviour
     public TMP_Text nextButtonText;
     public TMP_Text backButtonText;
 
+    [Header("Alternate UI for Step 3")]
+    public TMP_Text contentText2;             // extra text transform
+    public Transform checklistParent3;        // extra checklist parent
+    public GameObject checkboxPrefab3;        // prefab for step 3 checklist
+
     [Header("Models")]
     public ModelManager modelManager;
 
@@ -25,7 +29,6 @@ public class UIPanelSequence : MonoBehaviour
     [Header("Checklist")]
     public Transform checklistParent;
     public Transform checklistParent2;
-
     public GameObject checkboxPrefab;
     public GameObject checkboxPrefab2;
 
@@ -53,6 +56,10 @@ public class UIPanelSequence : MonoBehaviour
         public int nextIndex = -1;
         public int backIndex = -1;
         public ModelData[] models;
+
+        // flags for alternate UI
+        public bool useAlternateContent = false;
+        public bool useAlternateChecklist = false;
     }
 
     [Serializable]
@@ -88,7 +95,6 @@ public class UIPanelSequence : MonoBehaviour
     public void NextPage()
     {
         StepData step = steps[currentIndex];
-
         if (step.nextIndex != -1 && step.nextIndex < steps.Count)
         {
             currentIndex = step.nextIndex;
@@ -99,7 +105,6 @@ public class UIPanelSequence : MonoBehaviour
     public void PreviousPage()
     {
         StepData step = steps[currentIndex];
-
         if (step.backIndex != -1 && step.backIndex >= 0)
         {
             currentIndex = step.backIndex;
@@ -108,16 +113,13 @@ public class UIPanelSequence : MonoBehaviour
 
             if (animationController != null)
             {
-                // Distinguish between Back vs Incorrect
                 if (!string.IsNullOrEmpty(step.backButtonText) &&
                     step.backButtonText.Equals("Incorrect", StringComparison.OrdinalIgnoreCase))
                 {
-                    // Replay animation when branching to Incorrect
                     animationController.PlayAnimation(previousStep.index);
                 }
                 else
                 {
-                    // Freeze animation at last frame for normal Back
                     animationController.SetAnimationToLastFrame(previousStep.index);
                 }
             }
@@ -129,45 +131,48 @@ public class UIPanelSequence : MonoBehaviour
         StepData step = steps[currentIndex];
 
         headingText.text = step.heading;
-        contentText.text = step.content;
-        nextButtonText.text = step.buttonText;
 
-        if (backButtonText != null)
+        // use alternate content for index 3
+        if (step.useAlternateContent && contentText2 != null)
         {
-            backButtonText.text = string.IsNullOrEmpty(step.backButtonText) ? "Back" : step.backButtonText;
+            contentText.gameObject.SetActive(false);
+            contentText2.gameObject.SetActive(true);
+            contentText2.text = step.content;
         }
+        else
+        {
+            contentText.gameObject.SetActive(true);
+            if (contentText2 != null) contentText2.gameObject.SetActive(false);
+            contentText.text = step.content;
+        }
+
+        nextButtonText.text = step.buttonText;
+        if (backButtonText != null)
+            backButtonText.text = string.IsNullOrEmpty(step.backButtonText) ? "Back" : step.backButtonText;
 
         if (nextButton != null)
             nextButton.gameObject.SetActive(step.showNextButton);
-
         if (backButton != null)
             backButton.gameObject.SetActive(step.showBackButton);
 
         if (animationController != null && playAnimation)
-        {
             animationController.PlayAnimation(step.index);
-        }
 
-        GenerateChecklist(step.checkList);
+        GenerateChecklist(step);
 
         currentTTS = step.tts;
         PlayTTS(currentTTS);
 
         if (replayButton != null)
-        {
             replayButton.interactable = !string.IsNullOrEmpty(currentTTS);
-        }
 
         if (modelManager != null && step.models != null)
-        {
             modelManager.ShowModels(step.models);
-        }
     }
 
     private void PlayTTS(string text)
     {
         if (speaker == null || string.IsNullOrEmpty(text)) return;
-
         speaker.Stop();
         speaker.SpeakQueued(text);
     }
@@ -176,44 +181,62 @@ public class UIPanelSequence : MonoBehaviour
     {
         StepData step = steps[currentIndex];
         if (animationController != null)
-        {
             animationController.PlayAnimation(step.index);
-        }
         PlayTTS(currentTTS);
     }
 
-    void GenerateChecklist(string[] list)
+    void GenerateChecklist(StepData step)
     {
-        for (int i = checklistParent.childCount - 1; i >= 0; i--)
-        {
-            Destroy(checklistParent.GetChild(i).gameObject);
-        }
+        // clear all parents
+        foreach (Transform child in checklistParent) Destroy(child.gameObject);
+        foreach (Transform child in checklistParent2) Destroy(child.gameObject);
+        if (checklistParent3 != null)
+            foreach (Transform child in checklistParent3) Destroy(child.gameObject);
 
-        for (int i = checklistParent2.childCount - 1; i >= 0; i--)
-        {
-            Destroy(checklistParent2.GetChild(i).gameObject);
-        }
-
-        if (list == null || list.Length == 0)
+        if (step.checkList == null || step.checkList.Length == 0)
         {
             checklistParent.gameObject.SetActive(false);
             checklistParent2.gameObject.SetActive(false);
+            if (checklistParent3 != null) checklistParent3.gameObject.SetActive(false);
             nextButton.interactable = true;
             return;
         }
 
-        totalChecklistItems = list.Length;
+        totalChecklistItems = step.checkList.Length;
+        nextButton.interactable = false;
 
-        if (list.Length <= 2)
+        // alternate checklist for index 3
+        if (step.useAlternateChecklist && checklistParent3 != null)
+        {
+            checklistParent.gameObject.SetActive(false);
+            checklistParent2.gameObject.SetActive(false);
+            checklistParent3.gameObject.SetActive(true);
+
+            foreach (string item in step.checkList)
+            {
+                GameObject obj = Instantiate(checkboxPrefab3, checklistParent3);
+                TMP_Text txt = obj.GetComponentInChildren<TMP_Text>();
+                if (txt != null) txt.text = item;
+
+                Toggle toggle = obj.GetComponentInChildren<Toggle>();
+                if (toggle != null)
+                {
+                    toggle.isOn = false;
+                    toggle.onValueChanged.AddListener(delegate { CheckChecklistCompleted(); });
+                }
+            }
+        }
+        else if (step.checkList.Length <= 2)
         {
             checklistParent.gameObject.SetActive(true);
             checklistParent2.gameObject.SetActive(false);
+            if (checklistParent3 != null) checklistParent3.gameObject.SetActive(false);
 
-            for (int i = 0; i < list.Length; i++)
+            foreach (string item in step.checkList)
             {
                 GameObject obj = Instantiate(checkboxPrefab, checklistParent);
                 TMP_Text txt = obj.GetComponentInChildren<TMP_Text>();
-                if (txt != null) txt.text = list[i];
+                if (txt != null) txt.text = item;
 
                 Toggle toggle = obj.GetComponentInChildren<Toggle>();
                 if (toggle != null)
@@ -227,12 +250,13 @@ public class UIPanelSequence : MonoBehaviour
         {
             checklistParent.gameObject.SetActive(false);
             checklistParent2.gameObject.SetActive(true);
+            if (checklistParent3 != null) checklistParent3.gameObject.SetActive(false);
 
-            for (int i = 0; i < list.Length; i++)
+            foreach (string item in step.checkList)
             {
                 GameObject obj = Instantiate(checkboxPrefab2, checklistParent2);
                 TMP_Text txt = obj.GetComponentInChildren<TMP_Text>();
-                if (txt != null) txt.text = list[i];
+                if (txt != null) txt.text = item;
 
                 Toggle toggle = obj.GetComponentInChildren<Toggle>();
                 if (toggle != null)
@@ -242,9 +266,6 @@ public class UIPanelSequence : MonoBehaviour
                 }
             }
         }
-
-        nextButton.interactable = false;
-        CheckChecklistCompleted();
     }
 
     private void CheckChecklistCompleted()
@@ -252,18 +273,17 @@ public class UIPanelSequence : MonoBehaviour
         int checkedItems = 0;
 
         Toggle[] toggles1 = checklistParent.GetComponentsInChildren<Toggle>(true);
-        foreach (Toggle toggle in toggles1)
-        {
-            if (toggle.isOn) checkedItems++;
-        }
+        foreach (Toggle toggle in toggles1) if (toggle.isOn) checkedItems++;
 
         Toggle[] toggles2 = checklistParent2.GetComponentsInChildren<Toggle>(true);
-        foreach (Toggle toggle in toggles2)
+        foreach (Toggle toggle in toggles2) if (toggle.isOn) checkedItems++;
+
+        if (checklistParent3 != null)
         {
-            if (toggle.isOn) checkedItems++;
+            Toggle[] toggles3 = checklistParent3.GetComponentsInChildren<Toggle>(true);
+            foreach (Toggle toggle in toggles3) if (toggle.isOn) checkedItems++;
         }
 
-        Debug.Log("Checked: " + checkedItems + " / " + totalChecklistItems);
-        nextButton.interactable = checkedItems >= totalChecklistItems;
+        nextButton.interactable = (checkedItems >= totalChecklistItems);
     }
 }

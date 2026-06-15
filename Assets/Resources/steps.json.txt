@@ -74,42 +74,24 @@
         }
       ]
     },
-    {
-      "index": 3,
-      "heading": "Equipment required:",
-      "content": "",
-      "buttonText": "Start",
-      "backButtonText": "Back",
-      "showNextButton": true,
-      "showBackButton": true,
-      "tts": "Once all checkboxes are selected, all equipment is ready",
-      "nextIndex": 4,
-      "backIndex": 2,
-      "checkList": [
-        "Manikin",
-        "Macintosh Blade (Curved)",
-        "Endotracheal Tube (ET Tube)",
-        "Stylet",
-        "Bag Valve Mask (BVM)",
-        "Tape",
-        "Syringe",
-        "Stethoscope"
-      ],
-      "models": [
-        {
-          "address": "EtTube",
-          "position": [0, 0, 0]
-        },
-        {
-          "address": "Stylet",
-          "position": [0, 0, 0]
-        },
-        {
-          "address": "Syringe",
-          "position": [0, 0, 0]
-        }
-      ]
-    },
+  {
+  "index": 3,
+  "heading": "Equipment required:",
+  "content": "Manikin,\nMacintosh Blade (Curved),\nEndotracheal Tube (ET Tube) and Syringe,\nStylet,\nBag Valve Mask (BVM),\nTape,\nStethoscope.",
+  "buttonText": "Start",
+  "backButtonText": "Back",
+  "showNextButton": true,
+  "showBackButton": true,
+  "tts": "Please confirm that all required equipment is present before proceeding.",
+  "nextIndex": 4,
+  "backIndex": 2,
+  "checkList": [
+    "Ensure all equipment is present"
+  ],
+  "useAlternateContent": true,
+  "useAlternateChecklist": true
+},
+
     {
       "index": 4,
       "heading": "Stylet into the ET Tube",

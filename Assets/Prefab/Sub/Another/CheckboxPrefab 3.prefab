@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3139987902600827901}
   - component: {fileID: 4148069550322876859}
   m_Layer: 5
-  m_Name: CheckboxPrefab 1
+  m_Name: CheckboxPrefab 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
