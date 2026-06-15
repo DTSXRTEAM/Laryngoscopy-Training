@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Sub/Training_Treatment_List.unity
-    guid: f302de7024726eb4e9e27337e581184c
-  - enabled: 1
     path: Assets/Scenes/Main/Laryngoscopy-Training 2.unity
     guid: 41d87aee5330c1b4ba3a2befe8af7af6
   m_configObjects:

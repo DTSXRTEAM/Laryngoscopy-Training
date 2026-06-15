@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 public class HeadingAnimationController : MonoBehaviour
@@ -9,7 +9,7 @@ public class HeadingAnimationController : MonoBehaviour
         [Header("Heading Index - matches JSON index")]
         public int headingIndex;
 
-        [Header("Animator")]
+        [Header("Animator (leave empty if using prefabAnimator)")]
         public Animator animator;
 
         [Header("Use Runtime Prefab Animator")]
@@ -22,85 +22,68 @@ public class HeadingAnimationController : MonoBehaviour
     [Header("Runtime Prefab Animator")]
     public Animator prefabAnimator;
 
-    [Header("Animations - Configure here in Inspector with heading indices 0-24")]
+    [Header("Animations - Configure here in Inspector")]
     public HeadingAnimation[] animations;
 
     private Animator lastAnimator;
 
+    /// <summary>
+    /// Plays the animation for the given heading index.
+    /// </summary>
     public void PlayAnimation(int headingIndex)
     {
-        for (int i = 0; i < animations.Length; i++)
+        foreach (var anim in animations)
         {
-            if (animations[i].headingIndex != headingIndex)
-                continue;
+            if (anim.headingIndex != headingIndex) continue;
 
-            Animator targetAnimator =
-                animations[i].usePrefabAnimator
-                ? prefabAnimator
-                : animations[i].animator;
+            Animator targetAnimator = anim.usePrefabAnimator ? prefabAnimator : anim.animator;
 
             if (targetAnimator == null)
             {
-                Debug.LogWarning(
-                    "Animator Missing For Index : " +
-                    headingIndex
-                );
+                Debug.LogWarning("Animator Missing For Index : " + headingIndex);
                 return;
             }
 
             lastAnimator = targetAnimator;
 
             targetAnimator.enabled = true;
-
             targetAnimator.Rebind();
             targetAnimator.Update(0f);
 
-            targetAnimator.Play(
-                animations[i].animationClipName,
-                0,
-                0f
-            );
+            targetAnimator.Play(anim.animationClipName, 0, 0f);
 
-            Debug.Log(
-                "Playing Animation For Index : " +
-                headingIndex
-            );
-
+            Debug.Log("Playing Animation For Index : " + headingIndex);
             return;
         }
     }
 
+    /// <summary>
+    /// Sets the animation to its last frame for the given heading index.
+    /// </summary>
     public void SetAnimationToLastFrame(int headingIndex)
     {
-        for (int i = 0; i < animations.Length; i++)
+        foreach (var anim in animations)
         {
-            if (animations[i].headingIndex != headingIndex)
-                continue;
+            if (anim.headingIndex != headingIndex) continue;
 
-            Animator targetAnimator =
-                animations[i].usePrefabAnimator
-                ? prefabAnimator
-                : animations[i].animator;
+            Animator targetAnimator = anim.usePrefabAnimator ? prefabAnimator : anim.animator;
 
-            if (targetAnimator == null)
-                return;
+            if (targetAnimator == null) return;
 
             targetAnimator.enabled = true;
-
-            targetAnimator.Play(
-                animations[i].animationClipName,
-                0,
-                1f
-            );
-
+            targetAnimator.Play(anim.animationClipName, 0, 1f);
             targetAnimator.Update(0f);
 
             return;
         }
     }
 
+    /// <summary>
+    /// Assigns a runtime animator (e.g., from a prefab instance).
+    /// </summary>
     public void SetPrefabAnimator(Animator runtimeAnimator)
     {
         prefabAnimator = runtimeAnimator;
     }
 }
+    

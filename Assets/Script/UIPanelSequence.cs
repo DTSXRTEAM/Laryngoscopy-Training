@@ -108,7 +108,18 @@ public class UIPanelSequence : MonoBehaviour
 
             if (animationController != null)
             {
-                animationController.SetAnimationToLastFrame(previousStep.index);
+                // Distinguish between Back vs Incorrect
+                if (!string.IsNullOrEmpty(step.backButtonText) &&
+                    step.backButtonText.Equals("Incorrect", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Replay animation when branching to Incorrect
+                    animationController.PlayAnimation(previousStep.index);
+                }
+                else
+                {
+                    // Freeze animation at last frame for normal Back
+                    animationController.SetAnimationToLastFrame(previousStep.index);
+                }
             }
         }
     }
@@ -140,7 +151,6 @@ public class UIPanelSequence : MonoBehaviour
         GenerateChecklist(step.checkList);
 
         currentTTS = step.tts;
-
         PlayTTS(currentTTS);
 
         if (replayButton != null)
