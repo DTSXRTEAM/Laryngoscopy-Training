@@ -17,19 +17,22 @@ public class HeadingAnimationController : MonoBehaviour
 
         [Header("Animation State Name")]
         public string animationClipName;
+
+        [Header("Enable GameObject for this step?")]
+        public bool enableObject;
     }
 
     [Header("Runtime Prefab Animator")]
     public Animator prefabAnimator;
+
+    [Header("Single Target GameObject")]
+    public GameObject targetObject;
 
     [Header("Animations - Configure here in Inspector")]
     public HeadingAnimation[] animations;
 
     private Animator lastAnimator;
 
-    /// <summary>
-    /// Plays the animation for the given heading index.
-    /// </summary>
     public void PlayAnimation(int headingIndex)
     {
         foreach (var anim in animations)
@@ -38,28 +41,23 @@ public class HeadingAnimationController : MonoBehaviour
 
             Animator targetAnimator = anim.usePrefabAnimator ? prefabAnimator : anim.animator;
 
-            if (targetAnimator == null)
+            if (targetAnimator != null)
             {
-                Debug.LogWarning("Animator Missing For Index : " + headingIndex);
-                return;
+                lastAnimator = targetAnimator;
+                targetAnimator.enabled = true;
+                targetAnimator.Rebind();
+                targetAnimator.Update(0f);
+                targetAnimator.Play(anim.animationClipName, 0, 0f);
             }
 
-            lastAnimator = targetAnimator;
+            // Toggle the single GameObject
+            if (targetObject != null)
+                targetObject.SetActive(anim.enableObject);
 
-            targetAnimator.enabled = true;
-            targetAnimator.Rebind();
-            targetAnimator.Update(0f);
-
-            targetAnimator.Play(anim.animationClipName, 0, 0f);
-
-            Debug.Log("Playing Animation For Index : " + headingIndex);
             return;
         }
     }
 
-    /// <summary>
-    /// Sets the animation to its last frame for the given heading index.
-    /// </summary>
     public void SetAnimationToLastFrame(int headingIndex)
     {
         foreach (var anim in animations)
@@ -68,22 +66,23 @@ public class HeadingAnimationController : MonoBehaviour
 
             Animator targetAnimator = anim.usePrefabAnimator ? prefabAnimator : anim.animator;
 
-            if (targetAnimator == null) return;
+            if (targetAnimator != null)
+            {
+                targetAnimator.enabled = true;
+                targetAnimator.Play(anim.animationClipName, 0, 1f);
+                targetAnimator.Update(0f);
+            }
 
-            targetAnimator.enabled = true;
-            targetAnimator.Play(anim.animationClipName, 0, 1f);
-            targetAnimator.Update(0f);
+            // Toggle the single GameObject
+            if (targetObject != null)
+                targetObject.SetActive(anim.enableObject);
 
             return;
         }
     }
 
-    /// <summary>
-    /// Assigns a runtime animator (e.g., from a prefab instance).
-    /// </summary>
     public void SetPrefabAnimator(Animator runtimeAnimator)
     {
         prefabAnimator = runtimeAnimator;
     }
 }
-    

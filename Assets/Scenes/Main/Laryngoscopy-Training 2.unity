@@ -8980,99 +8980,133 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeadingAnimationController
   prefabAnimator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+  targetObject: {fileID: 1014535029}
   animations:
+  - headingIndex: 0
+    animator: {fileID: 0}
+    usePrefabAnimator: 0
+    animationClipName: 
+    enableObject: 0
   - headingIndex: 1
     animator: {fileID: 42251006}
     usePrefabAnimator: 0
     animationClipName: QR
+    enableObject: 1
+  - headingIndex: 2
+    animator: {fileID: 0}
+    usePrefabAnimator: 0
+    animationClipName: 
+    enableObject: 0
   - headingIndex: 4
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: ET Attachment
+    enableObject: 0
   - headingIndex: 5
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the bag valve mask
+    enableObject: 1
   - headingIndex: 6
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Position the bag valve mask
+    enableObject: 0
   - headingIndex: 7
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Press the bag valve mask
+    enableObject: 0
   - headingIndex: 8
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the bag valve mask
+    enableObject: 0
   - headingIndex: 9
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Head
+    enableObject: 0
   - headingIndex: 10
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the Laryngoscope
+    enableObject: 0
   - headingIndex: 11
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Position the Laryngoscope
+    enableObject: 0
   - headingIndex: 12
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Tilt the Laryngoscope
+    enableObject: 0
   - headingIndex: 13
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the ET Tube
+    enableObject: 0
   - headingIndex: 14
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Insert the ET Tube
+    enableObject: 0
   - headingIndex: 16
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the Laryngoscope
+    enableObject: 0
   - headingIndex: 17
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Inflate the cuff
+    enableObject: 0
   - headingIndex: 18
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the cap
+    enableObject: 0
   - headingIndex: 19
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Ventilate Through the ET Tube
+    enableObject: 0
   - headingIndex: 20
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: stethoscope
+    enableObject: 0
   - headingIndex: 21
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Hotspot
+    enableObject: 0
   - headingIndex: 23
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Fixing the Tape
+    enableObject: 0
   - headingIndex: 25
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Deflate the cuff
+    enableObject: 0
   - headingIndex: 26
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: stethoscope
+    enableObject: 0
   - headingIndex: 27
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Hotspot
+    enableObject: 0
   - headingIndex: 29
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Fixing the Tape
+    enableObject: 0
 --- !u!4 &318764122
 Transform:
   m_ObjectHideFlags: 0
@@ -25007,6 +25041,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 516446422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1014535029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1469819251142922315, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
+  m_PrefabInstance: {fileID: 233149680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1018909981
 GameObject:
   m_ObjectHideFlags: 0
