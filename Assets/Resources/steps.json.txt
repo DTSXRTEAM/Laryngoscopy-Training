@@ -3,6 +3,7 @@
     {
       "index": 0,
       "heading": "Introduction",
+      "videoName": "Introduction.mp4",
       "content": "Laryngoscopy is a medical procedure used to examine and treat conditions affecting the larynx, including the vocal cords. It helps clinicians diagnose voice disorders, breathing difficulties, and throat abnormalities with precision. The procedure also supports targeted interventions such as biopsy, lesion removal, and airway management, making it an essential tool in ENT care.",
       "buttonText": "Next",
       "backButtonText": "Back",
@@ -29,6 +30,7 @@
     {
       "index": 1,
       "heading": "Manikin Placement",
+      "videoName": "ManikinPlacement.mp4",
       "content": "Lift the manikin from the tools table and place it on the worktable. Then scan the QR code to anchor the virtual manikin.",
       "buttonText": "Next",
       "backButtonText": "Back",
@@ -47,6 +49,7 @@
     {
       "index": 2,
       "heading": "Equipment required:",
+      "videoName": "Equipment.mp4",
       "content": "",
       "buttonText": "Continue",
       "backButtonText": "Back",

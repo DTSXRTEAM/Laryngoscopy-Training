@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Meta.WitAi.TTS.Utilities;
+using UnityEngine.Video;
 
 public class UIPanelSequence : MonoBehaviour
 {
@@ -41,6 +42,9 @@ public class UIPanelSequence : MonoBehaviour
     [Header("JSON")]
     public TextAsset jsonFile;
 
+    [Header("Video")]
+    public VideoPlayer videoPlayer;
+
     [Serializable]
     public class StepData
     {
@@ -60,6 +64,8 @@ public class UIPanelSequence : MonoBehaviour
         // flags for alternate UI
         public bool useAlternateContent = false;
         public bool useAlternateChecklist = false;
+
+        public string videoName;
     }
 
     [Serializable]
@@ -168,6 +174,8 @@ public class UIPanelSequence : MonoBehaviour
 
         if (modelManager != null && step.models != null)
             modelManager.ShowModels(step.models);
+
+        PlayVideo(step.videoName);
     }
 
     private void PlayTTS(string text)
@@ -286,4 +294,28 @@ public class UIPanelSequence : MonoBehaviour
 
         nextButton.interactable = (checkedItems >= totalChecklistItems);
     }
+
+    private void PlayVideo(string videoName)
+{
+    if (videoPlayer == null || string.IsNullOrEmpty(videoName))
+        return;
+
+    string path = System.IO.Path.Combine(
+        Application.streamingAssetsPath,
+        "Videos",
+        videoName
+    );
+
+    videoPlayer.Stop();
+    videoPlayer.url = path;
+    videoPlayer.Prepare();
+
+    videoPlayer.prepareCompleted += OnVideoPrepared;
+}
+
+private void OnVideoPrepared(VideoPlayer vp)
+{
+    vp.prepareCompleted -= OnVideoPrepared;
+    vp.Play();
+}
 }

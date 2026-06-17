@@ -5084,6 +5084,7 @@ MonoBehaviour:
   animationController: {fileID: 318764121}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
+  videoPlayer: {fileID: 0}
 --- !u!114 &174671367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6830,7 +6831,11 @@ PrefabInstance:
     - target: {fileID: 7232414903779727741, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 072afc8096e69f448813e386476a1271, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232414903779727741, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
+      propertyPath: m_DataSource
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7694973739705644613, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -17056,6 +17061,7 @@ MonoBehaviour:
   animationController: {fileID: 0}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
+  videoPlayer: {fileID: 0}
 --- !u!114 &643813849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25075,6 +25081,7 @@ MonoBehaviour:
   animationController: {fileID: 318764121}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
+  videoPlayer: {fileID: 0}
 --- !u!114 &1018909984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36954,6 +36961,7 @@ MonoBehaviour:
   animationController: {fileID: 0}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
+  videoPlayer: {fileID: 0}
 --- !u!114 &1513953247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42285,6 +42293,7 @@ MonoBehaviour:
   animationController: {fileID: 0}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
+  videoPlayer: {fileID: 0}
 --- !u!114 &1732473009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48287,6 +48296,7 @@ MonoBehaviour:
   animationController: {fileID: 0}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
+  videoPlayer: {fileID: 0}
 --- !u!114 &1986587609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51698,6 +51708,7 @@ MonoBehaviour:
   animationController: {fileID: 318764121}
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
+  videoPlayer: {fileID: 192509702}
 --- !u!114 &2144630675
 MonoBehaviour:
   m_ObjectHideFlags: 0
