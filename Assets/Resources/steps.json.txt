@@ -77,7 +77,7 @@
   {
   "index": 3,
   "heading": "Equipment required:",
-  "content": "Manikin,\nMacintosh Blade (Curved),\nEndotracheal Tube (ET Tube) and Syringe,\nStylet,\nBag Valve Mask (BVM),\nTape,\nStethoscope.",
+  "content": "•  Manikin \n•  Macintosh Blade (Curved) \n•  Endotracheal Tube (ET Tube) and Syringe \n•  Stylet \n•  Bag Valve Mask (BVM) \n•  Tape \n•  Stethoscope.",
   "buttonText": "Start",
   "backButtonText": "Back",
   "showNextButton": true,
