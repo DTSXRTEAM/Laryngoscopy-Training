@@ -138,7 +138,7 @@ public class UIPanelSequence : MonoBehaviour
 
         headingText.text = step.heading;
 
-        // use alternate content for index 3
+        // Alternate content handling
         if (step.useAlternateContent && contentText2 != null)
         {
             contentText.gameObject.SetActive(false);
@@ -161,6 +161,21 @@ public class UIPanelSequence : MonoBehaviour
         if (backButton != null)
             backButton.gameObject.SetActive(step.showBackButton);
 
+        // ✅ Special rule for index 28
+        if (step.index == 28 && backButton != null)
+        {
+            backButton.interactable = false; // disable interaction
+            ColorBlock colors = backButton.colors;
+            colors.normalColor = new Color(0.5f, 0.5f, 0.5f); // dim gray
+            colors.highlightedColor = new Color(0.5f, 0.5f, 0.5f);
+            colors.pressedColor = new Color(0.5f, 0.5f, 0.5f);
+            backButton.colors = colors;
+        }
+        else if (backButton != null)
+        {
+            backButton.interactable = step.showBackButton; // default behavior
+        }
+
         if (animationController != null && playAnimation)
             animationController.PlayAnimation(step.index);
 
@@ -177,6 +192,7 @@ public class UIPanelSequence : MonoBehaviour
 
         PlayVideo(step.videoName);
     }
+
 
     private void PlayTTS(string text)
     {
