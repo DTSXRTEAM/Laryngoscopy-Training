@@ -8997,6 +8997,11 @@ MonoBehaviour:
     usePrefabAnimator: 0
     animationClipName: 
     enableObject: 0
+  - headingIndex: 3
+    animator: {fileID: 0}
+    usePrefabAnimator: 0
+    animationClipName: 
+    enableObject: 0
   - headingIndex: 4
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
@@ -9052,6 +9057,11 @@ MonoBehaviour:
     usePrefabAnimator: 1
     animationClipName: Insert the ET Tube
     enableObject: 0
+  - headingIndex: 15
+    animator: {fileID: 0}
+    usePrefabAnimator: 0
+    animationClipName: 
+    enableObject: 0
   - headingIndex: 16
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
@@ -9082,10 +9092,20 @@ MonoBehaviour:
     usePrefabAnimator: 1
     animationClipName: Hotspot
     enableObject: 0
+  - headingIndex: 22
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Breath Sound
+    enableObject: 0
   - headingIndex: 23
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Fixing the Tape
+    enableObject: 0
+  - headingIndex: 24
+    animator: {fileID: 0}
+    usePrefabAnimator: 0
+    animationClipName: 
     enableObject: 0
   - headingIndex: 25
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
@@ -9095,20 +9115,25 @@ MonoBehaviour:
   - headingIndex: 26
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
-    animationClipName: stethoscope
+    animationClipName: Deflate Stet
     enableObject: 0
   - headingIndex: 27
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
-    animationClipName: Hotspot
+    animationClipName: Deflate Ausculation
+    enableObject: 0
+  - headingIndex: 28
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 1
+    animationClipName: Deflate Breath
     enableObject: 0
   - headingIndex: 29
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
-    animationClipName: Fixing the Tape
+    animationClipName: Deflate Tube
     enableObject: 0
-  - headingIndex: 3
-    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+  - headingIndex: 0
+    animator: {fileID: 0}
     usePrefabAnimator: 0
     animationClipName: 
     enableObject: 0
