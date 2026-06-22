@@ -8983,7 +8983,7 @@ MonoBehaviour:
   targetObject: {fileID: 1014535029}
   animations:
   - headingIndex: 0
-    animator: {fileID: 0}
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 0
     animationClipName: 
     enableObject: 0
@@ -9106,6 +9106,11 @@ MonoBehaviour:
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Fixing the Tape
+    enableObject: 0
+  - headingIndex: 3
+    animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+    usePrefabAnimator: 0
+    animationClipName: 
     enableObject: 0
 --- !u!4 &318764122
 Transform:
@@ -41537,6 +41542,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5127195292781394547, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5649759525585026587, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
       propertyPath: m_Name
       value: Manikin
