@@ -54357,7 +54357,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f768a254bd44a0c4ca64d1e3164a0a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerManager
-  delay: 0.5
+  disableDelay: 3
+  greenMaterial: {fileID: 2100000, guid: ec5fbf967c4cdba48a6976ee44bcfc07, type: 2}
+  redMaterial: {fileID: 2100000, guid: 45e621b7412622b4d811bfe0fe7b1d5f, type: 2}
+  greenAudio: {fileID: 8300000, guid: 37a6a8b0fb0bfca4a9b7623c35b4c4a2, type: 3}
+  redAudio: {fileID: 8300000, guid: 6563b50a19a616142a1a693d7c0259cb, type: 3}
 --- !u!114 &868998224410226382
 MonoBehaviour:
   m_ObjectHideFlags: 0

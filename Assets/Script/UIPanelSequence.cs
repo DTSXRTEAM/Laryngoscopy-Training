@@ -138,7 +138,7 @@ public class UIPanelSequence : MonoBehaviour
 
         headingText.text = step.heading;
 
-        // Alternate content handling
+        // Content handling
         if (step.useAlternateContent && contentText2 != null)
         {
             contentText.gameObject.SetActive(false);
@@ -161,19 +161,28 @@ public class UIPanelSequence : MonoBehaviour
         if (backButton != null)
             backButton.gameObject.SetActive(step.showBackButton);
 
-        // ✅ Special rule for index 28
+        // ✅ Special rules
         if (step.index == 28 && backButton != null)
         {
-            backButton.interactable = false; // disable interaction
+            backButton.interactable = false; // disabled
             ColorBlock colors = backButton.colors;
-            colors.normalColor = new Color(0.5f, 0.5f, 0.5f); // dim gray
-            colors.highlightedColor = new Color(0.5f, 0.5f, 0.5f);
-            colors.pressedColor = new Color(0.5f, 0.5f, 0.5f);
+            colors.normalColor = new Color(0.7f, 0.7f, 0.7f); // dim like Continue button
+            colors.highlightedColor = colors.normalColor;
+            colors.pressedColor = colors.normalColor;
+            backButton.colors = colors;
+        }
+        else if (step.index == 29 && backButton != null)
+        {
+            backButton.interactable = true; // active
+            ColorBlock colors = backButton.colors;
+            colors.normalColor = nextButton.colors.normalColor; // match Next button
+            colors.highlightedColor = nextButton.colors.highlightedColor;
+            colors.pressedColor = nextButton.colors.pressedColor;
             backButton.colors = colors;
         }
         else if (backButton != null)
         {
-            backButton.interactable = step.showBackButton; // default behavior
+            backButton.interactable = step.showBackButton; // default
         }
 
         if (animationController != null && playAnimation)
@@ -192,6 +201,7 @@ public class UIPanelSequence : MonoBehaviour
 
         PlayVideo(step.videoName);
     }
+
 
 
     private void PlayTTS(string text)
