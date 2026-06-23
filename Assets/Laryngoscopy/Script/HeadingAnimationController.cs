@@ -20,6 +20,9 @@ public class HeadingAnimationController : MonoBehaviour
 
         [Header("Enable GameObject for this step?")]
         public bool enableObject;
+
+        [Header("Delay before playing (seconds)")]
+        public float delayTime = 0f;
     }
 
     [Header("Runtime Prefab Animator")]
@@ -33,31 +36,45 @@ public class HeadingAnimationController : MonoBehaviour
 
     private Animator lastAnimator;
 
+    /// <summary>
+    /// Plays the animation for the given heading index after its delay.
+    /// </summary>
     public void PlayAnimation(int headingIndex)
     {
         foreach (var anim in animations)
         {
             if (anim.headingIndex != headingIndex) continue;
 
-            Animator targetAnimator = anim.usePrefabAnimator ? prefabAnimator : anim.animator;
-
-            if (targetAnimator != null)
-            {
-                lastAnimator = targetAnimator;
-                targetAnimator.enabled = true;
-                targetAnimator.Rebind();
-                targetAnimator.Update(0f);
-                targetAnimator.Play(anim.animationClipName, 0, 0f);
-            }
-
-            // Toggle the single GameObject
+            // Toggle the single GameObject immediately
             if (targetObject != null)
                 targetObject.SetActive(anim.enableObject);
 
+            // Start coroutine for delayed animation
+            StartCoroutine(PlayAnimationWithDelay(anim));
             return;
         }
     }
 
+    private System.Collections.IEnumerator PlayAnimationWithDelay(HeadingAnimation anim)
+    {
+        if (anim.delayTime > 0f)
+            yield return new WaitForSeconds(anim.delayTime);
+
+        Animator targetAnimator = anim.usePrefabAnimator ? prefabAnimator : anim.animator;
+
+        if (targetAnimator != null)
+        {
+            lastAnimator = targetAnimator;
+            targetAnimator.enabled = true;
+            targetAnimator.Rebind();
+            targetAnimator.Update(0f);
+            targetAnimator.Play(anim.animationClipName, 0, 0f);
+        }
+    }
+
+    /// <summary>
+    /// Sets the animation to its last frame (no delay).
+    /// </summary>
     public void SetAnimationToLastFrame(int headingIndex)
     {
         foreach (var anim in animations)
@@ -73,7 +90,6 @@ public class HeadingAnimationController : MonoBehaviour
                 targetAnimator.Update(0f);
             }
 
-            // Toggle the single GameObject
             if (targetObject != null)
                 targetObject.SetActive(anim.enableObject);
 

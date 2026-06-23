@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main/Laryngoscopy-Training 2.unity
+    path: Assets/Laryngoscopy/Scene/Laryngoscopy-Training 2.unity
     guid: 41d87aee5330c1b4ba3a2befe8af7af6
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: f7bd18ca373025446a95b67d463618d6, type: 2}

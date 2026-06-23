@@ -5085,6 +5085,8 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
+  stepAudioSources: []
+  audioStepIndices: 
 --- !u!114 &174671367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6692,13 +6694,142 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!1 &230645682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 230645684}
+  - component: {fileID: 230645683}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &230645683
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230645682}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: f2917aa1992bc324ca0208e3c353b72f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &230645684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230645682}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.106, y: 1.326, z: 0.802}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &233149680
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 731203403}
+    m_TransformParent: {fileID: 2144630673}
     m_Modifications:
     - target: {fileID: 534391392499156536, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_Pivot.x
@@ -6734,15 +6865,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 534391392499156536, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.0004409558
+      value: 0.041821614
       objectReference: {fileID: 0}
     - target: {fileID: 534391392499156536, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.00044095577
+      value: 0.08641161
       objectReference: {fileID: 0}
     - target: {fileID: 534391392499156536, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.0004409558
+      value: 0.03858763
       objectReference: {fileID: 0}
     - target: {fileID: 534391392499156536, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6754,7 +6885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 534391392499156536, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.16400146
+      value: -11.569839
       objectReference: {fileID: 0}
     - target: {fileID: 534391392499156536, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6774,11 +6905,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 534391392499156536, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.525
+      value: -67.34048
       objectReference: {fileID: 0}
     - target: {fileID: 534391392499156536, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0070004463
+      value: -1.3716433
       objectReference: {fileID: 0}
     - target: {fileID: 534391392499156536, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6806,7 +6937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5524067427678021293, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5524067427678021293, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_AnchorMin.x
@@ -6842,7 +6973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7694973739705644613, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8184752038690623804, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8987,156 +9118,187 @@ MonoBehaviour:
     usePrefabAnimator: 0
     animationClipName: 
     enableObject: 0
+    delayTime: 0
   - headingIndex: 1
     animator: {fileID: 42251006}
     usePrefabAnimator: 0
     animationClipName: QR
     enableObject: 1
+    delayTime: 0
   - headingIndex: 2
     animator: {fileID: 0}
     usePrefabAnimator: 0
     animationClipName: 
     enableObject: 0
+    delayTime: 0
   - headingIndex: 3
     animator: {fileID: 0}
     usePrefabAnimator: 0
     animationClipName: 
     enableObject: 0
+    delayTime: 0
   - headingIndex: 4
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: ET Attachment
     enableObject: 0
+    delayTime: 0
   - headingIndex: 5
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the bag valve mask
     enableObject: 1
+    delayTime: 1
   - headingIndex: 6
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Position the bag valve mask
     enableObject: 0
+    delayTime: 1
   - headingIndex: 7
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Press the bag valve mask
     enableObject: 0
+    delayTime: 1
   - headingIndex: 8
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the bag valve mask
     enableObject: 0
+    delayTime: 1
   - headingIndex: 9
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Head
     enableObject: 0
+    delayTime: 0
   - headingIndex: 10
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the Laryngoscope
     enableObject: 0
+    delayTime: 1
   - headingIndex: 11
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Position the Laryngoscope
     enableObject: 0
+    delayTime: 1
   - headingIndex: 12
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Tilt the Laryngoscope
     enableObject: 0
+    delayTime: 1
   - headingIndex: 13
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the ET Tube
     enableObject: 0
+    delayTime: 1
   - headingIndex: 14
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Insert the ET Tube
     enableObject: 0
+    delayTime: 1
   - headingIndex: 15
     animator: {fileID: 0}
     usePrefabAnimator: 0
     animationClipName: 
     enableObject: 0
+    delayTime: 0
   - headingIndex: 16
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the Laryngoscope
     enableObject: 0
+    delayTime: 1
   - headingIndex: 17
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Inflate the cuff
     enableObject: 0
+    delayTime: 1
   - headingIndex: 18
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the cap
     enableObject: 0
+    delayTime: 1
   - headingIndex: 19
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Ventilate Through the ET Tube
     enableObject: 0
+    delayTime: 1
   - headingIndex: 20
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: stethoscope
     enableObject: 0
+    delayTime: 1
   - headingIndex: 21
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Hotspot
     enableObject: 0
+    delayTime: 0
   - headingIndex: 22
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Breath Sound
     enableObject: 0
+    delayTime: 0
   - headingIndex: 23
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Fixing the Tape
     enableObject: 0
+    delayTime: 1
   - headingIndex: 24
     animator: {fileID: 0}
     usePrefabAnimator: 0
     animationClipName: 
     enableObject: 0
+    delayTime: 0
   - headingIndex: 25
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Deflate the cuff
     enableObject: 0
+    delayTime: 1
   - headingIndex: 26
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Deflate Stet
     enableObject: 0
+    delayTime: 1
   - headingIndex: 27
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Deflate Ausculation
     enableObject: 0
+    delayTime: 0
   - headingIndex: 28
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Deflate Breath
     enableObject: 0
+    delayTime: 0
   - headingIndex: 29
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Deflate Tube
     enableObject: 0
+    delayTime: 1
   - headingIndex: 0
     animator: {fileID: 0}
     usePrefabAnimator: 0
     animationClipName: 
     enableObject: 0
+    delayTime: 0
 --- !u!4 &318764122
 Transform:
   m_ObjectHideFlags: 0
@@ -17126,6 +17288,8 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
+  stepAudioSources: []
+  audioStepIndices: 
 --- !u!114 &643813849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18872,7 +19036,6 @@ RectTransform:
   m_Children:
   - {fileID: 2933674160682094627}
   - {fileID: 2144630673}
-  - {fileID: 2014228698}
   m_Father: {fileID: 1344378338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -25151,6 +25314,8 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
+  stepAudioSources: []
+  audioStepIndices: 
 --- !u!114 &1018909984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37031,6 +37196,8 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
+  stepAudioSources: []
+  audioStepIndices: 
 --- !u!114 &1513953247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42367,6 +42534,8 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
+  stepAudioSources: []
+  audioStepIndices: 
 --- !u!114 &1732473009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45637,6 +45806,135 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1654012761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1833120626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1833120628}
+  - component: {fileID: 1833120627}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1833120627
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833120626}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: f2917aa1992bc324ca0208e3c353b72f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1833120628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833120626}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.106, y: 1.326, z: 0.802}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1833558909
 GameObject:
   m_ObjectHideFlags: 0
@@ -48509,6 +48807,8 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
+  stepAudioSources: []
+  audioStepIndices: 
 --- !u!114 &1986587609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51883,6 +52183,7 @@ RectTransform:
   - {fileID: 534502334}
   - {fileID: 1407348023}
   - {fileID: 1389950157}
+  - {fileID: 2014228698}
   m_Father: {fileID: 731203403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -51921,6 +52222,10 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 192509702}
+  stepAudioSources:
+  - {fileID: 230645683}
+  - {fileID: 1833120627}
+  audioStepIndices: 160000001c000000
 --- !u!114 &2144630675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54357,11 +54662,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f768a254bd44a0c4ca64d1e3164a0a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerManager
-  disableDelay: 3
+  disableDelay: 2
   greenMaterial: {fileID: 2100000, guid: ec5fbf967c4cdba48a6976ee44bcfc07, type: 2}
   redMaterial: {fileID: 2100000, guid: 45e621b7412622b4d811bfe0fe7b1d5f, type: 2}
-  greenAudio: {fileID: 8300000, guid: 37a6a8b0fb0bfca4a9b7623c35b4c4a2, type: 3}
-  redAudio: {fileID: 8300000, guid: 6563b50a19a616142a1a693d7c0259cb, type: 3}
+  greenAudio: {fileID: 8300000, guid: f2917aa1992bc324ca0208e3c353b72f, type: 3}
+  redAudio: {fileID: 8300000, guid: 8862e73514b031a48860203036faa472, type: 3}
 --- !u!114 &868998224410226382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75978,3 +76283,5 @@ SceneRoots:
   - {fileID: 41214706}
   - {fileID: 1692239047}
   - {fileID: 6908765408995638423}
+  - {fileID: 1833120628}
+  - {fileID: 230645684}
