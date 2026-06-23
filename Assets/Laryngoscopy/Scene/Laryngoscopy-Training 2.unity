@@ -54679,8 +54679,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerManager
   materialChangeDelay: 3
-  greenMaterial: {fileID: 2100000, guid: ec5fbf967c4cdba48a6976ee44bcfc07, type: 2}
-  redMaterial: {fileID: 2100000, guid: 45e621b7412622b4d811bfe0fe7b1d5f, type: 2}
+  greenMaterial: {fileID: 2100000, guid: b785014c41fe7d5458d5ad549d1c2a2e, type: 2}
+  redMaterial: {fileID: 2100000, guid: c18fc3ad5a9a41a499f10fcea0bdf039, type: 2}
   greenAudio: {fileID: 8300000, guid: f2917aa1992bc324ca0208e3c353b72f, type: 3}
   redAudio: {fileID: 8300000, guid: 8862e73514b031a48860203036faa472, type: 3}
 --- !u!114 &868998224410226382
