@@ -45,6 +45,9 @@ public class UIPanelSequence : MonoBehaviour
     [Header("Video")]
     public VideoPlayer videoPlayer;
 
+    [Header("Introduction Back")]
+    public GameObject introductionBackPrefab;
+
     [Serializable]
     public class StepData
     {
@@ -110,11 +113,28 @@ public class UIPanelSequence : MonoBehaviour
 
     public void PreviousPage()
     {
+        // Special case: Introduction page (Index 0)
+        if (currentIndex == 0)
+        {
+            if (introductionBackPrefab != null)
+            {
+                introductionBackPrefab.SetActive(true);
+
+                // Optional: hide training panel
+                gameObject.SetActive(false);
+            }
+
+            return;
+        }
+
         StepData step = steps[currentIndex];
+
         if (step.backIndex != -1 && step.backIndex >= 0)
         {
             currentIndex = step.backIndex;
+
             StepData previousStep = steps[currentIndex];
+
             ShowStep(false);
 
             if (animationController != null)
@@ -131,6 +151,8 @@ public class UIPanelSequence : MonoBehaviour
             }
         }
     }
+
+    
 
     void ShowStep(bool playAnimation = true)
     {

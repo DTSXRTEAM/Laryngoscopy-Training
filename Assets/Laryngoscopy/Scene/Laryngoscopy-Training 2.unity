@@ -5085,8 +5085,7 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
-  stepAudioSources: []
-  audioStepIndices: 
+  introductionBackPrefab: {fileID: 0}
 --- !u!114 &174671367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17288,8 +17287,7 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
-  stepAudioSources: []
-  audioStepIndices: 
+  introductionBackPrefab: {fileID: 0}
 --- !u!114 &643813849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25314,8 +25312,7 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
-  stepAudioSources: []
-  audioStepIndices: 
+  introductionBackPrefab: {fileID: 0}
 --- !u!114 &1018909984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37196,8 +37193,7 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
-  stepAudioSources: []
-  audioStepIndices: 
+  introductionBackPrefab: {fileID: 0}
 --- !u!114 &1513953247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42534,8 +42530,7 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
-  stepAudioSources: []
-  audioStepIndices: 
+  introductionBackPrefab: {fileID: 0}
 --- !u!114 &1732473009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48807,8 +48802,7 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
-  stepAudioSources: []
-  audioStepIndices: 
+  introductionBackPrefab: {fileID: 0}
 --- !u!114 &1986587609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52222,10 +52216,7 @@ MonoBehaviour:
   speaker: {fileID: 1993506620}
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 192509702}
-  stepAudioSources:
-  - {fileID: 230645683}
-  - {fileID: 1833120627}
-  audioStepIndices: 160000001c000000
+  introductionBackPrefab: {fileID: 3858013581486145759}
 --- !u!114 &2144630675
 MonoBehaviour:
   m_ObjectHideFlags: 0

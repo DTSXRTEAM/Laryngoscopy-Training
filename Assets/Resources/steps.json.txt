@@ -8,7 +8,7 @@
       "buttonText": "Next",
       "backButtonText": "Back",
       "showNextButton": true,
-      "showBackButton": false,
+      "showBackButton": true,
       "tts": "Hello. I'll be your guide throughout this laryngoscopy procedure. Follow each instruction carefully to proceed.",
       "nextIndex": 1,
       "backIndex": -1,
