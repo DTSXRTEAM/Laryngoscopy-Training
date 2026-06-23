@@ -9118,7 +9118,7 @@ MonoBehaviour:
   - headingIndex: 0
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
-    animationClipName: Introduction
+    animationClipName: 
     enableObject: 0
     delayTime: 0
   - headingIndex: 1
