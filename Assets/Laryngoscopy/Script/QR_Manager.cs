@@ -16,6 +16,9 @@ public class QR_Manager : MonoBehaviour
 
     private bool hasSpawned = false;
 
+    // Runtime spawned manikin/prefab
+    private GameObject spawnedObject;
+
     private void OnEnable()
     {
         if (_mrukInstance == null)
@@ -39,16 +42,13 @@ public class QR_Manager : MonoBehaviour
         }
     }
 
-    private void OnTrackableAdded(
-        MRUKTrackable trackable)
+    private void OnTrackableAdded(MRUKTrackable trackable)
     {
-        // ONLY ONE SPAWN
+        // Already spawned
         if (hasSpawned)
-        {
             return;
-        }
 
-        // ONLY QR
+        // Only QR codes
         if (trackable.TrackableType !=
             OVRAnchor.TrackableType.QRCode)
         {
@@ -57,29 +57,26 @@ public class QR_Manager : MonoBehaviour
 
         hasSpawned = true;
 
-        // SPAWN WITH QR PARENT
-        GameObject spawnedObject =
+        // Spawn prefab at QR
+        spawnedObject =
             Instantiate(
                 _qrPrefab,
                 trackable.transform
             );
 
-        // GET RUNTIME ANIMATOR
+        // Get runtime animator
         Animator runtimeAnimator =
-            spawnedObject
-            .GetComponentInChildren<Animator>();
+            spawnedObject.GetComponentInChildren<Animator>();
 
-        // ASSIGN ANIMATOR
+        // Assign runtime animator
         if (animationController != null &&
             runtimeAnimator != null)
         {
-            animationController
-                .SetPrefabAnimator(
-                    runtimeAnimator
-                );
+            animationController.SetPrefabAnimator(
+                runtimeAnimator
+            );
         }
 
-        // DETACH AFTER 1 FRAME
         StartCoroutine(
             DetachAndDisableTracking(
                 spawnedObject
@@ -92,16 +89,15 @@ public class QR_Manager : MonoBehaviour
     IEnumerator DetachAndDisableTracking(
         GameObject spawnedObject)
     {
-        // WAIT FOR MRUK ALIGNMENT
         yield return null;
 
-        // KEEP WORLD POSITION
+        // Keep world position
         spawnedObject.transform.SetParent(
             null,
             true
         );
 
-        // DISABLE QR TRACKING
+        // Disable QR tracking
         var config =
             _mrukInstance.SceneSettings
             .TrackerConfiguration;
@@ -114,5 +110,30 @@ public class QR_Manager : MonoBehaviour
         Debug.Log(
             "Tracking Disabled And Object Fixed"
         );
+    }
+
+    // Call this from ExitTraining()
+    public void ResetQR()
+    {
+        hasSpawned = false;
+
+        // Remove spawned manikin
+        if (spawnedObject != null)
+        {
+            Destroy(spawnedObject);
+            spawnedObject = null;
+        }
+
+        // Enable QR scanning again
+        var config =
+            _mrukInstance.SceneSettings
+            .TrackerConfiguration;
+
+        config.QRCodeTrackingEnabled = true;
+
+        _mrukInstance.SceneSettings
+            .TrackerConfiguration = config;
+
+        Debug.Log("QR Reset Complete");
     }
 }

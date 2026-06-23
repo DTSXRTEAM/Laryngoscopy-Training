@@ -48,6 +48,7 @@ public class UIPanelSequence : MonoBehaviour
     [Header("Introduction Back")]
     public GameObject introductionBackPrefab;
 
+    public QR_Manager qrManager;
 
     [Serializable]
     public class StepAudioData
@@ -79,6 +80,7 @@ public class UIPanelSequence : MonoBehaviour
         public bool useAlternateChecklist = false;
 
         public string videoName;
+       
     }
 
 
@@ -112,17 +114,70 @@ public class UIPanelSequence : MonoBehaviour
             steps.Add(step);
         }
     }
-
     public void NextPage()
     {
         StepData step = steps[currentIndex];
-        if (step.nextIndex != -1 && step.nextIndex < steps.Count)
+
+        if (step.index == 24 || step.index == 30)
+        {
+            ExitTraining();
+            return;
+        }
+
+        if (step.nextIndex != -1)
         {
             currentIndex = step.nextIndex;
             ShowStep(true);
         }
     }
 
+    public void StartTraining()
+    {
+        introductionBackPrefab.SetActive(false);
+
+        gameObject.SetActive(true);
+
+        currentIndex = 0;
+
+        ShowStep(true);
+    }
+
+    public void RestartTraining()
+    {
+        currentIndex = 0;
+        ShowStep(false);
+    }
+    public void ExitTraining()
+    {
+        currentIndex = 0;
+
+        ShowStep(false);
+
+        if (animationController != null)
+            animationController.ResetAllAnimations();
+
+        if (speaker != null)
+            speaker.Stop();
+
+        if (videoPlayer != null)
+        {
+            videoPlayer.Stop();
+            videoPlayer.clip = null;
+        }
+
+        // Disable QR spawned prefab
+        if (qrManager != null)
+        {
+            qrManager.ResetQR();
+        }
+        // Enable QR scanning again
+        
+
+        if (introductionBackPrefab != null)
+            introductionBackPrefab.SetActive(true);
+
+        gameObject.SetActive(false);
+    }
     public void PreviousPage()
     {
         // Special case: Introduction page (Index 0)

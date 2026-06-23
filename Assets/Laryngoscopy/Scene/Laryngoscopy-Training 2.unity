@@ -5086,6 +5086,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
+  qrManager: {fileID: 0}
   stepAudios: []
 --- !u!114 &174671367
 MonoBehaviour:
@@ -9115,8 +9116,8 @@ MonoBehaviour:
   animations:
   - headingIndex: 0
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
-    usePrefabAnimator: 0
-    animationClipName: 
+    usePrefabAnimator: 1
+    animationClipName: Introduction
     enableObject: 0
     delayTime: 0
   - headingIndex: 1
@@ -17289,6 +17290,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
+  qrManager: {fileID: 0}
   stepAudios: []
 --- !u!114 &643813849
 MonoBehaviour:
@@ -25315,6 +25317,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
+  qrManager: {fileID: 0}
   stepAudios: []
 --- !u!114 &1018909984
 MonoBehaviour:
@@ -37197,6 +37200,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
+  qrManager: {fileID: 0}
   stepAudios: []
 --- !u!114 &1513953247
 MonoBehaviour:
@@ -42535,6 +42539,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
+  qrManager: {fileID: 0}
   stepAudios: []
 --- !u!114 &1732473009
 MonoBehaviour:
@@ -48808,6 +48813,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
+  qrManager: {fileID: 0}
   stepAudios: []
 --- !u!114 &1986587609
 MonoBehaviour:
@@ -52223,6 +52229,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 192509702}
   introductionBackPrefab: {fileID: 3858013581486145759}
+  qrManager: {fileID: 354602727}
   stepAudios:
   - stepIndex: 22
     audioSource: {fileID: 230645683}

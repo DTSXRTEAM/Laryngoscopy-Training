@@ -96,6 +96,27 @@ public class HeadingAnimationController : MonoBehaviour
             return;
         }
     }
+    public void ResetAllAnimations()
+    {
+        StopAllCoroutines();
+
+        foreach (var anim in animations)
+        {
+            Animator targetAnimator =
+                anim.usePrefabAnimator ? prefabAnimator : anim.animator;
+
+            if (targetAnimator != null)
+            {
+                targetAnimator.enabled = true;
+                targetAnimator.Rebind();
+                targetAnimator.Update(0f);
+            }
+        }
+
+        if (targetObject != null)
+            targetObject.SetActive(false);
+    }
+
 
     public void SetPrefabAnimator(Animator runtimeAnimator)
     {
