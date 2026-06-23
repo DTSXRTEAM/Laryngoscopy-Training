@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TriggerManager : MonoBehaviour
 {
-    [Tooltip("Delay before disabling the green-tagged object")]
-    public float disableDelay = 2f;
+    [Header("Material Change Delay")]
+    public float materialChangeDelay = 2f;
 
     [Header("Materials")]
     public Material greenMaterial;
@@ -15,8 +15,11 @@ public class TriggerManager : MonoBehaviour
     public AudioClip greenAudio;
     public AudioClip redAudio;
 
-    private Dictionary<GameObject, AudioSource> objectAudioSources = new Dictionary<GameObject, AudioSource>();
-    private HashSet<GameObject> disabledObjects = new HashSet<GameObject>();
+    private Dictionary<GameObject, AudioSource> objectAudioSources =
+        new Dictionary<GameObject, AudioSource>();
+
+    private Dictionary<GameObject, Material> originalMaterials =
+        new Dictionary<GameObject, Material>();
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,24 +27,29 @@ public class TriggerManager : MonoBehaviour
 
         if (other.CompareTag("Green"))
         {
-            Debug.Log("Green triggered: " + hitObject.name);
+            SaveOriginalMaterial(hitObject);
 
-            SetObjectMaterial(hitObject, greenMaterial);
-            PlayObjectAudio(hitObject, greenAudio, true);
+            PlayObjectAudio(hitObject, greenAudio);
 
-            if (!disabledObjects.Contains(hitObject))
-            {
-                disabledObjects.Add(hitObject);
-                StartCoroutine(DisableAfterDelay(hitObject));
-            }
+            StartCoroutine(
+                ChangeMaterialAfterDelay(
+                    hitObject,
+                    greenMaterial
+                )
+            );
         }
         else if (other.CompareTag("Red"))
         {
-            Debug.Log("Red triggered: " + hitObject.name);
+            SaveOriginalMaterial(hitObject);
 
-            SetObjectMaterial(hitObject, redMaterial);
-            PlayObjectAudio(hitObject, redAudio, true);
-            // Red objects stay active
+            PlayObjectAudio(hitObject, redAudio);
+
+            StartCoroutine(
+                ChangeMaterialAfterDelay(
+                    hitObject,
+                    redMaterial
+                )
+            );
         }
     }
 
@@ -49,54 +57,120 @@ public class TriggerManager : MonoBehaviour
     {
         GameObject hitObject = other.gameObject;
 
-        // Stop audio immediately when collider exits
-        if (objectAudioSources.ContainsKey(hitObject) && objectAudioSources[hitObject] != null)
+        if (objectAudioSources.ContainsKey(hitObject))
         {
-            objectAudioSources[hitObject].Stop();
-        }
-    }
+            AudioSource source = objectAudioSources[hitObject];
 
-    private IEnumerator DisableAfterDelay(GameObject obj)
-    {
-        yield return new WaitForSeconds(disableDelay);
-
-        if (obj != null)
-        {
-            // Stop audio before disabling
-            if (objectAudioSources.ContainsKey(obj) && objectAudioSources[obj] != null)
+            if (source != null)
             {
-                objectAudioSources[obj].Stop();
+                source.Stop();
             }
-
-            obj.SetActive(false);
-            Debug.Log(obj.name + " disabled after " + disableDelay + " seconds.");
-
-            disabledObjects.Remove(obj);
         }
     }
 
-    private void SetObjectMaterial(GameObject obj, Material mat)
+    private IEnumerator ChangeMaterialAfterDelay(
+        GameObject obj,
+        Material mat)
     {
+        yield return new WaitForSeconds(materialChangeDelay);
+
+        if (obj == null)
+            yield break;
+
         Renderer renderer = obj.GetComponent<Renderer>();
+
+        if (renderer == null)
+        {
+            renderer = obj.GetComponentInChildren<Renderer>();
+        }
+
         if (renderer != null && mat != null)
         {
             renderer.material = mat;
         }
     }
 
-    private void PlayObjectAudio(GameObject obj, AudioClip clip, bool loop)
+    private void SaveOriginalMaterial(GameObject obj)
     {
-        if (!objectAudioSources.ContainsKey(obj) || objectAudioSources[obj] == null)
+        if (originalMaterials.ContainsKey(obj))
+            return;
+
+        Renderer renderer = obj.GetComponent<Renderer>();
+
+        if (renderer == null)
         {
-            AudioSource source = obj.GetComponent<AudioSource>();
-            if (source == null) source = obj.AddComponent<AudioSource>();
-            objectAudioSources[obj] = source;
+            renderer = obj.GetComponentInChildren<Renderer>();
         }
 
-        AudioSource audioSource = objectAudioSources[obj];
+        if (renderer != null)
+        {
+            originalMaterials.Add(
+                obj,
+                renderer.material
+            );
+        }
+    }
+
+    private void PlayObjectAudio(
+        GameObject obj,
+        AudioClip clip)
+    {
+        if (clip == null)
+            return;
+
+        if (!objectAudioSources.ContainsKey(obj))
+        {
+            AudioSource source =
+                obj.GetComponent<AudioSource>();
+
+            if (source == null)
+            {
+                source =
+                    obj.AddComponent<AudioSource>();
+            }
+
+            objectAudioSources.Add(obj, source);
+        }
+
+        AudioSource audioSource =
+            objectAudioSources[obj];
+
         audioSource.Stop();
         audioSource.clip = clip;
-        audioSource.loop = loop;
+        audioSource.loop = true;
         audioSource.Play();
+    }
+
+    public void ResetAllObjects()
+    {
+        foreach (var item in originalMaterials)
+        {
+            if (item.Key == null)
+                continue;
+
+            Renderer renderer =
+                item.Key.GetComponent<Renderer>();
+
+            if (renderer == null)
+            {
+                renderer =
+                    item.Key.GetComponentInChildren<Renderer>();
+            }
+
+            if (renderer != null)
+            {
+                renderer.material = item.Value;
+            }
+        }
+
+        foreach (var item in objectAudioSources)
+        {
+            if (item.Value != null)
+            {
+                item.Value.Stop();
+            }
+        }
+
+        Debug.Log("Trigger Objects Reset");
     }
 }

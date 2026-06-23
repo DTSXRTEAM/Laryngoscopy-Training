@@ -49,6 +49,7 @@ public class UIPanelSequence : MonoBehaviour
     public GameObject introductionBackPrefab;
 
     public QR_Manager qrManager;
+    public TriggerManager triggerManager;
 
     [Serializable]
     public class StepAudioData
@@ -147,17 +148,30 @@ public class UIPanelSequence : MonoBehaviour
         currentIndex = 0;
         ShowStep(false);
     }
+
     public void ExitTraining()
     {
         currentIndex = 0;
 
-        ShowStep(false);
+        if (triggerManager != null)
+        {
+            triggerManager.ResetAllObjects();
+        }
+
+        if (qrManager != null)
+        {
+            qrManager.ResetQR();
+        }
 
         if (animationController != null)
+        {
             animationController.ResetAllAnimations();
+        }
 
         if (speaker != null)
+        {
             speaker.Stop();
+        }
 
         if (videoPlayer != null)
         {
@@ -165,18 +179,16 @@ public class UIPanelSequence : MonoBehaviour
             videoPlayer.clip = null;
         }
 
-        // Disable QR spawned prefab
-        if (qrManager != null)
-        {
-            qrManager.ResetQR();
-        }
-        // Enable QR scanning again
-        
+        ShowStep(false);
 
         if (introductionBackPrefab != null)
+        {
             introductionBackPrefab.SetActive(true);
+        }
 
         gameObject.SetActive(false);
+
+        Debug.Log("Training Reset Complete");
     }
     public void PreviousPage()
     {

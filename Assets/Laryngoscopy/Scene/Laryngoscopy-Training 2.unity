@@ -5087,6 +5087,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
   qrManager: {fileID: 0}
+  triggerManager: {fileID: 0}
   stepAudios: []
 --- !u!114 &174671367
 MonoBehaviour:
@@ -17291,6 +17292,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
   qrManager: {fileID: 0}
+  triggerManager: {fileID: 0}
   stepAudios: []
 --- !u!114 &643813849
 MonoBehaviour:
@@ -25318,6 +25320,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
   qrManager: {fileID: 0}
+  triggerManager: {fileID: 0}
   stepAudios: []
 --- !u!114 &1018909984
 MonoBehaviour:
@@ -37201,6 +37204,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
   qrManager: {fileID: 0}
+  triggerManager: {fileID: 0}
   stepAudios: []
 --- !u!114 &1513953247
 MonoBehaviour:
@@ -42540,6 +42544,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
   qrManager: {fileID: 0}
+  triggerManager: {fileID: 0}
   stepAudios: []
 --- !u!114 &1732473009
 MonoBehaviour:
@@ -48814,6 +48819,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
   qrManager: {fileID: 0}
+  triggerManager: {fileID: 0}
   stepAudios: []
 --- !u!114 &1986587609
 MonoBehaviour:
@@ -52230,6 +52236,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 192509702}
   introductionBackPrefab: {fileID: 3858013581486145759}
   qrManager: {fileID: 354602727}
+  triggerManager: {fileID: 845654787333690158}
   stepAudios:
   - stepIndex: 22
     audioSource: {fileID: 230645683}
@@ -54671,7 +54678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f768a254bd44a0c4ca64d1e3164a0a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerManager
-  disableDelay: 2
+  materialChangeDelay: 3
   greenMaterial: {fileID: 2100000, guid: ec5fbf967c4cdba48a6976ee44bcfc07, type: 2}
   redMaterial: {fileID: 2100000, guid: 45e621b7412622b4d811bfe0fe7b1d5f, type: 2}
   greenAudio: {fileID: 8300000, guid: f2917aa1992bc324ca0208e3c353b72f, type: 3}
