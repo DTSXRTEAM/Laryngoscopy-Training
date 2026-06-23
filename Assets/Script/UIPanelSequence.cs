@@ -48,6 +48,16 @@ public class UIPanelSequence : MonoBehaviour
     [Header("Introduction Back")]
     public GameObject introductionBackPrefab;
 
+
+    [Serializable]
+    public class StepAudioData
+    {
+        public int stepIndex;
+        public AudioSource audioSource;
+    }
+
+    public StepAudioData[] stepAudios;
+
     [Serializable]
     public class StepData
     {
@@ -70,6 +80,8 @@ public class UIPanelSequence : MonoBehaviour
 
         public string videoName;
     }
+
+
 
     [Serializable]
     public class StepContainer
@@ -152,8 +164,35 @@ public class UIPanelSequence : MonoBehaviour
         }
     }
 
-    
 
+    private void HandleStepAudio(int stepIndex)
+    {
+        // Stop all audios first
+        foreach (StepAudioData item in stepAudios)
+        {
+            if (item.audioSource != null)
+            {
+                item.audioSource.Stop();
+            }
+        }
+
+        // Find matching step and play it
+        foreach (StepAudioData item in stepAudios)
+        {
+            if (item.stepIndex == stepIndex &&
+                item.audioSource != null)
+            {
+                item.audioSource.loop = true;
+
+                if (!item.audioSource.isPlaying)
+                {
+                    item.audioSource.Play();
+                }
+
+                break;
+            }
+        }
+    }
     void ShowStep(bool playAnimation = true)
     {
         StepData step = steps[currentIndex];
@@ -170,58 +209,81 @@ public class UIPanelSequence : MonoBehaviour
         else
         {
             contentText.gameObject.SetActive(true);
-            if (contentText2 != null) contentText2.gameObject.SetActive(false);
+
+            if (contentText2 != null)
+                contentText2.gameObject.SetActive(false);
+
             contentText.text = step.content;
         }
 
         nextButtonText.text = step.buttonText;
+
         if (backButtonText != null)
-            backButtonText.text = string.IsNullOrEmpty(step.backButtonText) ? "Back" : step.backButtonText;
+            backButtonText.text = string.IsNullOrEmpty(step.backButtonText)
+                ? "Back"
+                : step.backButtonText;
 
         if (nextButton != null)
             nextButton.gameObject.SetActive(step.showNextButton);
+
         if (backButton != null)
             backButton.gameObject.SetActive(step.showBackButton);
 
-        // ✅ Special rules
+        // Step specific button rules
         if (step.index == 28 && backButton != null)
         {
-            backButton.interactable = false; // disabled
+            backButton.interactable = false;
+
             ColorBlock colors = backButton.colors;
-            colors.normalColor = new Color(0.7f, 0.7f, 0.7f); // dim like Continue button
+            colors.normalColor = new Color(0.7f, 0.7f, 0.7f);
             colors.highlightedColor = colors.normalColor;
             colors.pressedColor = colors.normalColor;
             backButton.colors = colors;
         }
         else if (step.index == 29 && backButton != null)
         {
-            backButton.interactable = true; // active
+            backButton.interactable = true;
+
             ColorBlock colors = backButton.colors;
-            colors.normalColor = nextButton.colors.normalColor; // match Next button
+            colors.normalColor = nextButton.colors.normalColor;
             colors.highlightedColor = nextButton.colors.highlightedColor;
             colors.pressedColor = nextButton.colors.pressedColor;
             backButton.colors = colors;
         }
         else if (backButton != null)
         {
-            backButton.interactable = step.showBackButton; // default
+            backButton.interactable = step.showBackButton;
         }
 
+        // Heading animation
         if (animationController != null && playAnimation)
+        {
             animationController.PlayAnimation(step.index);
+        }
 
+        // Checklist
         GenerateChecklist(step);
 
+        // TTS
         currentTTS = step.tts;
         PlayTTS(currentTTS);
 
         if (replayButton != null)
+        {
             replayButton.interactable = !string.IsNullOrEmpty(currentTTS);
+        }
 
+        // Models
         if (modelManager != null && step.models != null)
+        {
             modelManager.ShowModels(step.models);
+        }
 
+        // Video
         PlayVideo(step.videoName);
+
+        // Step Audio
+        HandleStepAudio(step.index);
     }
 
 

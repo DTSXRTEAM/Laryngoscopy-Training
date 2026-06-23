@@ -5086,6 +5086,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
+  stepAudios: []
 --- !u!114 &174671367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6721,7 +6722,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f2917aa1992bc324ca0208e3c353b72f, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8862e73514b031a48860203036faa472, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -17288,6 +17289,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
+  stepAudios: []
 --- !u!114 &643813849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25313,6 +25315,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
+  stepAudios: []
 --- !u!114 &1018909984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37194,6 +37197,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
+  stepAudios: []
 --- !u!114 &1513953247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42531,6 +42535,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
+  stepAudios: []
 --- !u!114 &1732473009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48803,6 +48808,7 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 0}
   introductionBackPrefab: {fileID: 0}
+  stepAudios: []
 --- !u!114 &1986587609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52217,6 +52223,11 @@ MonoBehaviour:
   jsonFile: {fileID: 4900000, guid: 67b951374db75c4428dea0391c716a50, type: 3}
   videoPlayer: {fileID: 192509702}
   introductionBackPrefab: {fileID: 3858013581486145759}
+  stepAudios:
+  - stepIndex: 22
+    audioSource: {fileID: 230645683}
+  - stepIndex: 28
+    audioSource: {fileID: 230645683}
 --- !u!114 &2144630675
 MonoBehaviour:
   m_ObjectHideFlags: 0
