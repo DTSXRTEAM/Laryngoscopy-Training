@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class HeadingAnimationController : MonoBehaviour
@@ -9,7 +10,7 @@ public class HeadingAnimationController : MonoBehaviour
         [Header("Heading Index - matches JSON index")]
         public int headingIndex;
 
-        [Header("Animator (leave empty if using prefabAnimator)")]
+        [Header("Animator (Leave empty if using Prefab Animator)")]
         public Animator animator;
 
         [Header("Use Runtime Prefab Animator")]
@@ -18,53 +19,73 @@ public class HeadingAnimationController : MonoBehaviour
         [Header("Animation State Name")]
         public string animationClipName;
 
-        [Header("Enable GameObject for this step?")]
-        public bool enableObject;
+        [Header("Enable Video Player")]
+        public bool enableVideoPlayer;
 
-        [Header("Delay before playing (seconds)")]
+        [Header("Enable Header Object")]
+        public bool enableHeaderObject;
+
+        [Header("Quad For This Step")]
+        public GameObject quad;
+
+        [Header("Delay Before Playing (Seconds)")]
         public float delayTime = 0f;
     }
 
     [Header("Runtime Prefab Animator")]
     public Animator prefabAnimator;
 
-    [Header("Single Target GameObject")]
-    public GameObject targetObject;
+    [Header("Common Video Player Object")]
+    public GameObject videoPlayerObject;
 
-    [Header("Animations - Configure here in Inspector")]
+    [Header("Common Header Object")]
+    public GameObject headerObject;
+
+    [Header("Animations")]
     public HeadingAnimation[] animations;
 
     private Animator lastAnimator;
 
     /// <summary>
-    /// Plays the animation for the given heading index after its delay.
+    /// Plays the animation for the given heading index.
     /// </summary>
     public void PlayAnimation(int headingIndex)
     {
         foreach (var anim in animations)
         {
-            if (anim.headingIndex != headingIndex) continue;
+            if (anim.headingIndex != headingIndex)
+                continue;
 
-            // Toggle the single GameObject immediately
-            if (targetObject != null)
-                targetObject.SetActive(anim.enableObject);
+            // Video Player
+            if (videoPlayerObject != null)
+                videoPlayerObject.SetActive(anim.enableVideoPlayer);
 
-            // Start coroutine for delayed animation
+            // Header Object
+            if (headerObject != null)
+                headerObject.SetActive(anim.enableHeaderObject);
+
+            // Enable only the current Quad
+            UpdateQuads(anim.quad);
+
+            // Play animation
             StartCoroutine(PlayAnimationWithDelay(anim));
+
             return;
         }
     }
 
-    private System.Collections.IEnumerator PlayAnimationWithDelay(HeadingAnimation anim)
+    private IEnumerator PlayAnimationWithDelay(HeadingAnimation anim)
     {
         if (anim.delayTime > 0f)
             yield return new WaitForSeconds(anim.delayTime);
 
-        Animator targetAnimator = anim.usePrefabAnimator ? prefabAnimator : anim.animator;
+        Animator targetAnimator =
+            anim.usePrefabAnimator ? prefabAnimator : anim.animator;
 
         if (targetAnimator != null)
         {
             lastAnimator = targetAnimator;
+
             targetAnimator.enabled = true;
             targetAnimator.Rebind();
             targetAnimator.Update(0f);
@@ -73,15 +94,17 @@ public class HeadingAnimationController : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets the animation to its last frame (no delay).
+    /// Sets animation to the last frame.
     /// </summary>
     public void SetAnimationToLastFrame(int headingIndex)
     {
         foreach (var anim in animations)
         {
-            if (anim.headingIndex != headingIndex) continue;
+            if (anim.headingIndex != headingIndex)
+                continue;
 
-            Animator targetAnimator = anim.usePrefabAnimator ? prefabAnimator : anim.animator;
+            Animator targetAnimator =
+                anim.usePrefabAnimator ? prefabAnimator : anim.animator;
 
             if (targetAnimator != null)
             {
@@ -90,12 +113,35 @@ public class HeadingAnimationController : MonoBehaviour
                 targetAnimator.Update(0f);
             }
 
-            if (targetObject != null)
-                targetObject.SetActive(anim.enableObject);
+            if (videoPlayerObject != null)
+                videoPlayerObject.SetActive(anim.enableVideoPlayer);
+
+            if (headerObject != null)
+                headerObject.SetActive(anim.enableHeaderObject);
+
+            UpdateQuads(anim.quad);
 
             return;
         }
     }
+
+    /// <summary>
+    /// Enables only the current Quad and disables all others.
+    /// </summary>
+    private void UpdateQuads(GameObject activeQuad)
+    {
+        foreach (var anim in animations)
+        {
+            if (anim.quad != null)
+            {
+                anim.quad.SetActive(anim.quad == activeQuad);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Resets all animations and objects.
+    /// </summary>
     public void ResetAllAnimations()
     {
         StopAllCoroutines();
@@ -111,13 +157,21 @@ public class HeadingAnimationController : MonoBehaviour
                 targetAnimator.Rebind();
                 targetAnimator.Update(0f);
             }
+
+            if (anim.quad != null)
+                anim.quad.SetActive(false);
         }
 
-        if (targetObject != null)
-            targetObject.SetActive(false);
+        if (videoPlayerObject != null)
+            videoPlayerObject.SetActive(false);
+
+        if (headerObject != null)
+            headerObject.SetActive(false);
     }
 
-
+    /// <summary>
+    /// Assign runtime prefab animator.
+    /// </summary>
     public void SetPrefabAnimator(Animator runtimeAnimator)
     {
         prefabAnimator = runtimeAnimator;
