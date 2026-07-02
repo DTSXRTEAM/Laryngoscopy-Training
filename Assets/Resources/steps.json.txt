@@ -3,8 +3,7 @@
     {
       "index": 0,
       "heading": "Introduction",
-      "videoName": "Introduction.mp4",
-      "content": "Laryngoscopy is a medical procedure used to examine and treat conditions affecting the larynx, including the vocal cords. It helps clinicians diagnose voice disorders, breathing difficulties, and throat abnormalities with precision. The procedure also supports targeted interventions such as biopsy, lesion removal, and airway management, making it an essential tool in ENT care.",
+      "content": "Laryngoscopy is a medical procedure used to examine and treat conditions affecting the larynx, including the vocal cords. It helps clinicians diagnose voice disorders, breathing difficulties, and throat abnormalities with precision. The procedure also supports targeted interventions such as biopsy, lesion removal, and airway management, making it an essential tool in ENT care.",
       "buttonText": "Next",
       "backButtonText": "Back",
       "showNextButton": true,
@@ -13,18 +12,9 @@
       "nextIndex": 1,
       "backIndex": -1,
       "models": [
-        {
-          "address": "Manikin",
-          "position": [0, 1.02, 0.9]
-        },
-        {
-          "address": "EtTube",
-          "position": [0.5, 1.02, 0.9]
-        },
-        {
-          "address": "Stylet",
-          "position": [-0.3, 1.02, 0.9]
-        }
+        { "address": "Manikin", "position": [0, 1.02, 0.9] },
+        { "address": "EtTube", "position": [0.5, 1.02, 0.9] },
+        { "address": "Stylet", "position": [-0.3, 1.02, 0.9] }
       ]
     },
     {
@@ -40,16 +30,12 @@
       "nextIndex": 2,
       "backIndex": 0,
       "models": [
-        {
-          "address": "Manikin",
-          "position": [0, 1.02, 0.9]
-        }
+        { "address": "Manikin", "position": [0, 1.02, 0.9] }
       ]
     },
     {
       "index": 2,
       "heading": "Equipment required:",
-      "videoName": "Equipment.mp4",
       "content": "",
       "buttonText": "Continue",
       "backButtonText": "Back",
@@ -58,47 +44,33 @@
       "tts": "Please collect the required equipment from the tools table: gloves and face mask",
       "nextIndex": 3,
       "backIndex": 1,
-      "checkList": [
-        "Gloves",
-        "Face Mask"
-      ],
+      "checkList": ["Gloves", "Face Mask"],
       "models": [
-        {
-          "address": "Manikin",
-          "position": [0, 0, 0]
-        },
-        {
-          "address": "EtTube",
-          "position": [0, 0, 0]
-        },
-        {
-          "address": "Stylet",
-          "position": [0, 0, 0]
-        }
+        { "address": "Manikin", "position": [0, 0, 0] },
+        { "address": "EtTube", "position": [0, 0, 0] },
+        { "address": "Stylet", "position": [0, 0, 0] }
       ]
     },
-  {
-  "index": 3,
-  "heading": "Equipment required:",
-  "content": "•  Manikin \n•  Macintosh Blade (Curved) \n•  Endotracheal Tube (ET Tube) and Syringe \n•  Stylet \n•  Bag Valve Mask (BVM) \n•  Tape \n•  Stethoscope.",
-  "buttonText": "Start",
-  "backButtonText": "Back",
-  "showNextButton": true,
-  "showBackButton": true,
-  "tts": "Please confirm that all required equipment is present before proceeding.",
-  "nextIndex": 4,
-  "backIndex": 2,
-  "checkList": [
-    "Ensure all equipment is present"
-  ],
-  "useAlternateContent": true,
-  "useAlternateChecklist": true
-},
-
+    {
+      "index": 3,
+      "heading": "Equipment required:",
+      "content": "•  Manikin \n•  Macintosh Blade (Curved) \n•  Endotracheal Tube (ET Tube) and Syringe \n•  Stylet \n•  Bag Valve Mask (BVM) \n•  Tape \n•  Stethoscope.",
+      "buttonText": "Start",
+      "backButtonText": "Back",
+      "showNextButton": true,
+      "showBackButton": true,
+      "tts": "Please confirm that all required equipment is present before proceeding.",
+      "nextIndex": 4,
+      "backIndex": 2,
+      "checkList": ["Ensure all equipment is present"],
+      "useAlternateContent": true,
+      "useAlternateChecklist": true
+    },
     {
       "index": 4,
       "heading": "Stylet into the ET Tube",
-      "content": " Insert the stylet into the Endotracheal Tube and prepare it for insertion. Ensure the tube maintains the correct curvature.",
+      "videoName": "Stylet into the ET Tube.mp4",
+      "content": "Insert the stylet into the Endotracheal Tube and prepare it for insertion. Ensure the tube maintains the correct curvature.",
       "buttonText": "Continue",
       "backButtonText": "Back",
       "showNextButton": true,
@@ -111,7 +83,7 @@
     {
       "index": 5,
       "heading": "Pick Up the Bag Valve Mask",
-      "content": " Pick up the Bag Valve Mask (BVM) from the tools table.",
+      "content": "Pick up the Bag Valve Mask (BVM) from the tools table.",
       "buttonText": "Continue",
       "backButtonText": "Back",
       "showNextButton": true,
@@ -124,6 +96,7 @@
     {
       "index": 6,
       "heading": "Position the Bag Valve Mask:",
+      "videoName": "Position the Bag Valve Mask.mp4",
       "content": "Place the Bag Valve Mask securely over the manikin's nose and mouth.",
       "buttonText": "Next",
       "backButtonText": "Back",
@@ -137,6 +110,7 @@
     {
       "index": 7,
       "heading": "Perform Ventilation:",
+      "videoName": "Perform Ventilation.mp4",
       "content": "Squeeze the Bag Valve Mask to deliver ventilation while maintaining a proper mask seal",
       "buttonText": "Next",
       "backButtonText": "Back",
@@ -163,6 +137,7 @@
     {
       "index": 9,
       "heading": "Patient Positioning and Airway Preparation:",
+      "videoName": "Patient Positioning and Airway Preparation.mp4",
       "content": "Position the manikin in the sniffing position by aligning the head and neck correctly. Prepare the airway for laryngoscopy.",
       "buttonText": "Continue",
       "backButtonText": "Back",
@@ -176,6 +151,7 @@
     {
       "index": 10,
       "heading": "Laryngoscope Handling Technique:",
+      "videoName": "Laryngoscope Handling Technique.mp4",
       "content": "Pick up the laryngoscope and hold it correctly. Align the blade orientation before insertion.\n\nTips:\n• Hold the laryngoscope firmly\n• Maintain proper blade orientation\n• Avoid excessive wrist rotation.",
       "buttonText": "Continue",
       "backButtonText": "Back",
@@ -189,6 +165,7 @@
     {
       "index": 11,
       "heading": "Lift the Laryngoscope Handle",
+      "videoName": "Lift the Laryngoscope Handle.mp4",
       "content": "Lift the laryngoscope handle upward and forward to move the tongue and improve airway visualization.\n\nAvoid:\n• Lift the laryngoscope handle to raise the tongue.",
       "buttonText": "Continue",
       "backButtonText": "Back",
@@ -202,6 +179,7 @@
     {
       "index": 12,
       "heading": "Visualize the Vocal Cords",
+      "videoName": "Visualize the Vocal Cords.mp4",
       "content": "Adjust the laryngoscope position until the vocal cords are clearly visible.",
       "buttonText": "Continue",
       "backButtonText": "Back",
@@ -212,7 +190,7 @@
       "backIndex": 11,
       "models": []
     },
-    {
+        {
       "index": 13,
       "heading": "Pick Up the Endotracheal Tube:",
       "content": "Stable laryngoscopy and Pick up the Endotracheal Tube (ET Tube) from the procedure table with the right hand.",
@@ -228,6 +206,7 @@
     {
       "index": 14,
       "heading": "Insertion of ET tube:",
+      "videoName": "Insertion of ET tube.mp4",
       "content": "Advance the Endotracheal Tube through the vocal cords while maintaining visualization.",
       "buttonText": "Continue",
       "backButtonText": "Back",
@@ -241,6 +220,7 @@
     {
       "index": 15,
       "heading": "Confirm Tube Position:",
+      "videoName": "Confirm Tube Position.mp4",
       "content": "Verify the Endotracheal Tube depth and confirm correct placement before proceeding.",
       "buttonText": "Continue",
       "backButtonText": "Back",
@@ -254,6 +234,7 @@
     {
       "index": 16,
       "heading": "Remove the Laryngoscope and Stylet:",
+      "videoName": "Remove the Laryngoscope and Stylet.mp4",
       "content": "Carefully remove the laryngoscope and stylet while stabilizing the Endotracheal Tube to prevent movement.",
       "buttonText": "Continue",
       "backButtonText": "Back",
@@ -267,12 +248,13 @@
     {
       "index": 17,
       "heading": "Inflate the Cuff:",
+      "videoName": "Inflate the Cuff.mp4",
       "content": "Attach the syringe to the cuff inflation port and inflate the cuff to secure the airway.\n\nGuidance:\nMonitor cuff inflation while maintaining tube position.",
       "buttonText": "Continue",
       "backButtonText": "Back",
       "showNextButton": true,
       "showBackButton": true,
-      "tts": "attach the syringe to the cuff inflation port and inflate the cuff while maintaining tube stability.",
+      "tts": "Attach the syringe to the cuff inflation port and inflate the cuff while maintaining tube stability.",
       "nextIndex": 18,
       "backIndex": 16,
       "models": []
@@ -280,6 +262,7 @@
     {
       "index": 18,
       "heading": "Prepare the Bag Valve Mask",
+      "videoName": "Prepare the Bag Valve Mask.mp4",
       "content": "Remove the face mask from the Bag Valve Mask assembly and prepare it for connection to the Endotracheal Tube.",
       "buttonText": "Continue",
       "backButtonText": "Back",
@@ -293,6 +276,7 @@
     {
       "index": 19,
       "heading": "Ventilate Through the ET Tube",
+      "videoName": "Ventilate Through the ET Tube.mp4",
       "content": "Connect the Bag Valve Mask to the Endotracheal Tube and provide ventilation while observing chest rise.\n\nDeliver 2 effective breaths.",
       "buttonText": "Continue",
       "backButtonText": "Back",
@@ -319,6 +303,7 @@
     {
       "index": 21,
       "heading": "Auscultation:",
+      "videoName": "Auscultation.mp4",
       "content": "Use the stethoscope to listen to the left lung, right lung, and epigastric area.",
       "buttonText": "Next",
       "backButtonText": "Back",
@@ -345,6 +330,7 @@
     {
       "index": 23,
       "heading": "Fixing the tube:",
+      "videoName": "Fixing the tube.mp4",
       "content": "Confirm tube position, secure it with cotton tape, and start ventilation.",
       "buttonText": "Next",
       "backButtonText": "Back",
@@ -363,28 +349,27 @@
       "backButtonText": "",
       "showNextButton": true,
       "showBackButton": false,
-      "tts": "Congratulation , You are successfully completed this training module for laryngoscopy treatment procedure",
+      "tts": "Congratulations, you have successfully completed this training module for laryngoscopy treatment procedure",
       "nextIndex": -1,
       "backIndex": -1,
       "models": []
     },
-
     {
       "index": 25,
-      "heading": "Deflate the cuff​",
-      "content": "se the syringe to deflate the cuff, pull back the tube 2–3 cm, and re-inflate the cuff.​",
+      "heading": "Deflate the cuff",
+      "videoName": "Deflate the cuff.mp4",
+      "content": "Use the syringe to deflate the cuff, pull back the tube 2–3 cm, and re-inflate the cuff.",
       "buttonText": "Next",
       "backButtonText": "Back",
       "showNextButton": true,
       "showBackButton": true,
-      "tts": " use the syringe to deflate the cuff, pull back the tube by two to three centimeters, and re-inflate the cuff.​",
+      "tts": "Use the syringe to deflate the cuff, pull back the tube by two to three centimeters, and re-inflate the cuff.",
       "nextIndex": 26,
       "backIndex": 22,
       "models": []
     },
-
-      {
-     "index": 26,
+    {
+      "index": 26,
       "heading": "Pick the stethoscope:",
       "content": "Keep the tube and bag-valve mask steady and pick up the stethoscope.",
       "buttonText": "Continue",
@@ -396,10 +381,10 @@
       "backIndex": 25,
       "models": []
     },
-
-    {
+        {
       "index": 27,
       "heading": "Auscultation:",
+      "videoName": "Deflate Auscultation.mp4",
       "content": "Use the stethoscope to listen to the left lung, right lung, and epigastric area.",
       "buttonText": "Next",
       "backButtonText": "Back",
@@ -423,10 +408,10 @@
       "backIndex": 25,
       "models": []
     },
-
     {
       "index": 29,
       "heading": "Fixing the tube:",
+      "videoName": "Fixingtube.mp4",
       "content": "Confirm tube position, secure it with cotton tape, and start ventilation.",
       "buttonText": "Next",
       "backButtonText": "Back",
@@ -445,7 +430,7 @@
       "backButtonText": "",
       "showNextButton": true,
       "showBackButton": false,
-      "tts": "Congratulation , You are successfully completed this training module for laryngoscopy treatment procedure",
+      "tts": "Congratulations, you have successfully completed this training module for laryngoscopy treatment procedure",
       "nextIndex": -1,
       "backIndex": -1,
       "models": []
