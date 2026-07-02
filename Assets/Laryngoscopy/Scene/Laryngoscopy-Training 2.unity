@@ -5070,6 +5070,7 @@ MonoBehaviour:
   contentText: {fileID: 965177605}
   nextButtonText: {fileID: 1578435920}
   backButtonText: {fileID: 0}
+  videoHeadingText: {fileID: 0}
   contentText2: {fileID: 0}
   checklistParent3: {fileID: 0}
   checkboxPrefab3: {fileID: 0}
@@ -17440,6 +17441,7 @@ MonoBehaviour:
   contentText: {fileID: 948688582}
   nextButtonText: {fileID: 2035384584}
   backButtonText: {fileID: 0}
+  videoHeadingText: {fileID: 0}
   contentText2: {fileID: 0}
   checklistParent3: {fileID: 0}
   checkboxPrefab3: {fileID: 0}
@@ -25591,6 +25593,7 @@ MonoBehaviour:
   contentText: {fileID: 1025960826}
   nextButtonText: {fileID: 1989960820}
   backButtonText: {fileID: 0}
+  videoHeadingText: {fileID: 0}
   contentText2: {fileID: 0}
   checklistParent3: {fileID: 0}
   checkboxPrefab3: {fileID: 0}
@@ -37565,6 +37568,7 @@ MonoBehaviour:
   contentText: {fileID: 2075138379}
   nextButtonText: {fileID: 1784446996}
   backButtonText: {fileID: 0}
+  videoHeadingText: {fileID: 0}
   contentText2: {fileID: 0}
   checklistParent3: {fileID: 0}
   checkboxPrefab3: {fileID: 0}
@@ -42905,6 +42909,7 @@ MonoBehaviour:
   contentText: {fileID: 1662988819}
   nextButtonText: {fileID: 1592778115}
   backButtonText: {fileID: 0}
+  videoHeadingText: {fileID: 0}
   contentText2: {fileID: 0}
   checklistParent3: {fileID: 0}
   checkboxPrefab3: {fileID: 0}
@@ -46783,6 +46788,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2305409248026545154, guid: 6c9e3c6a8d54cc64b89a4e7817249c16, type: 3}
   m_PrefabInstance: {fileID: 1846285622}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1850507345 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2200764636301534113, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
+  m_PrefabInstance: {fileID: 233149680}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1854192654
 GameObject:
   m_ObjectHideFlags: 0
@@ -49180,6 +49196,7 @@ MonoBehaviour:
   contentText: {fileID: 1266820837}
   nextButtonText: {fileID: 1049441778}
   backButtonText: {fileID: 0}
+  videoHeadingText: {fileID: 0}
   contentText2: {fileID: 0}
   checklistParent3: {fileID: 0}
   checkboxPrefab3: {fileID: 0}
@@ -52688,6 +52705,7 @@ MonoBehaviour:
   contentText: {fileID: 1685052547}
   nextButtonText: {fileID: 1730551221}
   backButtonText: {fileID: 2078992832}
+  videoHeadingText: {fileID: 1850507345}
   contentText2: {fileID: 510805767}
   checklistParent3: {fileID: 1407348023}
   checkboxPrefab3: {fileID: 1456948553129776856, guid: 5d47504e832e85c41b9a2e670c03c2ed, type: 3}

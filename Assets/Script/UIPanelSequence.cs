@@ -14,6 +14,9 @@ public class UIPanelSequence : MonoBehaviour
     public TMP_Text nextButtonText;
     public TMP_Text backButtonText;
 
+    [Header("Video Panel UI")]
+    public TMP_Text videoHeadingText;
+
     [Header("Alternate UI for Step 3")]
     public TMP_Text contentText2;             // extra text transform
     public Transform checklistParent3;        // extra checklist parent
@@ -265,6 +268,11 @@ public class UIPanelSequence : MonoBehaviour
         StepData step = steps[currentIndex];
 
         headingText.text = step.heading;
+        if (videoHeadingText != null)
+        {
+            videoHeadingText.text = step.heading;
+        }
+
 
         // Content handling
         if (step.useAlternateContent && contentText2 != null)
