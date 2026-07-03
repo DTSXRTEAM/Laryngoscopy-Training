@@ -124,6 +124,7 @@
     {
       "index": 8,
       "heading": "Prepare for Laryngoscopy",
+      "videoName": "Prepare for Laryngoscopy.mp4",
       "content": "Remove the Bag Valve Mask and gently open the manikin's mouth to prepare for laryngoscopy.",
       "buttonText": "Continue",
       "backButtonText": "Back",
