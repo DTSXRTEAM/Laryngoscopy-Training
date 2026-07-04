@@ -6932,19 +6932,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1469819251142922315, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183931326298354197, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183931326298354197, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3183931326298354197, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 192509704}
     - target: {fileID: 3183931326298354197, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 192509704}
     - target: {fileID: 3183931326298354197, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 192509704}
+    - target: {fileID: 3183931326298354197, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRelease
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183931326298354197, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDrag
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183931326298354197, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPointerDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183931326298354197, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Unity.VRTemplate.VideoTimeScrubControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183931326298354197, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Unity.VRTemplate.VideoTimeScrubControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183931326298354197, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Unity.VRTemplate.VideoTimeScrubControl, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5524067427678021293, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6952,7 +6984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5524067427678021293, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5524067427678021293, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_AnchorMin.x
@@ -6988,7 +7020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7694973739705644613, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8184752038690623804, guid: b6cbd3330c133f1428e87745a57b9093, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7118,7 +7150,7 @@ GameObject:
   - component: {fileID: 245824272}
   - component: {fileID: 245824271}
   m_Layer: 5
-  m_Name: 10
+  m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9231,9 +9263,9 @@ MonoBehaviour:
     animator: {fileID: 42251006}
     usePrefabAnimator: 0
     animationClipName: QR
-    enableVideoPlayer: 1
-    enableHeaderObject: 0
-    quad: {fileID: 0}
+    enableVideoPlayer: 0
+    enableHeaderObject: 1
+    quad: {fileID: 3800436372777856525}
     delayTime: 0
   - headingIndex: 2
     animator: {fileID: 0}
@@ -9255,7 +9287,7 @@ MonoBehaviour:
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: ET Attachment
-    enableVideoPlayer: 1
+    enableVideoPlayer: 0
     enableHeaderObject: 0
     quad: {fileID: 0}
     delayTime: 0
@@ -9264,8 +9296,8 @@ MonoBehaviour:
     usePrefabAnimator: 1
     animationClipName: Pick the bag valve mask
     enableVideoPlayer: 0
-    enableHeaderObject: 1
-    quad: {fileID: 3800436372777856525}
+    enableHeaderObject: 0
+    quad: {fileID: 0}
     delayTime: 1
   - headingIndex: 6
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
@@ -9295,17 +9327,17 @@ MonoBehaviour:
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Head
-    enableVideoPlayer: 1
-    enableHeaderObject: 0
-    quad: {fileID: 0}
+    enableVideoPlayer: 0
+    enableHeaderObject: 1
+    quad: {fileID: 245824269}
     delayTime: 0
   - headingIndex: 10
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the Laryngoscope
     enableVideoPlayer: 0
-    enableHeaderObject: 1
-    quad: {fileID: 245824269}
+    enableHeaderObject: 0
+    quad: {fileID: 0}
     delayTime: 1
   - headingIndex: 11
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
@@ -9319,17 +9351,17 @@ MonoBehaviour:
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Tilt the Laryngoscope
-    enableVideoPlayer: 1
-    enableHeaderObject: 0
-    quad: {fileID: 0}
+    enableVideoPlayer: 0
+    enableHeaderObject: 1
+    quad: {fileID: 2044510214}
     delayTime: 1
   - headingIndex: 13
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Pick the ET Tube
     enableVideoPlayer: 0
-    enableHeaderObject: 1
-    quad: {fileID: 2044510214}
+    enableHeaderObject: 0
+    quad: {fileID: 0}
     delayTime: 1
   - headingIndex: 14
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
@@ -9351,7 +9383,7 @@ MonoBehaviour:
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the Laryngoscope
-    enableVideoPlayer: 1
+    enableVideoPlayer: 0
     enableHeaderObject: 0
     quad: {fileID: 0}
     delayTime: 1
@@ -9359,17 +9391,17 @@ MonoBehaviour:
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Inflate the cuff
-    enableVideoPlayer: 1
-    enableHeaderObject: 0
-    quad: {fileID: 0}
+    enableVideoPlayer: 0
+    enableHeaderObject: 1
+    quad: {fileID: 721914989}
     delayTime: 1
   - headingIndex: 18
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Remove the cap
-    enableVideoPlayer: 1
-    enableHeaderObject: 0
-    quad: {fileID: 0}
+    enableVideoPlayer: 0
+    enableHeaderObject: 1
+    quad: {fileID: 1240333811}
     delayTime: 1
   - headingIndex: 19
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
@@ -9384,16 +9416,16 @@ MonoBehaviour:
     usePrefabAnimator: 1
     animationClipName: stethoscope
     enableVideoPlayer: 0
-    enableHeaderObject: 1
-    quad: {fileID: 721914989}
+    enableHeaderObject: 0
+    quad: {fileID: 0}
     delayTime: 1
   - headingIndex: 21
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Hotspot
-    enableVideoPlayer: 1
-    enableHeaderObject: 0
-    quad: {fileID: 0}
+    enableVideoPlayer: 0
+    enableHeaderObject: 1
+    quad: {fileID: 1739795278}
     delayTime: 0
   - headingIndex: 22
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
@@ -9407,7 +9439,7 @@ MonoBehaviour:
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Fixing the Tape
-    enableVideoPlayer: 1
+    enableVideoPlayer: 0
     enableHeaderObject: 0
     quad: {fileID: 0}
     delayTime: 1
@@ -9432,16 +9464,16 @@ MonoBehaviour:
     usePrefabAnimator: 1
     animationClipName: Deflate Stet
     enableVideoPlayer: 0
-    enableHeaderObject: 1
-    quad: {fileID: 1240333811}
+    enableHeaderObject: 0
+    quad: {fileID: 0}
     delayTime: 1
   - headingIndex: 27
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Deflate Ausculation
-    enableVideoPlayer: 1
-    enableHeaderObject: 0
-    quad: {fileID: 0}
+    enableVideoPlayer: 0
+    enableHeaderObject: 1
+    quad: {fileID: 834895352}
     delayTime: 0
   - headingIndex: 28
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
@@ -9455,7 +9487,7 @@ MonoBehaviour:
     animator: {fileID: 6690756338453039766, guid: 2ee6d44827279694981abb35a8a48da0, type: 3}
     usePrefabAnimator: 1
     animationClipName: Deflate Tube
-    enableVideoPlayer: 1
+    enableVideoPlayer: 0
     enableHeaderObject: 0
     quad: {fileID: 0}
     delayTime: 1
@@ -18758,7 +18790,7 @@ GameObject:
   - component: {fileID: 721914991}
   - component: {fileID: 721914990}
   m_Layer: 5
-  m_Name: 20
+  m_Name: 17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22219,6 +22251,96 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1941570664}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &834895352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 834895355}
+  - component: {fileID: 834895354}
+  - component: {fileID: 834895353}
+  m_Layer: 5
+  m_Name: 27
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!23 &834895353
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834895352}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1973f24ef98d84894b30f1c512eeca2b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &834895354
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834895352}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &834895355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834895352}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.008008108, y: -271.00116, z: -0.030064702}
+  m_LocalScale: {x: 751.99994, y: 421.99997, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5757834077073707443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &836590852
 GameObject:
@@ -31720,7 +31842,7 @@ GameObject:
   - component: {fileID: 1240333813}
   - component: {fileID: 1240333812}
   m_Layer: 5
-  m_Name: 26
+  m_Name: 18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43135,6 +43257,96 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2091953728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1739795278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1739795279}
+  - component: {fileID: 1739795281}
+  - component: {fileID: 1739795280}
+  m_Layer: 5
+  m_Name: 21
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1739795279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739795278}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.008008108, y: -271.00116, z: -0.030064702}
+  m_LocalScale: {x: 751.99994, y: 421.99997, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5757834077073707443}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1739795280
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739795278}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1973f24ef98d84894b30f1c512eeca2b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1739795281
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739795278}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1743284901
 GameObject:
   m_ObjectHideFlags: 0
@@ -51073,7 +51285,7 @@ GameObject:
   - component: {fileID: 2044510217}
   - component: {fileID: 2044510216}
   m_Layer: 5
-  m_Name: 13
+  m_Name: 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63171,7 +63383,7 @@ GameObject:
   - component: {fileID: 8878606790560041801}
   - component: {fileID: 7217404392270397138}
   m_Layer: 5
-  m_Name: 5
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68357,6 +68569,8 @@ RectTransform:
   - {fileID: 2044510215}
   - {fileID: 721914992}
   - {fileID: 1240333814}
+  - {fileID: 1739795279}
+  - {fileID: 834895355}
   m_Father: {fileID: 250137381205232909}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
