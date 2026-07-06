@@ -14,13 +14,10 @@ public class UIPanelSequence : MonoBehaviour
     public TMP_Text nextButtonText;
     public TMP_Text backButtonText;
 
-    [Header("Video Panel UI")]
-    public TMP_Text videoHeadingText;
-
     [Header("Alternate UI for Step 3")]
-    public TMP_Text contentText2;             // extra text transform
-    public Transform checklistParent3;        // extra checklist parent
-    public GameObject checkboxPrefab3;        // prefab for step 3 checklist
+    public TMP_Text contentText2;
+    public Transform checklistParent3;
+    public GameObject checkboxPrefab3;
 
     [Header("Models")]
     public ModelManager modelManager;
@@ -47,6 +44,10 @@ public class UIPanelSequence : MonoBehaviour
 
     [Header("Video")]
     public VideoPlayer videoPlayer;
+    public TMP_Text videoHeadingText;   // NEW: video panel heading
+
+    [Header("Image Panel")]
+    public TMP_Text imageHeadingText;   // NEW: image panel heading
 
     [Header("Introduction Back")]
     public GameObject introductionBackPrefab;
@@ -79,15 +80,11 @@ public class UIPanelSequence : MonoBehaviour
         public int backIndex = -1;
         public ModelData[] models;
 
-        // flags for alternate UI
         public bool useAlternateContent = false;
         public bool useAlternateChecklist = false;
 
         public string videoName;
-       
     }
-
-
 
     [Serializable]
     public class StepContainer
@@ -118,16 +115,15 @@ public class UIPanelSequence : MonoBehaviour
             steps.Add(step);
         }
     }
+
     public void NextPage()
     {
         StepData step = steps[currentIndex];
-
         if (step.index == 24 || step.index == 30)
         {
             ExitTraining();
             return;
         }
-
         if (step.nextIndex != -1)
         {
             currentIndex = step.nextIndex;
@@ -138,11 +134,8 @@ public class UIPanelSequence : MonoBehaviour
     public void StartTraining()
     {
         introductionBackPrefab.SetActive(false);
-
         gameObject.SetActive(true);
-
         currentIndex = 0;
-
         ShowStep(true);
     }
 
@@ -155,68 +148,38 @@ public class UIPanelSequence : MonoBehaviour
     public void ExitTraining()
     {
         currentIndex = 0;
-
-        if (triggerManager != null)
-        {
-            triggerManager.ResetAllObjects();
-        }
-
-        if (qrManager != null)
-        {
-            qrManager.ResetQR();
-        }
-
-        if (animationController != null)
-        {
-            animationController.ResetAllAnimations();
-        }
-
-        if (speaker != null)
-        {
-            speaker.Stop();
-        }
-
+        if (triggerManager != null) triggerManager.ResetAllObjects();
+        if (qrManager != null) qrManager.ResetQR();
+        if (animationController != null) animationController.ResetAllAnimations();
+        if (speaker != null) speaker.Stop();
         if (videoPlayer != null)
         {
             videoPlayer.Stop();
             videoPlayer.clip = null;
         }
-
         ShowStep(false);
-
-        if (introductionBackPrefab != null)
-        {
-            introductionBackPrefab.SetActive(true);
-        }
-
+        if (introductionBackPrefab != null) introductionBackPrefab.SetActive(true);
         gameObject.SetActive(false);
-
         Debug.Log("Training Reset Complete");
     }
+
     public void PreviousPage()
     {
-        // Special case: Introduction page (Index 0)
         if (currentIndex == 0)
         {
             if (introductionBackPrefab != null)
             {
                 introductionBackPrefab.SetActive(true);
-
-                // Optional: hide training panel
                 gameObject.SetActive(false);
             }
-
             return;
         }
 
         StepData step = steps[currentIndex];
-
         if (step.backIndex != -1 && step.backIndex >= 0)
         {
             currentIndex = step.backIndex;
-
             StepData previousStep = steps[currentIndex];
-
             ShowStep(false);
 
             if (animationController != null)
@@ -234,45 +197,37 @@ public class UIPanelSequence : MonoBehaviour
         }
     }
 
-
     private void HandleStepAudio(int stepIndex)
     {
-        // Stop all audios first
         foreach (StepAudioData item in stepAudios)
         {
-            if (item.audioSource != null)
-            {
-                item.audioSource.Stop();
-            }
+            if (item.audioSource != null) item.audioSource.Stop();
         }
-
-        // Find matching step and play it
         foreach (StepAudioData item in stepAudios)
         {
-            if (item.stepIndex == stepIndex &&
-                item.audioSource != null)
+            if (item.stepIndex == stepIndex && item.audioSource != null)
             {
                 item.audioSource.loop = true;
-
-                if (!item.audioSource.isPlaying)
-                {
-                    item.audioSource.Play();
-                }
-
+                if (!item.audioSource.isPlaying) item.audioSource.Play();
                 break;
             }
         }
     }
+
     void ShowStep(bool playAnimation = true)
     {
         StepData step = steps[currentIndex];
 
+        // Main heading
         headingText.text = step.heading;
-        if (videoHeadingText != null)
-        {
-            videoHeadingText.text = step.heading;
-        }
 
+        // Video panel heading
+        if (videoHeadingText != null)
+            videoHeadingText.text = step.heading;
+
+        // Image panel heading
+        if (imageHeadingText != null)
+            imageHeadingText.text = step.heading;
 
         // Content handling
         if (step.useAlternateContent && contentText2 != null)
@@ -284,57 +239,20 @@ public class UIPanelSequence : MonoBehaviour
         else
         {
             contentText.gameObject.SetActive(true);
-
-            if (contentText2 != null)
-                contentText2.gameObject.SetActive(false);
-
+            if (contentText2 != null) contentText2.gameObject.SetActive(false);
             contentText.text = step.content;
         }
 
         nextButtonText.text = step.buttonText;
-
         if (backButtonText != null)
-            backButtonText.text = string.IsNullOrEmpty(step.backButtonText)
-                ? "Back"
-                : step.backButtonText;
+            backButtonText.text = string.IsNullOrEmpty(step.backButtonText) ? "Back" : step.backButtonText;
 
-        if (nextButton != null)
-            nextButton.gameObject.SetActive(step.showNextButton);
-
-        if (backButton != null)
-            backButton.gameObject.SetActive(step.showBackButton);
-
-        // Step specific button rules
-        if (step.index == 28 && backButton != null)
-        {
-            backButton.interactable = false;
-
-            ColorBlock colors = backButton.colors;
-            colors.normalColor = new Color(0.7f, 0.7f, 0.7f);
-            colors.highlightedColor = colors.normalColor;
-            colors.pressedColor = colors.normalColor;
-            backButton.colors = colors;
-        }
-        else if (step.index == 29 && backButton != null)
-        {
-            backButton.interactable = true;
-
-            ColorBlock colors = backButton.colors;
-            colors.normalColor = nextButton.colors.normalColor;
-            colors.highlightedColor = nextButton.colors.highlightedColor;
-            colors.pressedColor = nextButton.colors.pressedColor;
-            backButton.colors = colors;
-        }
-        else if (backButton != null)
-        {
-            backButton.interactable = step.showBackButton;
-        }
+        if (nextButton != null) nextButton.gameObject.SetActive(step.showNextButton);
+        if (backButton != null) backButton.gameObject.SetActive(step.showBackButton);
 
         // Heading animation
         if (animationController != null && playAnimation)
-        {
             animationController.PlayAnimation(step.index);
-        }
 
         // Checklist
         GenerateChecklist(step);
@@ -342,17 +260,11 @@ public class UIPanelSequence : MonoBehaviour
         // TTS
         currentTTS = step.tts;
         PlayTTS(currentTTS);
-
-        if (replayButton != null)
-        {
-            replayButton.interactable = !string.IsNullOrEmpty(currentTTS);
-        }
+        if (replayButton != null) replayButton.interactable = !string.IsNullOrEmpty(currentTTS);
 
         // Models
         if (modelManager != null && step.models != null)
-        {
             modelManager.ShowModels(step.models);
-        }
 
         // Video
         PlayVideo(step.videoName);
@@ -360,8 +272,6 @@ public class UIPanelSequence : MonoBehaviour
         // Step Audio
         HandleStepAudio(step.index);
     }
-
-
 
     private void PlayTTS(string text)
     {
@@ -373,8 +283,7 @@ public class UIPanelSequence : MonoBehaviour
     public void ReplayTTS()
     {
         StepData step = steps[currentIndex];
-        if (animationController != null)
-            animationController.PlayAnimation(step.index);
+        if (animationController != null) animationController.PlayAnimation(step.index);
         PlayTTS(currentTTS);
     }
 
@@ -481,26 +390,18 @@ public class UIPanelSequence : MonoBehaviour
     }
 
     private void PlayVideo(string videoName)
-{
-    if (videoPlayer == null || string.IsNullOrEmpty(videoName))
-        return;
+    {
+        if (videoPlayer == null || string.IsNullOrEmpty(videoName)) return;
+        string path = System.IO.Path.Combine(Application.streamingAssetsPath, "Videos", videoName);
+        videoPlayer.Stop();
+        videoPlayer.url = path;
+        videoPlayer.Prepare();
+        videoPlayer.prepareCompleted += OnVideoPrepared;
+    }
 
-    string path = System.IO.Path.Combine(
-        Application.streamingAssetsPath,
-        "Videos",
-        videoName
-    );
-
-    videoPlayer.Stop();
-    videoPlayer.url = path;
-    videoPlayer.Prepare();
-
-    videoPlayer.prepareCompleted += OnVideoPrepared;
-}
-
-private void OnVideoPrepared(VideoPlayer vp)
-{
-    vp.prepareCompleted -= OnVideoPrepared;
-    vp.Play();
-}
+    private void OnVideoPrepared(VideoPlayer vp)
+    {
+        vp.prepareCompleted -= OnVideoPrepared;
+        vp.Play();
+    }
 }
