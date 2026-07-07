@@ -640,7 +640,50 @@ AnimationClip:
     classID: 1
     script: {fileID: 0}
     flags: 0
-  m_PPtrCurves: []
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: Bag_Valve_Mask/3D RightArrow
+    classID: 1
+    script: {fileID: 0}
+    flags: 0
+  m_PPtrCurves:
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: -6478536213147159724, guid: 3b7cde1c60640924392c7c088a7d8f00, type: 3}
+    - time: 1.5
+      value: {fileID: 2100000, guid: 7d49047e8bdce674dad83dc26eaf578c, type: 2}
+    attribute: 'm_Materials.Array.data[0]'
+    path: Stethescope (1)/root/GLTF_SceneRootNode/Wye Joint_1/Object_4
+    classID: 23
+    script: {fileID: 0}
+    flags: 2
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: -3846018093981099296, guid: 3b7cde1c60640924392c7c088a7d8f00, type: 3}
+    - time: 1.5
+      value: {fileID: 2100000, guid: 7d49047e8bdce674dad83dc26eaf578c, type: 2}
+    attribute: 'm_Materials.Array.data[0]'
+    path: Stethescope (1)/root/GLTF_SceneRootNode/Wye Joint_1/Object_5
+    classID: 23
+    script: {fileID: 0}
+    flags: 2
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -718,6 +761,33 @@ AnimationClip:
       typeID: 1
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 986405857
+      attribute: 2086281974
+      script: {fileID: 0}
+      typeID: 1
+      customType: 0
+      isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 1054966756
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 23
+      customType: 21
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 1239855986
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 23
+      customType: 21
+      isPPtrCurve: 1
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
@@ -963,13 +1033,17 @@ AnimationClip:
       isPPtrCurve: 0
       isIntCurve: 0
       isSerializeReferenceCurve: 0
-    pptrCurveMapping: []
+    pptrCurveMapping:
+    - {fileID: -6478536213147159724, guid: 3b7cde1c60640924392c7c088a7d8f00, type: 3}
+    - {fileID: 2100000, guid: 7d49047e8bdce674dad83dc26eaf578c, type: 2}
+    - {fileID: -3846018093981099296, guid: 3b7cde1c60640924392c7c088a7d8f00, type: 3}
+    - {fileID: 2100000, guid: 7d49047e8bdce674dad83dc26eaf578c, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 1.5166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -2958,6 +3032,27 @@ AnimationClip:
     attribute: m_LocalPosition.z
     path: Stethescope (1)
     classID: 4
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: Bag_Valve_Mask/3D RightArrow
+    classID: 1
     script: {fileID: 0}
     flags: 0
   m_EulerEditorCurves:

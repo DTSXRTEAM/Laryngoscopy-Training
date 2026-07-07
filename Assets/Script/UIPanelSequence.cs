@@ -54,7 +54,13 @@ public class UIPanelSequence : MonoBehaviour
 
     public QR_Manager qrManager;
     public TriggerManager triggerManager;
+
     private Dictionary<int, bool[]> checklistStates = new Dictionary<int, bool[]>();
+
+    [Header("Button Audio")]
+    public AudioSource buttonAudioSource;
+
+
     [Serializable]
     public class StepAudioData
     {
@@ -118,19 +124,29 @@ public class UIPanelSequence : MonoBehaviour
 
     public void NextPage()
     {
+        PlayButtonSound();
+
         StepData step = steps[currentIndex];
+
         if (step.index == 24 || step.index == 30)
         {
             ExitTraining();
             return;
         }
+
         if (step.nextIndex != -1)
         {
             currentIndex = step.nextIndex;
             ShowStep(true);
         }
     }
-
+    private void PlayButtonSound()
+    {
+        if (buttonAudioSource != null)
+        {
+            buttonAudioSource.Play();
+        }
+    }
     public void StartTraining()
     {
         introductionBackPrefab.SetActive(false);
@@ -184,6 +200,8 @@ public class UIPanelSequence : MonoBehaviour
 
     public void PreviousPage()
     {
+        PlayButtonSound();
+
         if (currentIndex == 0)
         {
             if (introductionBackPrefab != null)
@@ -330,6 +348,8 @@ public class UIPanelSequence : MonoBehaviour
 
     public void ReplayTTS()
     {
+        PlayButtonSound();
+
         StepData step = steps[currentIndex];
         if (animationController != null) animationController.PlayAnimation(step.index);
         PlayTTS(currentTTS);

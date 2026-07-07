@@ -225,7 +225,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 2100000, guid: a7a42fc54a04080498413449737ba4a4, type: 2}
     - time: 0.016666668
-      value: {fileID: 2100000, guid: 5d730567b60a1f2498da171a2f475fb1, type: 2}
+      value: {fileID: 2100000, guid: 7d49047e8bdce674dad83dc26eaf578c, type: 2}
     attribute: 'm_Materials.Array.data[0]'
     path: CC_Base_Body
     classID: 137
@@ -321,7 +321,7 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: 2100000, guid: a7a42fc54a04080498413449737ba4a4, type: 2}
-    - {fileID: 2100000, guid: 5d730567b60a1f2498da171a2f475fb1, type: 2}
+    - {fileID: 2100000, guid: 7d49047e8bdce674dad83dc26eaf578c, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
