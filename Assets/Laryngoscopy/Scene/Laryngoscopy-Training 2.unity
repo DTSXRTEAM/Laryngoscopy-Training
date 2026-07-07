@@ -1246,6 +1246,10 @@ PrefabInstance:
       value: 10.268
       objectReference: {fileID: 0}
     - target: {fileID: 5192179313937817201, guid: cd3df941dffc7394bb9b7eab77997f40, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192179313937817201, guid: cd3df941dffc7394bb9b7eab77997f40, type: 3}
       propertyPath: _lipsyncAnimator
       value: 
       objectReference: {fileID: 1993506619}
