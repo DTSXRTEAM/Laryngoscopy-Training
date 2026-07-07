@@ -54,7 +54,7 @@ public class UIPanelSequence : MonoBehaviour
 
     public QR_Manager qrManager;
     public TriggerManager triggerManager;
-
+    private Dictionary<int, bool[]> checklistStates = new Dictionary<int, bool[]>();
     [Serializable]
     public class StepAudioData
     {
@@ -147,19 +147,38 @@ public class UIPanelSequence : MonoBehaviour
 
     public void ExitTraining()
     {
+        // Reset to first step
         currentIndex = 0;
-        if (triggerManager != null) triggerManager.ResetAllObjects();
-        if (qrManager != null) qrManager.ResetQR();
-        if (animationController != null) animationController.ResetAllAnimations();
-        if (speaker != null) speaker.Stop();
+
+        // Remove all saved checklist states
+        checklistStates.Clear();
+
+        if (triggerManager != null)
+            triggerManager.ResetAllObjects();
+
+        if (qrManager != null)
+            qrManager.ResetQR();
+
+        if (animationController != null)
+            animationController.ResetAllAnimations();
+
+        if (speaker != null)
+            speaker.Stop();
+
         if (videoPlayer != null)
         {
             videoPlayer.Stop();
             videoPlayer.clip = null;
         }
+
+        // Now recreate the first page
         ShowStep(false);
-        if (introductionBackPrefab != null) introductionBackPrefab.SetActive(true);
+
+        if (introductionBackPrefab != null)
+            introductionBackPrefab.SetActive(true);
+
         gameObject.SetActive(false);
+
         Debug.Log("Training Reset Complete");
     }
 
@@ -229,7 +248,7 @@ public class UIPanelSequence : MonoBehaviour
         if (imageHeadingText != null)
             imageHeadingText.text = step.heading;
 
-        // Content handling
+        // Content
         if (step.useAlternateContent && contentText2 != null)
         {
             contentText.gameObject.SetActive(false);
@@ -239,18 +258,46 @@ public class UIPanelSequence : MonoBehaviour
         else
         {
             contentText.gameObject.SetActive(true);
-            if (contentText2 != null) contentText2.gameObject.SetActive(false);
+
+            if (contentText2 != null)
+                contentText2.gameObject.SetActive(false);
+
             contentText.text = step.content;
         }
 
-        nextButtonText.text = step.buttonText;
-        if (backButtonText != null)
-            backButtonText.text = string.IsNullOrEmpty(step.backButtonText) ? "Back" : step.backButtonText;
+        // Next Button
+        if (nextButtonText != null)
+            nextButtonText.text = step.buttonText;
 
-        if (nextButton != null) nextButton.gameObject.SetActive(step.showNextButton);
-        if (backButton != null) backButton.gameObject.SetActive(step.showBackButton);
+        if (nextButton != null)
+        {
+            nextButton.gameObject.SetActive(step.showNextButton);
+            nextButton.interactable = true;
+        }
 
-        // Heading animation
+        // Back Button
+        if (backButton != null)
+        {
+            backButton.gameObject.SetActive(step.showBackButton);
+
+            if (backButtonText != null)
+            {
+                backButtonText.text = string.IsNullOrEmpty(step.backButtonText)
+                    ? "Back"
+                    : step.backButtonText;
+            }
+
+            // Enable by default
+            backButton.interactable = true;
+
+            // Disable ONLY for Step 28
+            if (step.index == 28)
+            {
+                backButton.interactable = false;
+            }
+        }
+
+        // Heading Animation
         if (animationController != null && playAnimation)
             animationController.PlayAnimation(step.index);
 
@@ -260,7 +307,9 @@ public class UIPanelSequence : MonoBehaviour
         // TTS
         currentTTS = step.tts;
         PlayTTS(currentTTS);
-        if (replayButton != null) replayButton.interactable = !string.IsNullOrEmpty(currentTTS);
+
+        if (replayButton != null)
+            replayButton.interactable = !string.IsNullOrEmpty(currentTTS);
 
         // Models
         if (modelManager != null && step.models != null)
@@ -272,7 +321,6 @@ public class UIPanelSequence : MonoBehaviour
         // Step Audio
         HandleStepAudio(step.index);
     }
-
     private void PlayTTS(string text)
     {
         if (speaker == null || string.IsNullOrEmpty(text)) return;
@@ -289,104 +337,147 @@ public class UIPanelSequence : MonoBehaviour
 
     void GenerateChecklist(StepData step)
     {
-        // clear all parents
-        foreach (Transform child in checklistParent) Destroy(child.gameObject);
-        foreach (Transform child in checklistParent2) Destroy(child.gameObject);
+        foreach (Transform child in checklistParent)
+            Destroy(child.gameObject);
+
+        foreach (Transform child in checklistParent2)
+            Destroy(child.gameObject);
+
         if (checklistParent3 != null)
-            foreach (Transform child in checklistParent3) Destroy(child.gameObject);
+        {
+            foreach (Transform child in checklistParent3)
+                Destroy(child.gameObject);
+        }
 
         if (step.checkList == null || step.checkList.Length == 0)
         {
             checklistParent.gameObject.SetActive(false);
             checklistParent2.gameObject.SetActive(false);
-            if (checklistParent3 != null) checklistParent3.gameObject.SetActive(false);
+
+            if (checklistParent3 != null)
+                checklistParent3.gameObject.SetActive(false);
+
             nextButton.interactable = true;
             return;
         }
 
         totalChecklistItems = step.checkList.Length;
-        nextButton.interactable = false;
 
-        // alternate checklist for index 3
+        Transform parent;
+        GameObject prefab;
+
         if (step.useAlternateChecklist && checklistParent3 != null)
         {
             checklistParent.gameObject.SetActive(false);
             checklistParent2.gameObject.SetActive(false);
             checklistParent3.gameObject.SetActive(true);
 
-            foreach (string item in step.checkList)
-            {
-                GameObject obj = Instantiate(checkboxPrefab3, checklistParent3);
-                TMP_Text txt = obj.GetComponentInChildren<TMP_Text>();
-                if (txt != null) txt.text = item;
-
-                Toggle toggle = obj.GetComponentInChildren<Toggle>();
-                if (toggle != null)
-                {
-                    toggle.isOn = false;
-                    toggle.onValueChanged.AddListener(delegate { CheckChecklistCompleted(); });
-                }
-            }
+            parent = checklistParent3;
+            prefab = checkboxPrefab3;
         }
         else if (step.checkList.Length <= 2)
         {
             checklistParent.gameObject.SetActive(true);
             checklistParent2.gameObject.SetActive(false);
-            if (checklistParent3 != null) checklistParent3.gameObject.SetActive(false);
 
-            foreach (string item in step.checkList)
-            {
-                GameObject obj = Instantiate(checkboxPrefab, checklistParent);
-                TMP_Text txt = obj.GetComponentInChildren<TMP_Text>();
-                if (txt != null) txt.text = item;
+            if (checklistParent3 != null)
+                checklistParent3.gameObject.SetActive(false);
 
-                Toggle toggle = obj.GetComponentInChildren<Toggle>();
-                if (toggle != null)
-                {
-                    toggle.isOn = false;
-                    toggle.onValueChanged.AddListener(delegate { CheckChecklistCompleted(); });
-                }
-            }
+            parent = checklistParent;
+            prefab = checkboxPrefab;
         }
         else
         {
             checklistParent.gameObject.SetActive(false);
             checklistParent2.gameObject.SetActive(true);
-            if (checklistParent3 != null) checklistParent3.gameObject.SetActive(false);
 
-            foreach (string item in step.checkList)
+            if (checklistParent3 != null)
+                checklistParent3.gameObject.SetActive(false);
+
+            parent = checklistParent2;
+            prefab = checkboxPrefab2;
+        }
+
+        bool[] savedStates = null;
+
+        if (checklistStates.ContainsKey(step.index))
+            savedStates = checklistStates[step.index];
+
+        for (int i = 0; i < step.checkList.Length; i++)
+        {
+            GameObject obj = Instantiate(prefab, parent);
+
+            TMP_Text txt = obj.GetComponentInChildren<TMP_Text>();
+            if (txt != null)
+                txt.text = step.checkList[i];
+
+            Toggle toggle = obj.GetComponentInChildren<Toggle>();
+
+            if (toggle != null)
             {
-                GameObject obj = Instantiate(checkboxPrefab2, checklistParent2);
-                TMP_Text txt = obj.GetComponentInChildren<TMP_Text>();
-                if (txt != null) txt.text = item;
+                int toggleIndex = i;
 
-                Toggle toggle = obj.GetComponentInChildren<Toggle>();
-                if (toggle != null)
-                {
+                toggle.onValueChanged.RemoveAllListeners();
+
+                if (savedStates != null && toggleIndex < savedStates.Length)
+                    toggle.isOn = savedStates[toggleIndex];
+                else
                     toggle.isOn = false;
-                    toggle.onValueChanged.AddListener(delegate { CheckChecklistCompleted(); });
-                }
+
+                toggle.onValueChanged.AddListener((value) =>
+                {
+                    SaveChecklistState();
+                    CheckChecklistCompleted();
+                });
             }
         }
-    }
 
+        CheckChecklistCompleted();
+    }
     private void CheckChecklistCompleted()
     {
         int checkedItems = 0;
 
-        Toggle[] toggles1 = checklistParent.GetComponentsInChildren<Toggle>(true);
-        foreach (Toggle toggle in toggles1) if (toggle.isOn) checkedItems++;
+        Toggle[] toggles = null;
 
-        Toggle[] toggles2 = checklistParent2.GetComponentsInChildren<Toggle>(true);
-        foreach (Toggle toggle in toggles2) if (toggle.isOn) checkedItems++;
+        if (checklistParent3 != null && checklistParent3.gameObject.activeSelf)
+            toggles = checklistParent3.GetComponentsInChildren<Toggle>(true);
+        else if (checklistParent.gameObject.activeSelf)
+            toggles = checklistParent.GetComponentsInChildren<Toggle>(true);
+        else
+            toggles = checklistParent2.GetComponentsInChildren<Toggle>(true);
 
-        if (checklistParent3 != null)
+        foreach (Toggle toggle in toggles)
         {
-            Toggle[] toggles3 = checklistParent3.GetComponentsInChildren<Toggle>(true);
-            foreach (Toggle toggle in toggles3) if (toggle.isOn) checkedItems++;
+            if (toggle.isOn)
+                checkedItems++;
         }
 
-        nextButton.interactable = (checkedItems >= totalChecklistItems);
+        nextButton.interactable = (checkedItems == totalChecklistItems);
+    }
+
+    private void SaveChecklistState()
+    {
+        StepData step = steps[currentIndex];
+
+        if (step.checkList == null || step.checkList.Length == 0)
+            return;
+
+        Toggle[] toggles = null;
+
+        if (checklistParent3 != null && checklistParent3.gameObject.activeSelf)
+            toggles = checklistParent3.GetComponentsInChildren<Toggle>(true);
+        else if (checklistParent.gameObject.activeSelf)
+            toggles = checklistParent.GetComponentsInChildren<Toggle>(true);
+        else
+            toggles = checklistParent2.GetComponentsInChildren<Toggle>(true);
+
+        bool[] states = new bool[toggles.Length];
+
+        for (int i = 0; i < toggles.Length; i++)
+            states[i] = toggles[i].isOn;
+
+        checklistStates[step.index] = states;
     }
 
     private void PlayVideo(string videoName)
