@@ -27,6 +27,16 @@ public class UIPanelSequence : MonoBehaviour
     public Button backButton;
     public Button replayButton;
 
+    public Button correctButton;
+    public Button incorrectButton;
+
+    public TMP_Text correctButtonText;
+    public TMP_Text incorrectButtonText;
+
+    [Header("Exit Button")]
+    public Button exitButton;
+    public TMP_Text exitButtonText;
+
     [Header("Checklist")]
     public Transform checklistParent;
     public Transform checklistParent2;
@@ -255,18 +265,20 @@ public class UIPanelSequence : MonoBehaviour
     {
         StepData step = steps[currentIndex];
 
-        // Main heading
+        //==========================
+        // Heading
+        //==========================
         headingText.text = step.heading;
 
-        // Video panel heading
         if (videoHeadingText != null)
             videoHeadingText.text = step.heading;
 
-        // Image panel heading
         if (imageHeadingText != null)
             imageHeadingText.text = step.heading;
 
+        //==========================
         // Content
+        //==========================
         if (step.useAlternateContent && contentText2 != null)
         {
             contentText.gameObject.SetActive(false);
@@ -283,60 +295,126 @@ public class UIPanelSequence : MonoBehaviour
             contentText.text = step.content;
         }
 
-        // Next Button
-        if (nextButtonText != null)
-            nextButtonText.text = step.buttonText;
+        //==========================
+        // Step Type
+        //==========================
+        bool isResultStep =
+            step.buttonText.Equals("Correct", StringComparison.OrdinalIgnoreCase) &&
+            step.backButtonText.Equals("Incorrect", StringComparison.OrdinalIgnoreCase);
 
-        if (nextButton != null)
+        bool isExitStep =
+            step.buttonText.Equals("Exit", StringComparison.OrdinalIgnoreCase);
+
+        //==========================
+        // Hide All Buttons
+        //==========================
+        if (nextButton != null) nextButton.gameObject.SetActive(false);
+        if (backButton != null) backButton.gameObject.SetActive(false);
+        if (correctButton != null) correctButton.gameObject.SetActive(false);
+        if (incorrectButton != null) incorrectButton.gameObject.SetActive(false);
+        if (exitButton != null) exitButton.gameObject.SetActive(false);
+
+        //==========================
+        // EXIT BUTTON
+        //==========================
+        if (isExitStep)
         {
-            nextButton.gameObject.SetActive(step.showNextButton);
-            nextButton.interactable = true;
+            if (exitButton != null)
+            {
+                exitButton.gameObject.SetActive(true);
+                exitButton.interactable = true;
+            }
+
+            if (exitButtonText != null)
+                exitButtonText.text = step.buttonText;
         }
 
-        // Back Button
-        if (backButton != null)
+        //==========================
+        // CORRECT / INCORRECT
+        //==========================
+        else if (isResultStep)
         {
-            backButton.gameObject.SetActive(step.showBackButton);
+            if (correctButton != null)
+            {
+                correctButton.gameObject.SetActive(true);
+                correctButton.interactable = true;
+            }
+
+            if (incorrectButton != null)
+            {
+                incorrectButton.gameObject.SetActive(true);
+
+                // Disable Incorrect only on Step 28
+                incorrectButton.interactable = (step.index != 28);
+            }
+
+            if (correctButtonText != null)
+                correctButtonText.text = step.buttonText;
+
+            if (incorrectButtonText != null)
+                incorrectButtonText.text = step.backButtonText;
+        }
+
+        //==========================
+        // NORMAL BUTTONS
+        //==========================
+        else
+        {
+            if (nextButton != null)
+            {
+                nextButton.gameObject.SetActive(step.showNextButton);
+                nextButton.interactable = true;
+            }
+
+            if (backButton != null)
+            {
+                backButton.gameObject.SetActive(step.showBackButton);
+                backButton.interactable = true;
+            }
+
+            if (nextButtonText != null)
+                nextButtonText.text = step.buttonText;
 
             if (backButtonText != null)
-            {
                 backButtonText.text = string.IsNullOrEmpty(step.backButtonText)
                     ? "Back"
                     : step.backButtonText;
-            }
-
-            // Enable by default
-            backButton.interactable = true;
-
-            // Disable ONLY for Step 28
-            if (step.index == 28)
-            {
-                backButton.interactable = false;
-            }
         }
 
-        // Heading Animation
+        //==========================
+        // Animation
+        //==========================
         if (animationController != null && playAnimation)
             animationController.PlayAnimation(step.index);
 
+        //==========================
         // Checklist
+        //==========================
         GenerateChecklist(step);
 
+        //==========================
         // TTS
+        //==========================
         currentTTS = step.tts;
         PlayTTS(currentTTS);
 
         if (replayButton != null)
             replayButton.interactable = !string.IsNullOrEmpty(currentTTS);
 
+        //==========================
         // Models
+        //==========================
         if (modelManager != null && step.models != null)
             modelManager.ShowModels(step.models);
 
+        //==========================
         // Video
+        //==========================
         PlayVideo(step.videoName);
 
-        // Step Audio
+        //==========================
+        // Audio
+        //==========================
         HandleStepAudio(step.index);
     }
     private void PlayTTS(string text)

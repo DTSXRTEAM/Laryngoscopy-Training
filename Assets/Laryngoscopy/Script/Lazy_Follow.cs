@@ -13,6 +13,10 @@ public class Lazy_Follow : MonoBehaviour
     public float allowedAngle = 20f;
     public float delaySeconds = 5f;
 
+    [Header("Pin Settings")]
+    public bool isPinned = false;
+    public bool followRotationWhilePinned = true;
+
     float timer = 0f;
     bool waiting = false;
 
@@ -21,7 +25,7 @@ public class Lazy_Follow : MonoBehaviour
 
     void Start()
     {
-        if (target == null)
+        if (target == null && Camera.main != null)
             target = Camera.main.transform;
 
         delayedPosition = transform.position;
@@ -33,28 +37,56 @@ public class Lazy_Follow : MonoBehaviour
         if (target == null)
             return;
 
-        float angle = Vector3.Angle(transform.forward, target.forward);
-
-        // Calculate the target position (with locked Y)
+        // Desired position
         Vector3 newPos = target.position + target.TransformVector(offset);
         newPos.y = transform.position.y;
 
+        // Desired rotation
         Quaternion newRot = Quaternion.Euler(0f, target.eulerAngles.y, 0f);
 
-        // ------ CAMERA IS WITHIN ALLOWED ANGLE ------
-        if (angle < allowedAngle)
+        //--------------------------------------------------
+        // PINNED
+        //--------------------------------------------------
+        if (isPinned)
         {
-            // Reset timer but DO NOT update delayedPosition
-            waiting = false;
-            timer = 0f;
+            if (followRotationWhilePinned)
+            {
+                transform.rotation = Quaternion.Lerp(
+                    transform.rotation,
+                    newRot,
+                    Time.deltaTime * followSpeed);
+            }
 
-            // Just smoothly go to the last saved delayedPosition
-            transform.position = Vector3.Lerp(transform.position, delayedPosition, Time.deltaTime * followSpeed);
-            transform.rotation = Quaternion.Lerp(transform.rotation, delayedRotation, Time.deltaTime * followSpeed);
+            // Position stays fixed
             return;
         }
 
-        // ------ CAMERA OUTSIDE ALLOWED ANGLE ------
+        //--------------------------------------------------
+        // NORMAL LAZY FOLLOW
+        //--------------------------------------------------
+
+        float angle = Vector3.Angle(transform.forward, target.forward);
+
+        // Camera inside allowed angle
+        if (angle < allowedAngle)
+        {
+            waiting = false;
+            timer = 0f;
+
+            transform.position = Vector3.Lerp(
+                transform.position,
+                delayedPosition,
+                Time.deltaTime * followSpeed);
+
+            transform.rotation = Quaternion.Lerp(
+                transform.rotation,
+                delayedRotation,
+                Time.deltaTime * followSpeed);
+
+            return;
+        }
+
+        // Camera outside allowed angle
         if (!waiting)
         {
             waiting = true;
@@ -65,15 +97,55 @@ public class Lazy_Follow : MonoBehaviour
 
         if (timer >= delaySeconds)
         {
-            // After delay, update delayed position
             delayedPosition = newPos;
             delayedRotation = newRot;
 
-            waiting = false; // reset waiting so delay is not repeated
+            waiting = false;
         }
 
-        // Smooth move to delayed target
-        transform.position = Vector3.Lerp(transform.position, delayedPosition, Time.deltaTime * followSpeed);
-        transform.rotation = Quaternion.Lerp(transform.rotation, delayedRotation, Time.deltaTime * followSpeed);
+        transform.position = Vector3.Lerp(
+            transform.position,
+            delayedPosition,
+            Time.deltaTime * followSpeed);
+
+        transform.rotation = Quaternion.Lerp(
+            transform.rotation,
+            delayedRotation,
+            Time.deltaTime * followSpeed);
+    }
+
+    //====================================================
+    // PUSH PIN
+    //====================================================
+
+    public void PinPanel()
+    {
+        isPinned = true;
+    }
+
+    public void UnPinPanel()
+    {
+        isPinned = false;
+
+        // Resume follow from current target
+        delayedPosition = target.position + target.TransformVector(offset);
+        delayedPosition.y = transform.position.y;
+
+        delayedRotation = Quaternion.Euler(0f, target.eulerAngles.y, 0f);
+
+        waiting = false;
+        timer = 0f;
+    }
+
+    public void TogglePin()
+    {
+        if (isPinned)
+        {
+            UnPinPanel();
+        }
+        else
+        {
+            PinPanel();
+        }
     }
 }
