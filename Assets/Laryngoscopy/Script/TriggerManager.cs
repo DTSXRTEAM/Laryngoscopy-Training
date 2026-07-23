@@ -11,55 +11,50 @@ public class TriggerManager : MonoBehaviour
     public Material greenMaterial;
     public Material redMaterial;
 
-    [Header("Audio Clips")]
+    [Header("Audio")]
     public AudioClip greenAudio;
     public AudioClip redAudio;
 
-    private Dictionary<GameObject, AudioSource> objectAudioSources =
-        new Dictionary<GameObject, AudioSource>();
-
-    private Dictionary<GameObject, Material> originalMaterials =
-        new Dictionary<GameObject, Material>();
+    private Dictionary<GameObject, Material> originalMaterials = new Dictionary<GameObject, Material>();
+    private Dictionary<GameObject, AudioSource> objectAudioSources = new Dictionary<GameObject, AudioSource>();
+    private Dictionary<GameObject, Coroutine> runningCoroutines = new Dictionary<GameObject, Coroutine>();
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject hitObject = other.gameObject;
+        GameObject obj = other.gameObject;
+
+        if (!other.CompareTag("Green") && !other.CompareTag("Red"))
+            return;
+
+        SaveOriginalMaterial(obj);
+
+        if (runningCoroutines.ContainsKey(obj))
+        {
+            StopCoroutine(runningCoroutines[obj]);
+            runningCoroutines.Remove(obj);
+        }
 
         if (other.CompareTag("Green"))
         {
-            SaveOriginalMaterial(hitObject);
-
-            PlayObjectAudio(hitObject, greenAudio);
-
-            StartCoroutine(
-                ChangeMaterialAfterDelay(
-                    hitObject,
-                    greenMaterial
-                )
-            );
+            PlayObjectAudio(obj, greenAudio);
+            runningCoroutines[obj] =
+                StartCoroutine(ChangeMaterialAfterDelay(obj, greenMaterial));
         }
-        else if (other.CompareTag("Red"))
+        else
         {
-            SaveOriginalMaterial(hitObject);
-
-            PlayObjectAudio(hitObject, redAudio);
-
-            StartCoroutine(
-                ChangeMaterialAfterDelay(
-                    hitObject,
-                    redMaterial
-                )
-            );
+            PlayObjectAudio(obj, redAudio);
+            runningCoroutines[obj] =
+                StartCoroutine(ChangeMaterialAfterDelay(obj, redMaterial));
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        GameObject hitObject = other.gameObject;
+        GameObject obj = other.gameObject;
 
-        if (objectAudioSources.ContainsKey(hitObject))
+        if (objectAudioSources.ContainsKey(obj))
         {
-            AudioSource source = objectAudioSources[hitObject];
+            AudioSource source = objectAudioSources[obj];
 
             if (source != null)
             {
@@ -68,9 +63,7 @@ public class TriggerManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ChangeMaterialAfterDelay(
-        GameObject obj,
-        Material mat)
+    IEnumerator ChangeMaterialAfterDelay(GameObject obj, Material targetMaterial)
     {
         yield return new WaitForSeconds(materialChangeDelay);
 
@@ -80,17 +73,18 @@ public class TriggerManager : MonoBehaviour
         Renderer renderer = obj.GetComponent<Renderer>();
 
         if (renderer == null)
-        {
             renderer = obj.GetComponentInChildren<Renderer>();
+
+        if (renderer != null)
+        {
+            renderer.material = targetMaterial;
         }
 
-        if (renderer != null && mat != null)
-        {
-            renderer.material = mat;
-        }
+        if (runningCoroutines.ContainsKey(obj))
+            runningCoroutines.Remove(obj);
     }
 
-    private void SaveOriginalMaterial(GameObject obj)
+    void SaveOriginalMaterial(GameObject obj)
     {
         if (originalMaterials.ContainsKey(obj))
             return;
@@ -98,64 +92,53 @@ public class TriggerManager : MonoBehaviour
         Renderer renderer = obj.GetComponent<Renderer>();
 
         if (renderer == null)
-        {
             renderer = obj.GetComponentInChildren<Renderer>();
-        }
 
         if (renderer != null)
         {
-            originalMaterials.Add(
-                obj,
-                renderer.material
-            );
+            originalMaterials.Add(obj, renderer.material);
         }
     }
 
-    private void PlayObjectAudio(
-        GameObject obj,
-        AudioClip clip)
+    void PlayObjectAudio(GameObject obj, AudioClip clip)
     {
         if (clip == null)
             return;
 
-        if (!objectAudioSources.ContainsKey(obj))
+        AudioSource source;
+
+        if (!objectAudioSources.TryGetValue(obj, out source))
         {
-            AudioSource source =
-                obj.GetComponent<AudioSource>();
+            source = obj.GetComponent<AudioSource>();
 
             if (source == null)
-            {
-                source =
-                    obj.AddComponent<AudioSource>();
-            }
+                source = obj.AddComponent<AudioSource>();
 
             objectAudioSources.Add(obj, source);
         }
 
-        AudioSource audioSource =
-            objectAudioSources[obj];
-
-        audioSource.Stop();
-        audioSource.clip = clip;
-        audioSource.loop = true;
-        audioSource.Play();
+        source.Stop();
+        source.clip = clip;
+        source.loop = true;
+        source.Play();
     }
 
     public void ResetAllObjects()
     {
+        // Stop all delayed material changes
+        StopAllCoroutines();
+        runningCoroutines.Clear();
+
+        // Restore original materials
         foreach (var item in originalMaterials)
         {
             if (item.Key == null)
                 continue;
 
-            Renderer renderer =
-                item.Key.GetComponent<Renderer>();
+            Renderer renderer = item.Key.GetComponent<Renderer>();
 
             if (renderer == null)
-            {
-                renderer =
-                    item.Key.GetComponentInChildren<Renderer>();
-            }
+                renderer = item.Key.GetComponentInChildren<Renderer>();
 
             if (renderer != null)
             {
@@ -163,14 +146,32 @@ public class TriggerManager : MonoBehaviour
             }
         }
 
+        // Stop all looping audio
         foreach (var item in objectAudioSources)
         {
-            if (item.Value != null)
-            {
-                item.Value.Stop();
-            }
+            if (item.Value == null)
+                continue;
+
+            item.Value.Stop();
+            item.Value.clip = null;
+            item.Value.loop = false;
         }
 
-        Debug.Log("Trigger Objects Reset");
+        // Force trigger to fire again
+        StartCoroutine(ResetTriggerState());
+
+        Debug.Log("Trigger Manager Reset Complete");
+    }
+
+    IEnumerator ResetTriggerState()
+    {
+        Collider trigger = GetComponent<Collider>();
+
+        if (trigger != null)
+        {
+            trigger.enabled = false;
+            yield return null;
+            trigger.enabled = true;
+        }
     }
 }

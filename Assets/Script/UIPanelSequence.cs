@@ -75,6 +75,7 @@ public class UIPanelSequence : MonoBehaviour
     public Collider auscultationCollider2;
 
 
+
     [Serializable]
     public class StepAudioData
     {
@@ -104,6 +105,7 @@ public class UIPanelSequence : MonoBehaviour
         public bool useAlternateChecklist = false;
 
         public string videoName;
+        public TriggerManager triggerManager;
     }
 
     [Serializable]
@@ -441,8 +443,15 @@ public class UIPanelSequence : MonoBehaviour
     {
         PlayButtonSound();
 
+        // Reset all trigger objects (restore materials & stop audio)
+        if (triggerManager != null)
+            triggerManager.ResetAllObjects();
+
         StepData step = steps[currentIndex];
-        if (animationController != null) animationController.PlayAnimation(step.index);
+
+        if (animationController != null)
+            animationController.PlayAnimation(step.index);
+
         PlayTTS(currentTTS);
     }
 
