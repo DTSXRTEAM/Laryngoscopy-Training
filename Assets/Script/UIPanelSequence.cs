@@ -70,6 +70,10 @@ public class UIPanelSequence : MonoBehaviour
     [Header("Button Audio")]
     public AudioSource buttonAudioSource;
 
+    [Header("Auscultation Colliders")]
+    public Collider auscultationCollider1;
+    public Collider auscultationCollider2;
+
 
     [Serializable]
     public class StepAudioData
@@ -265,6 +269,17 @@ public class UIPanelSequence : MonoBehaviour
     {
         StepData step = steps[currentIndex];
 
+        //=========================================
+        // Enable / Disable Auscultation Colliders
+        //=========================================
+        bool enableColliders = (step.index == 21 || step.index == 27);
+
+        if (auscultationCollider1 != null)
+            auscultationCollider1.enabled = enableColliders;
+
+        if (auscultationCollider2 != null)
+            auscultationCollider2.enabled = enableColliders;
+
         //==========================
         // Heading
         //==========================
@@ -328,7 +343,6 @@ public class UIPanelSequence : MonoBehaviour
             if (exitButtonText != null)
                 exitButtonText.text = step.buttonText;
         }
-
         //==========================
         // CORRECT / INCORRECT
         //==========================
@@ -354,7 +368,6 @@ public class UIPanelSequence : MonoBehaviour
             if (incorrectButtonText != null)
                 incorrectButtonText.text = step.backButtonText;
         }
-
         //==========================
         // NORMAL BUTTONS
         //==========================

@@ -1,10 +1,19 @@
 # ninja log v5
 17	864	8056369202327011	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	fdff1ef5a2b33f0a
+1120	1241	8056369206116448	D:/Unity_Projects/Laryngoscopy-Training/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/383d272y/obj/arm64-v8a/libgame.so	8bae91d16f5256b2
+0	912	8056369202830682	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	4a7dcbb8ad770f99
 46	880	8056369202502940	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	2d8406175927bdaa
+38	1050	8056369204193320	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	8e0631a5ff96c3b2
 5	887	8056369202543168	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	be843b40b155e56d
 31	888	8056369202563173	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	9bca565f40fed358
-0	912	8056369202830682	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	4a7dcbb8ad770f99
-38	1050	8056369204193320	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	8e0631a5ff96c3b2
 23	1054	8056369204208412	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	cacb9cc776674b8c
 11	1120	8056369204880260	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	a4fd1c4fca904f5
-1120	1241	8056369206116448	D:/Unity_Projects/Laryngoscopy-Training/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/383d272y/obj/arm64-v8a/libgame.so	8bae91d16f5256b2
+32	1142	8064997979753860	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	9bca565f40fed358
+19	1148	8064997979799296	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	fdff1ef5a2b33f0a
+9	1162	8064997979939595	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	be843b40b155e56d
+37	1176	8064997980091115	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	2d8406175927bdaa
+14	1226	8064997980577255	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	4a7dcbb8ad770f99
+27	1401	8064997982327933	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	cacb9cc776674b8c
+23	1438	8064997982705695	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	a4fd1c4fca904f5
+42	1511	8064997983449095	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	8e0631a5ff96c3b2
+1512	1675	8064997985078185	D:/Unity_Projects/Laryngoscopy-Training/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/383d272y/obj/arm64-v8a/libgame.so	8bae91d16f5256b2
